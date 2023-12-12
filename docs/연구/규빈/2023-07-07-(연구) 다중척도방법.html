@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.520">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="신록예찬">
+<meta name="dcterms.date" content="2023-07-07">
+
+<title>신록예찬’s Blog - (연구) 다중척도방법</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">신록예찬’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DL2022/"> 
+<span class="menu-text">DL2022</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/AP2023/"> 
+<span class="menu-text">AP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/PP2023/"> 
+<span class="menu-text">PP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DV2022/"> 
+<span class="menu-text">DV2022</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/SC2022/"> 
+<span class="menu-text">SC2022</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DS2022/"> 
+<span class="menu-text">DS2022</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/SP2023/"> 
+<span class="menu-text">SP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/IR2021/"> 
+<span class="menu-text">IR2021</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://miruetoto.github.io/yechan/"> 
+<span class="menu-text">yechan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://miruetoto.github.io/yechan2/"> 
+<span class="menu-text">yechan2</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/miruetoto/yechan3"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">(연구) 다중척도방법</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../메모.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">메모</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../공부.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">공부</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">연구</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../규빈.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">규빈</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../재인.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">재인</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../서연.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">서연</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../보람.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">보람</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../지윤.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">지윤</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../자료.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">자료</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#생각의-정리" id="toc-생각의-정리" class="nav-link" data-scroll-target="#생각의-정리">생각의 정리</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#emd" id="toc-emd" class="nav-link" data-scroll-target="#emd">EMD</a>
+  <ul class="collapse">
+  <li><a href="#motivation-of-emd" id="toc-motivation-of-emd" class="nav-link" data-scroll-target="#motivation-of-emd">Motivation of EMD</a></li>
+  <li><a href="#sifting-process-for-extracting-imfs" id="toc-sifting-process-for-extracting-imfs" class="nav-link" data-scroll-target="#sifting-process-for-extracting-imfs">Sifting process for extracting IMF’s</a></li>
+  </ul></li>
+  <li><a href="#generalization-of-emd" id="toc-generalization-of-emd" class="nav-link" data-scroll-target="#generalization-of-emd">Generalization of EMD</a></li>
+  <li><a href="#thick-pen-transform" id="toc-thick-pen-transform" class="nav-link" data-scroll-target="#thick-pen-transform">Thick-pen transform</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2023-07-07-(연구) 다중척도방법.out.ipynb" download="2023-07-07-(연구) 다중척도방법.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">(연구) 다중척도방법</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>신록예찬 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 7, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p><span class="math inline">\({\boldsymbol y}={\boldsymbol X}^\top\)</span></p>
+<ul>
+<li>이 논문에서는 몇 가지 멀티스케일 방법을 리뷰하고자 한다.</li>
+<li>멀티스케일 방법이란 ~ + 왜 멀티스케일 방법을 써야하는가.</li>
+<li>우리는 그중에서 시각화와 분해에 관심이 있다. + 다른 접근법들도 소개</li>
+<li>시각화가 사용되는 사례, 어떻게 이용할 수 있는가?</li>
+<li>분해가 이용되는 사례, 어떻게 이용할 수 있는가?</li>
+<li>많은 멀티스케일 방법 중 우리는 TPT, EPT, EBT 를 중점적으로 소개하는데 초점을 맞출 것이다.</li>
+<li>각각의 transform은 어떠한 공통점이 있는가?</li>
+<li>왜 이렇게 많은 트랜스폼이 있어야하는가?</li>
+<li>미래에는 어떠한 트랜스폼을 만드는 것이 좋을까?</li>
+</ul>
+</section>
+<section id="생각의-정리" class="level1 page-columns page-full">
+<h1>생각의 정리</h1>
+<p><code>-</code> 멀티스케일 컨셉</p>
+<ul>
+<li>EMD는 멀티스케일의 컨셉을 가지고 있음. 스케일별로 신호를 걸러낸다. 멀티스케일 파라메터를 선택하지 않음.</li>
+<li>VMD는 확실히 멀티스케일 컨셉을 가지고 있으며 여러스케일을 동시에 관찰. 멀티스케일 파라메터는 신호의 power가 주파수도메인에서 밀집된 곳으로 선택한다. 멀티스케일 파라메터는 퓨리에analysis에서의 frequency에 대응함</li>
+<li>TPT와 EBT는 데이터를 다양한 스케일로 관찰하는데 목표가 있음. 멀티스케일 파라메터가 명시적으로 존재한다. 여러 멀티스케일 파라메터를 모두 고려하며, 특정한 기준에 따라 파라메터를 선택하기도 하고 그렇지 않을수도 있다. 스케일별로 신호를 변환시켜해석한다.</li>
+</ul>
+<p><code>-</code> EMD</p>
+<ul>
+<li>멀티스케일 파라메터: 존재하지 않음 -&gt; data에 따라서 emprical 하게 선택된다.</li>
+<li></li>
+</ul>
+<p><code>-</code></p>
+<p><code>-</code></p>
+<p>IMF based method</p>
+<p>Transform based method</p>
+<p><span class="citation" data-cites="durrett2012essentials">(<a href="#ref-durrett2012essentials" role="doc-biblioref">Durrett 2012</a>)</span></p>
+<div class="no-row-height column-margin column-container"><div id="ref-durrett2012essentials" class="csl-entry" role="listitem">
+Durrett, R. 2012. <em>Essentials of Stochastic Processes</em>. Springer Texts in Statistics. Springer New York. <a href="https://books.google.co.kr/books?id=i\_Ovy6OvI54C">https://books.google.co.kr/books?id=i\_Ovy6OvI54C</a>.
+</div></div><p><code>-</code> Theory:</p>
+<ul>
+<li>EMD: shift 알고리즘</li>
+<li>VMD</li>
+<li>EBT</li>
+<li>TPT</li>
+</ul>
+<p><code>-</code> decomposition: EMD, VMD, EBT</p>
+<ul>
+<li>EMD, EBT shift 알고리즘 사용</li>
+<li>VMD FFT 기반의 spectral analysis를 사용</li>
+<li>VMD: locally basis</li>
+<li>EMD, VMD: sinusoid</li>
+<li>2D로의 확장: 모두 용이하다.</li>
+</ul>
+<p><code>-</code> vis(EDA): TPT, EBT</p>
+<p><code>-</code> Applications:</p>
+<ul>
+<li>TPT: Test</li>
+<li>EBT: Tets<br>
+</li>
+<li>EMD: Decomposition, prediction</li>
+<li>VMD: Feature Exatraction</li>
+</ul>
+</section>
+<section id="intro" class="level1">
+<h1>Intro</h1>
+<p><code>-</code> In this talk, we present three multiscale methods, thick-pen transform, elastic-band transform, and heavy-snow transform for data analysis and visualization.</p>
+<p><code>-</code> All transforms adopt a multiscale concept.</p>
+<p><code>-</code> All transforms are developed for capturing a global structure of data and finding some local features of them simultaneously.</p>
+<p><code>-</code> A decomposition method produces several important modes in a simple form; thus, the information embedded in signals can be easily recovered, and the interpretability of its components is enhanced.</p>
+<p><code>-</code> Several approaches for decomposition have been studied in two-fold.</p>
+<ul>
+<li>Basis expansion approach: Fourier-based spectral analysis and wavelet analysis.</li>
+<li>Data-adaptive procedure with empirical filters: EMD.</li>
+</ul>
+<p>This talk focuses on the data-adaptive procedure.</p>
+</section>
+<section id="emd" class="level1">
+<h1>EMD</h1>
+<p><code>-</code> EMD provides a data-driven approach to decompose a signal into so-called intrinsic mode functions (IMFs) according to the local oscillation magnitude in the physical domain.</p>
+<p><code>-</code> IMFs can be considered as empirical basis functions.</p>
+<p><code>-</code> Time-varying frequency can be defined by Hilbert transform (HT). For a real signal <span class="math inline">\(x(t)\)</span>, the analytic signal <span class="math inline">\(z(t)\)</span> is defined as <span class="math inline">\(z(t)=x(t)+iy(t)\)</span>, where <span class="math inline">\(y(t)\)</span> is the Hilbert transform of <span class="math inline">\(x(t)\)</span>,</p>
+<p><span class="math display">\[
+y(t)=\frac{1}{\pi}P\int_{-\infty}^{\infty}\frac{x(s)}{t-s}ds,
+\]</span></p>
+<p>where <span class="math inline">\(P\)</span> is the Cauchy principle value.</p>
+<p><code>-</code> The analytic signal <span class="math inline">\(z(t)\)</span> can be represented by a polar coordinate form,</p>
+<p><span class="math display">\[
+z(t)=a(t)\exp(i\psi(t)),
+\]</span></p>
+<p>where the amplitude <span class="math inline">\(a(t)=\|z(t)\|=\sqrt{x(t)^2+y(t)^2}\)</span> and the phase <span class="math inline">\(\psi(t)=\arctan(y(t)/x(t))\)</span>.</p>
+<p><code>-</code> <em>Instantaneous frequency</em> is defined as the derivative of time-varying phase, <span class="math display">\[
+\frac{d\psi(t)}{dt}.
+\]</span></p>
+<section id="motivation-of-emd" class="level2">
+<h2 class="anchored" data-anchor-id="motivation-of-emd">Motivation of EMD</h2>
+<p><code>-</code> A necessary condition to define a meaningful instantaneous frequency is that signals are symmetric with respect to the local zero mean.</p>
+<p><code>-</code> EMD is developed to decompose signals so that HT works well.</p>
+<p><code>-</code> Suppose we have a signal <span class="math inline">\(x(t) = 0.5 t + \sin(\pi t) + \sin(2 \pi t) + \sin(6 \pi t)\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-07-07-(연구) 다중척도방법_files/figure-html/018ac4ec-f9be-4333-8f3b-cbcd3c36e065-1-221ee147-5795-4898-8ea1-1e03ca759165.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+</section>
+<section id="sifting-process-for-extracting-imfs" class="level2">
+<h2 class="anchored" data-anchor-id="sifting-process-for-extracting-imfs">Sifting process for extracting IMF’s</h2>
+<ol type="1">
+<li>Identify local extrema.</li>
+<li>Obtain two functions interpolated by local maxima and minima.</li>
+<li>Take an average of envelopes.</li>
+<li>An oscillated signal is extracted by subtracting the envelope mean from the original signal <span class="math inline">\(x(t)\)</span>.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-07-07-(연구) 다중척도방법_files/figure-html/9f05989f-0d2c-449f-9a31-6394d994cf02-1-5959313b-253b-4613-9b3c-04ad99939ebd.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<p><code>-</code> One iteration of the above procedure does not guarantee that the signal is an IMF. The same procedure is applied to the signal until the properties of IMF are satisfied</p>
+<p><code>-</code> This iterative algorithm is called sifting process.</p>
+<p><code>-</code> Sifting makes the remaining signal more symmetric with respect to the local zero mean.</p>
+<p><code>-</code> Finally, we have <span class="math inline">\(L\)</span> empirical modes and a residue, <span class="math display">\[
+x(t) = \sum_{\ell=1}^{L} \text{imf}_\ell(t) + r(t).
+\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-07-07-(연구) 다중척도방법_files/figure-html/072e9da0-de6a-4fcd-8484-fd52f4c40e80-1-c70847e9-6e7c-4ad0-9953-afece1234527.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-07-07-(연구) 다중척도방법_files/figure-html/6dd9616e-aa06-482f-9210-21cec6403436-1-bd771fdf-beef-4703-8527-6066b77b4b84.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-07-07-(연구) 다중척도방법_files/figure-html/532f4c33-c3f2-4c1d-a768-fdcb405ac22c-1-f2807e8c-0c7c-419e-886b-893f9c027bbd.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="generalization-of-emd" class="level1">
+<h1>Generalization of EMD</h1>
+<p><code>-</code> Interpretation of EMD by cubic splines (Park, Kim and Oh, 2011)</p>
+<p><code>-</code> Bidimensional EMD (Kim, Park and Oh, 2012)</p>
+<p><code>-</code> Smoothed EMD (Kim and Oh, 2012)</p>
+<p><code>-</code> Quantile EMD (Park, Kim and Oh, 2015)</p>
+<p>The R package EMD of Kim and Oh (2009) implements EMD and Hilbert transform. Main functions</p>
+<ul>
+<li>extractimf() implements sifting process to extract IMF’s.</li>
+<li>extractimf(, sm=“spline”,) implements smoothed EMD.</li>
+<li>hilbertspec() implements Hilbert transform.</li>
+<li>extractimf2d() implements 2-D EMD.</li>
+</ul>
+</section>
+<section id="thick-pen-transform" class="level1">
+<h1>Thick-pen transform</h1>
+<p>Traditional visualization of a process <span class="math inline">\(X_t\)</span>: plotting the values of <span class="math inline">\((t,X_t)\)</span> and “connecting the dots”.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-07-07-(연구) 다중척도방법_files/figure-html/0d66492e-c577-4c0d-b36d-a94f77f0c06b-1-886d2812-14b3-4d4f-aa3c-7afd7edbed5d.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<p><code>-</code> Moving away from the left-hand plot, the sine wave disappears. This does not happen with the right-hand plot, where the slow sinusoid is Figure 1: White noise followed by slow wave, plotted with pen of thickness 1 (left plot) and plotted using a thicker pen.</p>
+<p><code>-</code> The degree of visibility of data from a distance can be an indicator of the local structural properties of the data as it can discriminate between fast- and slowly-oscillating signals.</p>
+<p><code>-</code> There is a link between volume of the pen used and its visibility.</p>
+<p><code>-</code> Motivated by the above discussion, we propose thick-pen transform (TPT) to visualize a time series using pens of various thicknesses.</p>
+<p><code>-</code> TPT is multiscale, with thicker pens bringing out coarse-scale features of the data and vice versa.</p>
+<p><code>-</code> The same time series plotted with pens of two thicknesses 5 and 30.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-07-07-(연구) 다중척도방법_files/figure-html/d14f6494-bb31-4623-a48c-5c94b703c1cd-1-10573008-32f0-4229-9746-7074a0f5c9ac.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<p><code>-</code> Let <span class="math inline">\(\{X_t\}_{t=1}^{n}\)</span> be a real-valued univariate process, and <span class="math inline">\({\cal T}\)</span> denote a set of thickness parameters.</p>
+<p><code>-</code> For each <span class="math inline">\(\tau_i\in\mathcal{T}\)</span>, let <span class="math inline">\(U_{t}^{\tau_i}\)</span> denote the upper boundary of the area covered by a pen of thickness <span class="math inline">\(\tau_i\)</span>, connecting the points <span class="math inline">\(\{(t,X_t)\}_{t=1}^n\)</span>. Similarly, let <span class="math inline">\(L_{t}^{\tau_i}\)</span> denote its lower boundary.</p>
+<p><code>-</code> TPT is defined as the sequence of all pairs of boundaries, <span class="math display">\[
+TP_{\mathcal{T}}(X_t)=\{(L_{t}^{\tau_i},U_{t}^{\tau_i})_{t=1}^n\}_{i=1,\ldots,|\mathcal{T}|}.
+\]</span></p>
+<p><code>-</code> Square pen <span class="math display">\[\begin{eqnarray*}
+U_{t}^\tau &amp;=&amp; \max\{X_t,\ldots,X_{t+\tau}\}+\frac{\tau}{2},\\
+L_{t}^\tau &amp;=&amp; \min\{X_t,\ldots,X_{t+\tau}\}-\frac{\tau}{2}.
+\end{eqnarray*}\]</span></p>
+<p><code>-</code> Round pen <span class="math display">\[\begin{eqnarray*}
+U_{t}^\tau &amp;=&amp; \max_k\{X_{t+k}+\sqrt{\tau^2/4-k^2}\},\\
+L_{t}^\tau &amp;=&amp; \min_k\{X_{t+k}-\sqrt{\tau^2/4-k^2}\}.
+\end{eqnarray*}\]</span></p>
+<p><code>-</code> There is a connection between the above formulae and kernel smoothing.</p>
+
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="miruetoto/yechan3" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
