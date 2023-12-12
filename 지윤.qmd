@@ -1,0 +1,17 @@
+---
+title: "지윤"
+listing:
+  contents: 연구/지윤
+  sort: "date desc"
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  page-size: 9999
+page-layout: full
+title-block-banner: false
+---
+
+- <https://github.com/pinkocto>
+- <https://pinkocto.github.io/noteda/>
+- <https://pinkocto.github.io/Quarto-Blog/>

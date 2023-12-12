@@ -1,0 +1,53 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "신록예찬's Blog"
+  
+  page-footer:
+    border: true
+  
+  navbar:
+    left:
+      - text: DL2022
+        href: https://guebin.github.io/DL2022/
+      - text: AP2023
+        href: https://guebin.github.io/AP2023/
+      - text: PP2023
+        href: https://guebin.github.io/PP2023/    
+      - text: DV2022
+        href: https://guebin.github.io/DV2022/
+      - text: SC2022
+        href: https://guebin.github.io/SC2022/
+      - text: DS2022
+        href: https://guebin.github.io/DS2022/
+      - text: SP2023
+        href: https://guebin.github.io/SP2023/
+      - text: IR2021
+        href: https://guebin.github.io/IR2021/
+      - text: yechan
+        href: https://miruetoto.github.io/yechan/
+      - text: yechan2
+        href: https://miruetoto.github.io/yechan2/
+    right: 
+      - icon: github
+        href: https://github.com/miruetoto/yechan3
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - 메모.qmd
+      - 공부.qmd
+      - section: "연구"
+        contents:
+          - 규빈.qmd
+          - 재인.qmd
+          - 서연.qmd
+          - 보람.qmd   
+          - 지윤.qmd             
+      - 자료.qmd
+format:
+  html:
+    theme: cosmo
+    css: styles.css
