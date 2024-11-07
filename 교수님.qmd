@@ -1,0 +1,13 @@
+---
+title: "오희석 교수님"
+listing:
+  contents: 연구/교수님이랑
+  sort: "date desc"
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  page-size: 9999
+page-layout: full
+title-block-banner: false
+---

@@ -1,0 +1,17 @@
+---
+title: "보람"
+listing:
+  contents: 연구/보람이랑/
+  sort: "date desc"
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  page-size: 9999
+page-layout: full
+title-block-banner: false
+---
+
+- <https://github.com/boram-coco> 
+- <https://boram-coco.github.io/coco/>
+- <https://boram-coco.github.io/Scribbling/>

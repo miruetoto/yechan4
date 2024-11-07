@@ -1,0 +1,16 @@
+---
+title: "서연"
+listing:
+  contents: 연구/서연이랑
+  sort: "date desc"
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  page-size: 9999
+page-layout: full
+title-block-banner: false
+---
+
+- <https://github.com/seoyeonc> 
+- <https://seoyeonc.github.io/sy_hub/>

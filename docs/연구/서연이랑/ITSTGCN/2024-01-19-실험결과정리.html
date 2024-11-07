@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.533">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="SEOYEON CHOI">
+<meta name="dcterms.date" content="2024-01-08">
+
+<title>신록예찬’s Blog - (연구&amp;서연) IT-STGCN – 실험결과시각화</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">신록예찬’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DL2024/"> 
+<span class="menu-text">DL2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/AP2023/"> 
+<span class="menu-text">AP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/PP2024/"> 
+<span class="menu-text">PP2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DV2023/"> 
+<span class="menu-text">DV2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/MP2023/"> 
+<span class="menu-text">MP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/SC2024/"> 
+<span class="menu-text">SC2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DS2022/"> 
+<span class="menu-text">DS2022</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/SP2023/"> 
+<span class="menu-text">SP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/IR2021/"> 
+<span class="menu-text">IR2021</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://miruetoto.github.io/yechan/"> 
+<span class="menu-text">yechan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://miruetoto.github.io/yechan2/"> 
+<span class="menu-text">yechan2</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/miruetoto/yechan3"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">(연구&amp;서연) IT-STGCN – 실험결과시각화</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../메모.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">메모</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../공부.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">공부</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../연구.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">연구</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../자료.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">자료</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#import" id="toc-import" class="nav-link active" data-scroll-target="#import">Import</a></li>
+  <li><a href="#conditions" id="toc-conditions" class="nav-link" data-scroll-target="#conditions">Conditions</a></li>
+  <li><a href="#data-사용자정의함수" id="toc-data-사용자정의함수" class="nav-link" data-scroll-target="#data-사용자정의함수">Data &amp; 사용자정의함수</a></li>
+  <li><a href="#시각화1-missingrate-본문" id="toc-시각화1-missingrate-본문" class="nav-link" data-scroll-target="#시각화1-missingrate-본문">시각화1: MissingRate (본문)</a></li>
+  <li><a href="#시각화2-missingrate-부록" id="toc-시각화2-missingrate-부록" class="nav-link" data-scroll-target="#시각화2-missingrate-부록">시각화2: MissingRate (부록)</a></li>
+  <li><a href="#시각화3" id="toc-시각화3" class="nav-link" data-scroll-target="#시각화3">시각화3</a></li>
+  <li><a href="#시각화4" id="toc-시각화4" class="nav-link" data-scroll-target="#시각화4">시각화4</a></li>
+  <li><a href="#시각화5" id="toc-시각화5" class="nav-link" data-scroll-target="#시각화5">시각화5</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2024-01-19-실험결과정리.out.ipynb" download="2024-01-19-실험결과정리.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">(연구&amp;서연) IT-STGCN – 실험결과시각화</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>SEOYEON CHOI </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 8, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="import" class="level1">
+<h1>Import</h1>
+<div id="c533477a-7e40-48ec-afd2-8ae980a5b378" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="im">import</span> pickle</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a74da524-127e-4724-b222-88d65b059aed" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>pd.options.plotting.backend <span class="op">=</span> <span class="st">"plotly"</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>pio.templates.default <span class="op">=</span> <span class="st">"plotly_white"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="conditions" class="level1">
+<h1>Conditions</h1>
+<table class="table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>FiveVTS</th>
+<th>Chickenpox</th>
+<th>Pedalme</th>
+<th>Wikimath</th>
+<th>Windmillsmall</th>
+<th>MontevideoBus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Max iter.</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td>Epochs</td>
+<td>50</td>
+<td>50</td>
+<td>50</td>
+<td>50</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td>Lags</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>8</td>
+<td>8</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Interpolation</td>
+<td>linear</td>
+<td>linear</td>
+<td>nearest</td>
+<td>linear</td>
+<td>linear</td>
+<td>nearest</td>
+</tr>
+<tr class="odd">
+<td>Filters</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>GConvGRU</td>
+<td>12</td>
+<td>16</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>GConvLSTM</td>
+<td>12</td>
+<td>32</td>
+<td>2</td>
+<td>64</td>
+<td>16</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>GCLSTM</td>
+<td>4</td>
+<td>16</td>
+<td>4</td>
+<td>64</td>
+<td>16</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>LRGCN</td>
+<td>4</td>
+<td>8</td>
+<td>8</td>
+<td>32</td>
+<td>12</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>DyGrEncoder</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>EvolveGCNH</td>
+<td>No need</td>
+<td>No need</td>
+<td>No need</td>
+<td>No need</td>
+<td>No need</td>
+<td>No need</td>
+</tr>
+<tr class="even">
+<td>EvolveGCNO</td>
+<td>No need</td>
+<td>No need</td>
+<td>No need</td>
+<td>No need</td>
+<td>No need</td>
+<td>No need</td>
+</tr>
+<tr class="odd">
+<td>TGCN</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>DCRNN</td>
+<td>2</td>
+<td>16</td>
+<td>8</td>
+<td>12</td>
+<td>4</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-사용자정의함수" class="level1">
+<h1>Data &amp; 사용자정의함수</h1>
+<div id="0029d80d-2795-480c-9753-0075f29de94c" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>df_dataset <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="st">'dataset'</span>:[<span class="st">'fivenodes'</span>,<span class="st">'chickenpox'</span>,<span class="st">'pedalme'</span>,<span class="st">'wikimath'</span>,<span class="st">'windmillsmall'</span>,<span class="st">'monte'</span>],</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="st">'node'</span>:[<span class="dv">5</span>,<span class="dv">20</span>,<span class="dv">15</span>,<span class="dv">1068</span>,<span class="dv">11</span>,<span class="dv">675</span>],</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="st">'time'</span>:[<span class="dv">200</span>,<span class="dv">522</span>,<span class="dv">36</span>,<span class="dv">731</span>,<span class="dv">17472</span>,<span class="dv">744</span>]</span>
+<span id="cb3-5"><a href="#cb3-5"></a>})</span>
+<span id="cb3-6"><a href="#cb3-6"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'./Body_Results.csv'</span>).iloc[:,<span class="dv">1</span>:]<span class="op">\</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>.merge(df_dataset)<span class="op">\</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>.assign(method <span class="op">=</span> <span class="kw">lambda</span> df: df[<span class="st">'method'</span>].<span class="bu">map</span>({<span class="st">'STGCN'</span>:<span class="st">'STGNN'</span>,<span class="st">'IT-STGCN'</span>:<span class="st">'IT-STGNN'</span>,<span class="st">'GNAR'</span>:<span class="st">'GNAR'</span>}))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="05c74686-5fe7-40e9-b22c-6e2cbe2946ac" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">dataset</th>
+<th data-quarto-table-cell-role="th">method</th>
+<th data-quarto-table-cell-role="th">mrate</th>
+<th data-quarto-table-cell-role="th">mtype</th>
+<th data-quarto-table-cell-role="th">lags</th>
+<th data-quarto-table-cell-role="th">nof_filters</th>
+<th data-quarto-table-cell-role="th">inter_method</th>
+<th data-quarto-table-cell-role="th">epoch</th>
+<th data-quarto-table-cell-role="th">mse</th>
+<th data-quarto-table-cell-role="th">calculation_time</th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">node</th>
+<th data-quarto-table-cell-role="th">time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>fivenodes</td>
+<td>STGNN</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>2</td>
+<td>12.0</td>
+<td>NaN</td>
+<td>50.0</td>
+<td>0.729374</td>
+<td>80.985221</td>
+<td>GConvGRU</td>
+<td>5</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>fivenodes</td>
+<td>STGNN</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>2</td>
+<td>12.0</td>
+<td>NaN</td>
+<td>50.0</td>
+<td>0.729082</td>
+<td>80.891788</td>
+<td>GConvGRU</td>
+<td>5</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>fivenodes</td>
+<td>IT-STGNN</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>2</td>
+<td>12.0</td>
+<td>NaN</td>
+<td>50.0</td>
+<td>0.731600</td>
+<td>114.492592</td>
+<td>GConvGRU</td>
+<td>5</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>fivenodes</td>
+<td>IT-STGNN</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>2</td>
+<td>12.0</td>
+<td>NaN</td>
+<td>50.0</td>
+<td>0.735026</td>
+<td>115.544274</td>
+<td>GConvGRU</td>
+<td>5</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>fivenodes</td>
+<td>STGNN</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>2</td>
+<td>12.0</td>
+<td>NaN</td>
+<td>50.0</td>
+<td>0.727182</td>
+<td>102.783140</td>
+<td>GConvGRU</td>
+<td>5</td>
+<td>200</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="217d71bc-a7a2-41cd-b0e3-33bce521b95e" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df2 <span class="op">=</span> df.assign(model <span class="op">=</span> <span class="kw">lambda</span> df: df.model.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="st">''</span> <span class="cf">if</span> x <span class="op">==</span> <span class="st">"GNAR"</span> <span class="cf">else</span> x))<span class="op">\</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>.<span class="bu">eval</span>(<span class="st">'model = method+model'</span>)<span class="op">\</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>.assign(model <span class="op">=</span> <span class="kw">lambda</span> df: df.model.<span class="bu">str</span>.replace(<span class="st">"STGNN"</span>,<span class="st">""</span>))</span>
+<span id="cb5-4"><a href="#cb5-4"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>RecursionError: maximum recursion depth exceeded</code></pre>
+</div>
+</div>
+<div id="8e5518ba-4a5b-424d-9b6e-7873c3a70ac5" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">set</span>(df.method)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>{'GNAR', 'IT-STGNN', 'STGNN'}</code></pre>
+</div>
+</div>
+<div id="0e608b3c-f4f9-49e8-bcc3-b348c07aff46" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> show_experiment_spec(df):</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    df_cols <span class="op">=</span> [<span class="st">'method'</span>,<span class="st">'mrate'</span>,<span class="st">'mtype'</span>,<span class="st">'lags'</span>,<span class="st">'nof_filters'</span>,<span class="st">'inter_method'</span>,<span class="st">'epoch'</span>,<span class="st">'model'</span>]</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    <span class="cf">for</span> dataset <span class="kw">in</span> df.dataset.unique():</span>
+<span id="cb9-4"><a href="#cb9-4"></a>        <span class="bu">print</span>(<span class="ss">f'dataset: </span><span class="sc">{</span>dataset<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb9-5"><a href="#cb9-5"></a>        <span class="cf">for</span> col <span class="kw">in</span> df_cols: </span>
+<span id="cb9-6"><a href="#cb9-6"></a>            df_query <span class="op">=</span> df[df[<span class="st">'dataset'</span>] <span class="op">==</span> dataset]</span>
+<span id="cb9-7"><a href="#cb9-7"></a>            <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>df_query[col]<span class="sc">.</span>unique()<span class="sc">.</span>tolist()<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb9-8"><a href="#cb9-8"></a>        <span class="bu">print</span>(<span class="st">'---'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> 데이터세트별 실험셋팅</p>
+<div id="d4494dec-dabe-4a2d-a2f2-bd263f0b785a" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>show_experiment_spec(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>dataset: fivenodes
+method: ['STGNN', 'IT-STGNN', 'GNAR']
+mrate: [0.0, 0.7, 0.8, 0.3, 0.5, 0.6, 0.125]
+mtype: [nan, 'rand', 'block']
+lags: [2]
+nof_filters: [12.0, 4.0, 2.0, nan]
+inter_method: [nan, 'linear']
+epoch: [50.0, nan]
+model: ['GConvGRU', 'GConvLSTM', 'GCLSTM', 'DCRNN', 'LRGCN', 'TGCN', 'EvolveGCNO', 'DyGrEncoder', 'EvolveGCNH', 'GNAR']
+---
+dataset: chickenpox
+method: ['STGNN', 'IT-STGNN', 'GNAR']
+mrate: [0.0, 0.3, 0.8, 0.5, 0.6, 0.2877697841726618]
+mtype: [nan, 'rand', 'block']
+lags: [4]
+nof_filters: [16.0, 32.0, 8.0, 12.0, nan]
+inter_method: [nan, 'linear']
+epoch: [50.0, nan]
+model: ['GConvGRU', 'GConvLSTM', 'GCLSTM', 'DCRNN', 'LRGCN', 'TGCN', 'EvolveGCNO', 'DyGrEncoder', 'EvolveGCNH', 'GNAR']
+---
+dataset: pedalme
+method: ['STGNN', 'IT-STGNN', 'GNAR']
+mrate: [0.0, 0.3, 0.6, 0.5, 0.8, 0.2857142857142857]
+mtype: [nan, 'rand', 'block']
+lags: [4]
+nof_filters: [12.0, 2.0, 4.0, 8.0, nan]
+inter_method: [nan, 'nearest', 'linear']
+epoch: [50.0, nan]
+model: ['GConvGRU', 'GConvLSTM', 'GCLSTM', 'DCRNN', 'LRGCN', 'TGCN', 'EvolveGCNO', 'DyGrEncoder', 'EvolveGCNH', 'GNAR']
+---
+dataset: wikimath
+method: ['STGNN', 'IT-STGNN', 'GNAR']
+mrate: [0.3, 0.8, 0.0, 0.0958699236875407, 0.0038347969475016, 0.5, 0.1198374046094259, 0.6]
+mtype: ['rand', nan, 'block']
+lags: [8]
+nof_filters: [12.0, 64.0, 32.0, nan]
+inter_method: ['linear', nan]
+epoch: [50.0, nan]
+model: ['GConvGRU', 'GConvLSTM', 'GCLSTM', 'DCRNN', 'LRGCN', 'TGCN', 'EvolveGCNO', 'DyGrEncoder', 'EvolveGCNH', 'GNAR']
+---
+dataset: windmillsmall
+method: ['STGNN', 'IT-STGNN']
+mrate: [0.0, 0.7, 0.0812907673198108]
+mtype: [nan, 'rand', 'block']
+lags: [8]
+nof_filters: [12.0, 16.0, 4.0]
+inter_method: [nan, 'linear']
+epoch: [50.0]
+model: ['GConvGRU', 'GConvLSTM', 'GCLSTM', 'DCRNN', 'LRGCN', 'TGCN', 'EvolveGCNO', 'DyGrEncoder', 'EvolveGCNH']
+---
+dataset: monte
+method: ['STGNN', 'IT-STGNN', 'GNAR']
+mrate: [0.8, 0.0, 0.1491424310216256, 0.3, 0.5, 0.7]
+mtype: ['rand', nan, 'block']
+lags: [4]
+nof_filters: [12.0, 2.0, 8.0, nan]
+inter_method: ['nearest', nan, 'cubic', 'linear']
+epoch: [50.0, nan]
+model: ['GConvGRU', 'GConvLSTM', 'GCLSTM', 'DCRNN', 'LRGCN', 'TGCN', 'EvolveGCNO', 'DyGrEncoder', 'EvolveGCNH', 'GNAR']
+---</code></pre>
+</div>
+</div>
+<p><code>-</code> 요약</p>
+<div id="aedbe830-ef9a-41b7-b138-9a96960c4624" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>df_summary <span class="op">=</span> df2.groupby([<span class="st">"method"</span>,<span class="st">"dataset"</span>,<span class="st">"mrate"</span>,<span class="st">"model"</span>]).agg({<span class="st">'mse'</span>:<span class="st">'mean'</span>}).reset_index()<span class="op">\</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>.pivot_table(index<span class="op">=</span>[<span class="st">'model'</span>],columns<span class="op">=</span>[<span class="st">'dataset'</span>],values<span class="op">=</span><span class="st">'mse'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3"></a>df_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>NameError: name 'df2' is not defined</code></pre>
+</div>
+</div>
+</section>
+<section id="시각화1-missingrate-본문" class="level1">
+<h1>시각화1: MissingRate (본문)</h1>
+<div id="dde27dd1-f3a7-4ff5-9830-809c74d0d561" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>big <span class="op">=</span> df.query(<span class="st">"mtype=='rand' or mtype.isna()"</span>).query(<span class="st">"dataset == 'chickenpox'"</span>).query(<span class="st">"model == 'GConvLSTM'"</span>)<span class="op">\</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>.sort_values(by<span class="op">=</span><span class="st">'mrate'</span>)<span class="op">\</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>.assign(mrate_jittered <span class="op">=</span> <span class="kw">lambda</span> df: np.array(df[<span class="st">'mrate'</span>])<span class="op">+</span>np.random.randn(<span class="bu">len</span>(df[<span class="st">'mrate'</span>]))<span class="op">*</span><span class="fl">0.01</span>)</span>
+<span id="cb14-4"><a href="#cb14-4"></a>small <span class="op">=</span> big.groupby([<span class="st">"dataset"</span>,<span class="st">"mrate"</span>,<span class="st">"method"</span>]).agg({<span class="st">'mse'</span>:np.median}).reset_index().rename({<span class="st">'mse'</span>:<span class="st">'mse_median'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb14-5"><a href="#cb14-5"></a>tidydata <span class="op">=</span> big.merge(small)</span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="co">#---#</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a>fig <span class="op">=</span> px.scatter(</span>
+<span id="cb14-8"><a href="#cb14-8"></a>    tidydata,</span>
+<span id="cb14-9"><a href="#cb14-9"></a>    y<span class="op">=</span><span class="st">'mse_median'</span>,</span>
+<span id="cb14-10"><a href="#cb14-10"></a>    x<span class="op">=</span><span class="st">'mrate'</span>,</span>
+<span id="cb14-11"><a href="#cb14-11"></a>    opacity<span class="op">=</span><span class="fl">0.3</span>,</span>
+<span id="cb14-12"><a href="#cb14-12"></a>    color<span class="op">=</span><span class="st">'method'</span>,</span>
+<span id="cb14-13"><a href="#cb14-13"></a>    width<span class="op">=</span><span class="dv">425</span>,</span>
+<span id="cb14-14"><a href="#cb14-14"></a>    height<span class="op">=</span><span class="dv">425</span>,</span>
+<span id="cb14-15"><a href="#cb14-15"></a>    hover_data<span class="op">=</span><span class="st">'mrate'</span>,</span>
+<span id="cb14-16"><a href="#cb14-16"></a>)</span>
+<span id="cb14-17"><a href="#cb14-17"></a>fig.data[<span class="dv">0</span>][<span class="st">'mode'</span>]<span class="op">=</span><span class="st">'markers+lines'</span></span>
+<span id="cb14-18"><a href="#cb14-18"></a>fig.data[<span class="dv">0</span>][<span class="st">'marker'</span>][<span class="st">'size'</span>] <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb14-19"><a href="#cb14-19"></a>fig.data[<span class="dv">0</span>][<span class="st">'line'</span>][<span class="st">'width'</span>] <span class="op">=</span> <span class="fl">1.5</span></span>
+<span id="cb14-20"><a href="#cb14-20"></a>fig.data[<span class="dv">0</span>][<span class="st">'line'</span>][<span class="st">'dash'</span>] <span class="op">=</span> <span class="st">'dashdot'</span></span>
+<span id="cb14-21"><a href="#cb14-21"></a>fig.data[<span class="dv">1</span>][<span class="st">'mode'</span>]<span class="op">=</span><span class="st">'markers+lines'</span></span>
+<span id="cb14-22"><a href="#cb14-22"></a>fig.data[<span class="dv">1</span>][<span class="st">'marker'</span>][<span class="st">'size'</span>] <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb14-23"><a href="#cb14-23"></a>fig.data[<span class="dv">1</span>][<span class="st">'line'</span>][<span class="st">'width'</span>] <span class="op">=</span><span class="fl">1.5</span></span>
+<span id="cb14-24"><a href="#cb14-24"></a>fig.data[<span class="dv">1</span>][<span class="st">'line'</span>][<span class="st">'dash'</span>] <span class="op">=</span> <span class="st">'dashdot'</span></span>
+<span id="cb14-25"><a href="#cb14-25"></a>box1 <span class="op">=</span> px.box(</span>
+<span id="cb14-26"><a href="#cb14-26"></a>    tidydata.query(<span class="st">"method=='STGNN'"</span>),</span>
+<span id="cb14-27"><a href="#cb14-27"></a>    y<span class="op">=</span><span class="st">'mse'</span>,</span>
+<span id="cb14-28"><a href="#cb14-28"></a>    x<span class="op">=</span><span class="st">'mrate'</span>,</span>
+<span id="cb14-29"><a href="#cb14-29"></a>)</span>
+<span id="cb14-30"><a href="#cb14-30"></a>box1.data[<span class="dv">0</span>][<span class="st">'opacity'</span>]<span class="op">=</span><span class="fl">0.5</span></span>
+<span id="cb14-31"><a href="#cb14-31"></a>box1.data[<span class="dv">0</span>][<span class="st">'marker'</span>][<span class="st">'color'</span>]<span class="op">=</span><span class="st">'#636efa'</span></span>
+<span id="cb14-32"><a href="#cb14-32"></a>box2 <span class="op">=</span> px.box(</span>
+<span id="cb14-33"><a href="#cb14-33"></a>    tidydata.query(<span class="st">"method=='IT-STGNN'"</span>),</span>
+<span id="cb14-34"><a href="#cb14-34"></a>    y<span class="op">=</span><span class="st">'mse'</span>,</span>
+<span id="cb14-35"><a href="#cb14-35"></a>    x<span class="op">=</span><span class="st">'mrate'</span>,</span>
+<span id="cb14-36"><a href="#cb14-36"></a>)</span>
+<span id="cb14-37"><a href="#cb14-37"></a>box2.data[<span class="dv">0</span>][<span class="st">'opacity'</span>]<span class="op">=</span><span class="fl">0.5</span></span>
+<span id="cb14-38"><a href="#cb14-38"></a>box2.data[<span class="dv">0</span>][<span class="st">'marker'</span>][<span class="st">'color'</span>]<span class="op">=</span><span class="st">'#EF553B'</span></span>
+<span id="cb14-39"><a href="#cb14-39"></a>fig.add_traces(box1.data)</span>
+<span id="cb14-40"><a href="#cb14-40"></a>fig.add_traces(box2.data)</span>
+<span id="cb14-41"><a href="#cb14-41"></a>fig.data[<span class="dv">0</span>][<span class="st">'showlegend'</span>] <span class="op">=</span><span class="va">False</span></span>
+<span id="cb14-42"><a href="#cb14-42"></a>fig.data[<span class="dv">1</span>][<span class="st">'showlegend'</span>] <span class="op">=</span><span class="va">False</span></span>
+<span id="cb14-43"><a href="#cb14-43"></a>fig.layout[<span class="st">'xaxis'</span>][<span class="st">'title'</span>][<span class="st">'text'</span>]<span class="op">=</span><span class="st">'Missign Rate'</span></span>
+<span id="cb14-44"><a href="#cb14-44"></a>fig.layout[<span class="st">'yaxis'</span>][<span class="st">'title'</span>][<span class="st">'text'</span>]<span class="op">=</span><span class="st">'MSE'</span></span>
+<span id="cb14-45"><a href="#cb14-45"></a>fig.layout[<span class="st">'legend'</span>][<span class="st">'title'</span>][<span class="st">'text'</span>]<span class="op">=</span><span class="st">""</span></span>
+<span id="cb14-46"><a href="#cb14-46"></a>fig.layout[<span class="st">'title'</span>][<span class="st">'text'</span>]<span class="op">=</span><span class="st">'Chickenpox/GConvLSTM'</span></span>
+<span id="cb14-47"><a href="#cb14-47"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: Value of 'hover_data_0' is not the name of a column in 'data_frame'. Expected one of ['dataset', 'method', 'mrate', 'mtype', 'lags', 'nof_filters', 'inter_method', 'epoch', 'mse', 'calculation_time', 'model', 'node', 'time', 'mrate_jittered', 'mse_median'] but received: m</code></pre>
+</div>
+</div>
+</section>
+<section id="시각화2-missingrate-부록" class="level1">
+<h1>시각화2: MissingRate (부록)</h1>
+<div id="18fa97a0-f497-464b-8333-5011055a9849" class="cell" data-tags="[]" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>tidydata <span class="op">=</span> df.query(<span class="st">"mtype!='block'"</span>).query(<span class="st">"method!='GNAR'"</span>).query(<span class="st">"dataset != 'fivenodes'"</span>)<span class="op">\</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>.groupby([<span class="st">"method"</span>,<span class="st">"dataset"</span>,<span class="st">"mrate"</span>,<span class="st">"model"</span>]).agg({<span class="st">'mse'</span>:<span class="st">'mean'</span>}).reset_index()</span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="co">#---#</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>fig <span class="op">=</span> px.line(</span>
+<span id="cb16-5"><a href="#cb16-5"></a>    tidydata,</span>
+<span id="cb16-6"><a href="#cb16-6"></a>    x<span class="op">=</span><span class="st">'mrate'</span>,</span>
+<span id="cb16-7"><a href="#cb16-7"></a>    y<span class="op">=</span><span class="st">'mse'</span>,</span>
+<span id="cb16-8"><a href="#cb16-8"></a>    color<span class="op">=</span><span class="st">'method'</span>,</span>
+<span id="cb16-9"><a href="#cb16-9"></a>    facet_row<span class="op">=</span><span class="st">'model'</span>,</span>
+<span id="cb16-10"><a href="#cb16-10"></a>    facet_col<span class="op">=</span><span class="st">'dataset'</span>,</span>
+<span id="cb16-11"><a href="#cb16-11"></a>    width<span class="op">=</span><span class="dv">850</span>,</span>
+<span id="cb16-12"><a href="#cb16-12"></a>    height<span class="op">=</span><span class="dv">1000</span>,</span>
+<span id="cb16-13"><a href="#cb16-13"></a>    </span>
+<span id="cb16-14"><a href="#cb16-14"></a>)</span>
+<span id="cb16-15"><a href="#cb16-15"></a><span class="cf">for</span> scatter <span class="kw">in</span> fig.data:</span>
+<span id="cb16-16"><a href="#cb16-16"></a>    scatter[<span class="st">'mode'</span>] <span class="op">=</span> <span class="st">'lines+markers'</span></span>
+<span id="cb16-17"><a href="#cb16-17"></a>    scatter[<span class="st">'line'</span>][<span class="st">'dash'</span>] <span class="op">=</span> <span class="st">'dashdot'</span></span>
+<span id="cb16-18"><a href="#cb16-18"></a><span class="cf">for</span> annotation <span class="kw">in</span> fig.layout[<span class="st">'annotations'</span>]:</span>
+<span id="cb16-19"><a href="#cb16-19"></a>    annotation[<span class="st">'text'</span>] <span class="op">=</span> annotation[<span class="st">'text'</span>].replace(<span class="st">'dataset='</span>,<span class="st">''</span>)</span>
+<span id="cb16-20"><a href="#cb16-20"></a>    annotation[<span class="st">'text'</span>] <span class="op">=</span> annotation[<span class="st">'text'</span>].replace(<span class="st">'model='</span>,<span class="st">''</span>)</span>
+<span id="cb16-21"><a href="#cb16-21"></a><span class="cf">for</span> k <span class="kw">in</span> [k <span class="cf">for</span> k <span class="kw">in</span> fig.layout <span class="cf">if</span> <span class="st">'xaxis'</span> <span class="kw">in</span> k]:</span>
+<span id="cb16-22"><a href="#cb16-22"></a>    fig.layout[k][<span class="st">'title'</span>][<span class="st">'text'</span>] <span class="op">=</span> <span class="va">None</span> </span>
+<span id="cb16-23"><a href="#cb16-23"></a><span class="cf">for</span> k <span class="kw">in</span> [k <span class="cf">for</span> k <span class="kw">in</span> fig.layout <span class="cf">if</span> <span class="st">'yaxis'</span> <span class="kw">in</span> k]:</span>
+<span id="cb16-24"><a href="#cb16-24"></a>    fig.layout[k][<span class="st">'title'</span>][<span class="st">'text'</span>] <span class="op">=</span> <span class="va">None</span> </span>
+<span id="cb16-25"><a href="#cb16-25"></a>fig.update_yaxes(showticklabels<span class="op">=</span><span class="va">True</span>,matches<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb16-26"><a href="#cb16-26"></a>fig.update_xaxes(showticklabels<span class="op">=</span><span class="va">True</span>,matches<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>                            <div id="b813e369-c8cd-44b4-bd43-a7a28ade7abd" class="plotly-graph-div" style="height:1000px; width:850px;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("b813e369-c8cd-44b4-bd43-a7a28ade7abd")) {                    Plotly.newPlot(                        "b813e369-c8cd-44b4-bd43-a7a28ade7abd",                        [{"hovertemplate":"method=IT-STGNN<br>model=DCRNN<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":true,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x41","y":[0.7262935300668081,0.7974194288253784,0.8688039183616638,0.9730672180652619,1.467026937007904],"yaxis":"y41","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=DCRNN<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x42","y":[0.9356310884157817,0.9378675083319347,0.9477345029513041,1.0309433698654176,1.1110597742928399],"yaxis":"y42","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=DCRNN<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x43","y":[1.131112144390742,1.1794777870178224,1.2317544301350911,1.3031940857569377,1.5270500183105469],"yaxis":"y43","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=DCRNN<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x44","y":[0.5821457962195079,0.5876641611258189,0.5897436062494914,0.5919398883978526,0.6724015136559804],"yaxis":"y44","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=DCRNN<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x45","y":[0.9879489362239837,1.116618851820628],"yaxis":"y45","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=DyGrEncoder<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x36","y":[0.9102867841720581,0.8682008723417918,0.9145062724749248,1.0129274507363637,1.398728601137797],"yaxis":"y36","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=DyGrEncoder<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x37","y":[1.0075618505477906,1.0268222192923229,1.0800105273723601,1.1977290987968445,1.215691574414571],"yaxis":"y37","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=DyGrEncoder<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x38","y":[1.1974692463874816,1.2052757660547893,1.236144204934438,1.2850633223851522,1.4758521556854247],"yaxis":"y38","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=DyGrEncoder<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x39","y":[0.5625448822975159,0.5782144705454508,0.5646102329095205,0.5660300393899281,0.6059201280275981],"yaxis":"y39","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=DyGrEncoder<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x40","y":[0.988743931055069,1.126743221282959],"yaxis":"y40","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=EvolveGCNH<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x31","y":[0.9961331367492676,1.0113655090332032,1.0263081113497416,1.0543007373809814,1.1400945703188579],"yaxis":"y31","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=EvolveGCNH<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x32","y":[1.3576573431491852,1.3985042929649354,1.4411377509435017,1.7002901554107666,1.845348604520162],"yaxis":"y32","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=EvolveGCNH<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x33","y":[1.2231735050678254,1.2376745263735454,1.2415592352549234,1.2620373964309692,1.2989180445671082],"yaxis":"y33","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=EvolveGCNH<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x34","y":[0.7842468957106272,0.775075908501943,0.7911452790101369,0.7950286130110423,0.8772536794344584],"yaxis":"y34","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=EvolveGCNH<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x35","y":[0.9856936732927958,1.1291911323865256],"yaxis":"y35","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=EvolveGCNO<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x26","y":[0.9837769170602163,0.9984626730283102,1.0199275851249694,1.0501808325449626,1.1613912542661031],"yaxis":"y26","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=EvolveGCNO<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x27","y":[1.3174769202868144,1.4016060034434001,1.4579403877258301,1.9687416632970174,2.2633707324663797],"yaxis":"y27","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=EvolveGCNO<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x28","y":[1.2126883725325266,1.2506618698438008,1.2540172457695007,1.2672008156776429,1.3115479787190756],"yaxis":"y28","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=EvolveGCNO<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x29","y":[0.7345361292362214,0.7379984100659688,0.7436200221379597,0.7447938958803813,0.7801654100418091],"yaxis":"y29","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=EvolveGCNO<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x30","y":[0.9836756110191345,1.149026878674825],"yaxis":"y30","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GCLSTM<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x21","y":[0.877674525976181,0.8501742561658223,0.8993159830570221,1.0025737524032592,1.3705498377482097],"yaxis":"y21","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GCLSTM<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x22","y":[0.9690772255261739,0.9678724467754364,0.9571961462497711,1.0021958708763123,1.0315322279930115],"yaxis":"y22","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GCLSTM<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x23","y":[1.1700525979201,1.2106436093648274,1.2210132797559103,1.2591463605562845,1.3518047014872232],"yaxis":"y23","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GCLSTM<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x24","y":[0.6428504089514414,0.6282905658086141,0.6255914509296417,0.6502514521280924,0.8149297118186951],"yaxis":"y24","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GCLSTM<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x25","y":[0.9921382089455922,1.1164294712005123],"yaxis":"y25","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GConvGRU<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x16","y":[0.7519446770350139,0.8508427083492279,0.9575517396132152,1.1203747113545737,1.585524276892344],"yaxis":"y16","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GConvGRU<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x17","y":[0.930523885289828,0.9361848731835684,0.9420447409152984,1.0152205049991607,1.0955596665541332],"yaxis":"y17","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GConvGRU<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x18","y":[1.2334487199783326,1.3847919205824535,1.5072240670522055,1.6249991416931153,1.607869521776835],"yaxis":"y18","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GConvGRU<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x19","y":[0.5286022325356802,0.5180512388547261,0.5239666879177094,0.5388371666272481,0.6867994070053101],"yaxis":"y19","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GConvGRU<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x20","y":[1.0036083248353773,1.1938863454326507],"yaxis":"y20","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GConvLSTM<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x11","y":[0.9809238533178966,0.8715872526168823,0.9009263972441356,1.0039266228675843,1.4328649520874024],"yaxis":"y11","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GConvLSTM<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x12","y":[0.9592961370944977,0.9512110630671183,0.946907784541448,0.9967374463876089,1.1563993533452352],"yaxis":"y12","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GConvLSTM<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x13","y":[1.2129065116246542,1.2236289739608766,1.2351340810457865,1.2476208249727885,1.2865618507067362],"yaxis":"y13","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GConvLSTM<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x14","y":[0.6263718565305074,0.6308103601137797,0.6686412215232849,0.7313987930615743,0.9203040659427643],"yaxis":"y14","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=GConvLSTM<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x15","y":[1.0143079911508868,1.1418147087097168],"yaxis":"y15","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=LRGCN<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x6","y":[0.8650834282239278,0.8700646877288818,0.9307576994101207,1.017380851507187,1.3335242430369059],"yaxis":"y6","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=LRGCN<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x7","y":[0.9765360315640768,0.9737622857093811,0.9842411478360494,0.9808458685874939,0.9820055365562439],"yaxis":"y7","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=LRGCN<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x8","y":[1.1926894664764405,1.2204942584037781,1.2401428818702698,1.2862426002820333,1.4362062215805054],"yaxis":"y8","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=LRGCN<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x9","y":[0.6102288663387299,0.6194596389929453,0.6211064040660859,0.6475779275099437,0.7690745731194814],"yaxis":"y9","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=LRGCN<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x10","y":[0.9868966420491536,1.1100961804389953],"yaxis":"y10","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=TGCN<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x","y":[1.0929674585660298,1.0423652052879333,1.031901470820109,1.0539491613705954,1.1833927472432455],"yaxis":"y","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=TGCN<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x2","y":[0.9838025073210398,0.9874406675497691,0.9900509893894196,1.0295270085334778,1.072794528802236],"yaxis":"y2","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=TGCN<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x3","y":[1.3408915936946868,1.2484689990679423,1.2585145950317382,1.260074253877004,1.257752207914988],"yaxis":"y3","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=TGCN<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x4","y":[0.7295065224170685,0.7392048398653667,0.7566385646661122,0.7416430433591207,0.7708451449871063],"yaxis":"y4","type":"scatter"},{"hovertemplate":"method=IT-STGNN<br>model=TGCN<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"IT-STGNN","line":{"color":"#636efa","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"IT-STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x5","y":[0.9917504866917928,1.0714038173357645],"yaxis":"y5","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=DCRNN<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":true,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x41","y":[0.7273993372917176,1.0321223318576813,1.4730505307515462,1.8480618437131247,2.2874269167582195],"yaxis":"y41","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=DCRNN<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x42","y":[0.9356155276298523,1.007505710919698,1.1192256689071656,1.2140121857325237,1.2250772264268663],"yaxis":"y42","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=DCRNN<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x43","y":[1.1311116794745126,1.277958885828654,1.4467737197875976,1.5089642922083537,1.6157149871190388],"yaxis":"y43","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=DCRNN<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x44","y":[0.579703829685847,0.6030041297276815,0.6518642942110697,0.6880961994330088,0.8464834769566854],"yaxis":"y44","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=DCRNN<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x45","y":[0.98705299894015,1.3477184931437174],"yaxis":"y45","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=DyGrEncoder<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x36","y":[0.9017379403114318,1.0801025032997131,1.5404859145482381,1.8070445855458577,2.126992173989614],"yaxis":"y36","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=DyGrEncoder<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x37","y":[0.9827527443567912,1.1732897241910298,1.2858712315559386,1.46742049853007,1.3578972260157267],"yaxis":"y37","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=DyGrEncoder<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x38","y":[1.1823768317699432,1.289089326063792,1.4271970629692077,1.5134739398956298,1.6135557055473329],"yaxis":"y38","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=DyGrEncoder<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x39","y":[0.5600802143414815,0.5617958088715871,0.6135105192661285,0.6438442011674245,0.770462958017985],"yaxis":"y39","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=DyGrEncoder<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x40","y":[0.9866737067699433,1.7088625272115072],"yaxis":"y40","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=EvolveGCNH<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x31","y":[1.0039118786652883,1.057721447944641,1.1216460744539896,1.1620551586151122,1.2029269218444825],"yaxis":"y31","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=EvolveGCNH<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x32","y":[1.005818854769071,1.5634609619776407,1.7305912057558694,2.118390409151713,2.1583567361036935],"yaxis":"y32","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=EvolveGCNH<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x33","y":[1.2035951415697734,1.2440934300422668,1.2852562506993612,1.2835334221522012,1.292329696814219],"yaxis":"y33","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=EvolveGCNH<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x34","y":[0.770507158835729,0.7869792938232422,0.8044674317042033,0.8427968084812164,0.914908234278361],"yaxis":"y34","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=EvolveGCNH<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x35","y":[0.9856338123480479,1.3301299333572387],"yaxis":"y35","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=EvolveGCNO<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x26","y":[0.9880264123280843,1.053731127580007,1.1448416352272033,1.2049764434496562,1.2336700876553854],"yaxis":"y26","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=EvolveGCNO<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x27","y":[0.9970530728499095,1.63446706533432,1.9281354228655496,2.4474778691927592,2.622997566064199],"yaxis":"y27","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=EvolveGCNO<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x28","y":[1.2342682222525279,1.2646779497464498,1.2738133351008096,1.292480997244517,1.3336350997289022],"yaxis":"y28","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=EvolveGCNO<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x29","y":[0.7337246815363566,0.7430313646793365,0.7589549700419108,0.7754075646400451,0.86331374446551],"yaxis":"y29","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=EvolveGCNO<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x30","y":[0.9828523218631744,1.494529922803243],"yaxis":"y30","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GCLSTM<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x21","y":[0.8917715013027191,1.0497510651747386,1.5143744508425394,1.808076790968577,2.1722838799158732],"yaxis":"y21","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GCLSTM<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x22","y":[0.9700358351071675,1.0032080670197805,1.0735238075256348,1.1084674934546153,1.1401932901806302],"yaxis":"y22","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GCLSTM<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x23","y":[1.1911604285240174,1.2563624501228332,1.33319034576416,1.3652743140856425,1.3963794827461242],"yaxis":"y23","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GCLSTM<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x24","y":[0.644963405529658,0.6736441890398661,0.824881660938263,0.9423624296983083,1.406770400206248],"yaxis":"y24","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GCLSTM<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x25","y":[0.9923375864823659,1.5732998040414625],"yaxis":"y25","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GConvGRU<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x16","y":[0.752304365237554,1.0873496949672699,1.5300888339678447,1.7527565677960715,2.528949332237244],"yaxis":"y16","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GConvGRU<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x17","y":[0.9306245803833008,0.9913904249668122,1.1492207447687786,1.393107537428538,1.5159995198249816],"yaxis":"y17","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GConvGRU<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x18","y":[1.2326060970624289,1.5271926323572795,1.6732519626617433,1.8514511068662007,1.8711834271748862],"yaxis":"y18","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GConvGRU<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x19","y":[0.527652645111084,0.5703602870305379,0.6584665417671204,0.7313244203726451,0.9323520263036092],"yaxis":"y19","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GConvGRU<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x20","y":[1.0029826087336386,1.6618889608690817],"yaxis":"y20","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GConvLSTM<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x11","y":[0.9368454615275065,1.113888943195343,1.5183566768964132,1.786720633506775,2.521938411394755],"yaxis":"y11","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GConvLSTM<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x12","y":[0.9604162633419037,0.9812286913394928,1.0547321081161498,1.120662506421407,1.1336923937002819],"yaxis":"y12","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GConvLSTM<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x13","y":[1.215217145284017,1.265794285138448,1.2832311471303304,1.2739146629969278,1.3637308041254679],"yaxis":"y13","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GConvLSTM<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x14","y":[0.6397915740807851,0.7642852425575256,0.9651655813058218,1.1036300559838612,1.4230417132377624],"yaxis":"y14","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=GConvLSTM<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x15","y":[1.0233653860707437,1.5990776399086262],"yaxis":"y15","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=LRGCN<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x6","y":[0.8718462765216828,1.085606614748637,1.458146858215332,1.6153934677441915,1.6320517897605895],"yaxis":"y6","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=LRGCN<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x7","y":[0.9831988374392192,0.9821819285551707,0.9777047276496887,0.9887572149435679,0.989219464858373],"yaxis":"y7","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=LRGCN<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x8","y":[1.1884834090868632,1.287462544441223,1.3794140140215556,1.462139332294464,1.5292036334673564],"yaxis":"y8","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=LRGCN<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x9","y":[0.6080588142077128,0.6893625636895497,0.8375950992107392,0.9172505060831706,1.1053302109241485],"yaxis":"y9","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=LRGCN<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x10","y":[0.9879741052786509,1.4917972604433696],"yaxis":"y10","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=TGCN<br>dataset=chickenpox<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x","y":[1.0880127906799317,1.0536463975906372,1.1673845052719116,1.2415316065152486,1.465696108341217],"yaxis":"y","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=TGCN<br>dataset=monte<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.7,0.8],"xaxis":"x2","y":[0.9824497163295746,1.0345946947733562,1.0998533566792805,1.1828110456466674,1.2179521719614665],"yaxis":"y2","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=TGCN<br>dataset=pedalme<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x3","y":[1.2740009208520253,1.291389779249827,1.2870418469111125,1.3007892648379007,1.277076776822408],"yaxis":"y3","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=TGCN<br>dataset=wikimath<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.3,0.5,0.6,0.8],"xaxis":"x4","y":[0.7324025352795919,0.7344819446404774,0.7573648432890574,0.7742546598116556,0.8266303598880768],"yaxis":"y4","type":"scatter"},{"hovertemplate":"method=STGNN<br>model=TGCN<br>dataset=windmillsmall<br>mrate=%{x}<br>mse=%{y}<extra></extra>","legendgroup":"STGNN","line":{"color":"#EF553B","dash":"dashdot"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"STGNN","orientation":"v","showlegend":false,"x":[0.0,0.7],"xaxis":"x5","y":[0.9899344603220622,1.3049984494845073],"yaxis":"y5","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"bgcolor":"white","angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"ternary":{"bgcolor":"white","aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8","gridwidth":2},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8","gridwidth":2},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"white","subunitcolor":"#C8D4E3","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,0.18000000000000002],"title":{},"showticklabels":true},"yaxis":{"anchor":"x","domain":[0.0,0.08444444444444445],"title":{},"showticklabels":true},"xaxis2":{"anchor":"y2","domain":[0.2,0.38],"title":{},"showticklabels":true},"yaxis2":{"anchor":"x2","domain":[0.0,0.08444444444444445],"showticklabels":true},"xaxis3":{"anchor":"y3","domain":[0.4,0.5800000000000001],"title":{},"showticklabels":true},"yaxis3":{"anchor":"x3","domain":[0.0,0.08444444444444445],"showticklabels":true},"xaxis4":{"anchor":"y4","domain":[0.6000000000000001,0.7800000000000001],"title":{},"showticklabels":true},"yaxis4":{"anchor":"x4","domain":[0.0,0.08444444444444445],"showticklabels":true},"xaxis5":{"anchor":"y5","domain":[0.8,0.9800000000000001],"title":{},"showticklabels":true},"yaxis5":{"anchor":"x5","domain":[0.0,0.08444444444444445],"showticklabels":true},"xaxis6":{"anchor":"y6","domain":[0.0,0.18000000000000002],"showticklabels":true},"yaxis6":{"anchor":"x6","domain":[0.11444444444444445,0.1988888888888889],"title":{},"showticklabels":true},"xaxis7":{"anchor":"y7","domain":[0.2,0.38],"showticklabels":true},"yaxis7":{"anchor":"x7","domain":[0.11444444444444445,0.1988888888888889],"showticklabels":true},"xaxis8":{"anchor":"y8","domain":[0.4,0.5800000000000001],"showticklabels":true},"yaxis8":{"anchor":"x8","domain":[0.11444444444444445,0.1988888888888889],"showticklabels":true},"xaxis9":{"anchor":"y9","domain":[0.6000000000000001,0.7800000000000001],"showticklabels":true},"yaxis9":{"anchor":"x9","domain":[0.11444444444444445,0.1988888888888889],"showticklabels":true},"xaxis10":{"anchor":"y10","domain":[0.8,0.9800000000000001],"showticklabels":true},"yaxis10":{"anchor":"x10","domain":[0.11444444444444445,0.1988888888888889],"showticklabels":true},"xaxis11":{"anchor":"y11","domain":[0.0,0.18000000000000002],"showticklabels":true},"yaxis11":{"anchor":"x11","domain":[0.2288888888888889,0.31333333333333335],"title":{},"showticklabels":true},"xaxis12":{"anchor":"y12","domain":[0.2,0.38],"showticklabels":true},"yaxis12":{"anchor":"x12","domain":[0.2288888888888889,0.31333333333333335],"showticklabels":true},"xaxis13":{"anchor":"y13","domain":[0.4,0.5800000000000001],"showticklabels":true},"yaxis13":{"anchor":"x13","domain":[0.2288888888888889,0.31333333333333335],"showticklabels":true},"xaxis14":{"anchor":"y14","domain":[0.6000000000000001,0.7800000000000001],"showticklabels":true},"yaxis14":{"anchor":"x14","domain":[0.2288888888888889,0.31333333333333335],"showticklabels":true},"xaxis15":{"anchor":"y15","domain":[0.8,0.9800000000000001],"showticklabels":true},"yaxis15":{"anchor":"x15","domain":[0.2288888888888889,0.31333333333333335],"showticklabels":true},"xaxis16":{"anchor":"y16","domain":[0.0,0.18000000000000002],"showticklabels":true},"yaxis16":{"anchor":"x16","domain":[0.3433333333333334,0.4277777777777778],"title":{},"showticklabels":true},"xaxis17":{"anchor":"y17","domain":[0.2,0.38],"showticklabels":true},"yaxis17":{"anchor":"x17","domain":[0.3433333333333334,0.4277777777777778],"showticklabels":true},"xaxis18":{"anchor":"y18","domain":[0.4,0.5800000000000001],"showticklabels":true},"yaxis18":{"anchor":"x18","domain":[0.3433333333333334,0.4277777777777778],"showticklabels":true},"xaxis19":{"anchor":"y19","domain":[0.6000000000000001,0.7800000000000001],"showticklabels":true},"yaxis19":{"anchor":"x19","domain":[0.3433333333333334,0.4277777777777778],"showticklabels":true},"xaxis20":{"anchor":"y20","domain":[0.8,0.9800000000000001],"showticklabels":true},"yaxis20":{"anchor":"x20","domain":[0.3433333333333334,0.4277777777777778],"showticklabels":true},"xaxis21":{"anchor":"y21","domain":[0.0,0.18000000000000002],"showticklabels":true},"yaxis21":{"anchor":"x21","domain":[0.4577777777777778,0.5422222222222223],"title":{},"showticklabels":true},"xaxis22":{"anchor":"y22","domain":[0.2,0.38],"showticklabels":true},"yaxis22":{"anchor":"x22","domain":[0.4577777777777778,0.5422222222222223],"showticklabels":true},"xaxis23":{"anchor":"y23","domain":[0.4,0.5800000000000001],"showticklabels":true},"yaxis23":{"anchor":"x23","domain":[0.4577777777777778,0.5422222222222223],"showticklabels":true},"xaxis24":{"anchor":"y24","domain":[0.6000000000000001,0.7800000000000001],"showticklabels":true},"yaxis24":{"anchor":"x24","domain":[0.4577777777777778,0.5422222222222223],"showticklabels":true},"xaxis25":{"anchor":"y25","domain":[0.8,0.9800000000000001],"showticklabels":true},"yaxis25":{"anchor":"x25","domain":[0.4577777777777778,0.5422222222222223],"showticklabels":true},"xaxis26":{"anchor":"y26","domain":[0.0,0.18000000000000002],"showticklabels":true},"yaxis26":{"anchor":"x26","domain":[0.5722222222222222,0.6566666666666666],"title":{},"showticklabels":true},"xaxis27":{"anchor":"y27","domain":[0.2,0.38],"showticklabels":true},"yaxis27":{"anchor":"x27","domain":[0.5722222222222222,0.6566666666666666],"showticklabels":true},"xaxis28":{"anchor":"y28","domain":[0.4,0.5800000000000001],"showticklabels":true},"yaxis28":{"anchor":"x28","domain":[0.5722222222222222,0.6566666666666666],"showticklabels":true},"xaxis29":{"anchor":"y29","domain":[0.6000000000000001,0.7800000000000001],"showticklabels":true},"yaxis29":{"anchor":"x29","domain":[0.5722222222222222,0.6566666666666666],"showticklabels":true},"xaxis30":{"anchor":"y30","domain":[0.8,0.9800000000000001],"showticklabels":true},"yaxis30":{"anchor":"x30","domain":[0.5722222222222222,0.6566666666666666],"showticklabels":true},"xaxis31":{"anchor":"y31","domain":[0.0,0.18000000000000002],"showticklabels":true},"yaxis31":{"anchor":"x31","domain":[0.6866666666666668,0.7711111111111112],"title":{},"showticklabels":true},"xaxis32":{"anchor":"y32","domain":[0.2,0.38],"showticklabels":true},"yaxis32":{"anchor":"x32","domain":[0.6866666666666668,0.7711111111111112],"showticklabels":true},"xaxis33":{"anchor":"y33","domain":[0.4,0.5800000000000001],"showticklabels":true},"yaxis33":{"anchor":"x33","domain":[0.6866666666666668,0.7711111111111112],"showticklabels":true},"xaxis34":{"anchor":"y34","domain":[0.6000000000000001,0.7800000000000001],"showticklabels":true},"yaxis34":{"anchor":"x34","domain":[0.6866666666666668,0.7711111111111112],"showticklabels":true},"xaxis35":{"anchor":"y35","domain":[0.8,0.9800000000000001],"showticklabels":true},"yaxis35":{"anchor":"x35","domain":[0.6866666666666668,0.7711111111111112],"showticklabels":true},"xaxis36":{"anchor":"y36","domain":[0.0,0.18000000000000002],"showticklabels":true},"yaxis36":{"anchor":"x36","domain":[0.8011111111111111,0.8855555555555555],"title":{},"showticklabels":true},"xaxis37":{"anchor":"y37","domain":[0.2,0.38],"showticklabels":true},"yaxis37":{"anchor":"x37","domain":[0.8011111111111111,0.8855555555555555],"showticklabels":true},"xaxis38":{"anchor":"y38","domain":[0.4,0.5800000000000001],"showticklabels":true},"yaxis38":{"anchor":"x38","domain":[0.8011111111111111,0.8855555555555555],"showticklabels":true},"xaxis39":{"anchor":"y39","domain":[0.6000000000000001,0.7800000000000001],"showticklabels":true},"yaxis39":{"anchor":"x39","domain":[0.8011111111111111,0.8855555555555555],"showticklabels":true},"xaxis40":{"anchor":"y40","domain":[0.8,0.9800000000000001],"showticklabels":true},"yaxis40":{"anchor":"x40","domain":[0.8011111111111111,0.8855555555555555],"showticklabels":true},"xaxis41":{"anchor":"y41","domain":[0.0,0.18000000000000002],"showticklabels":true},"yaxis41":{"anchor":"x41","domain":[0.9155555555555556,1.0],"title":{},"showticklabels":true},"xaxis42":{"anchor":"y42","domain":[0.2,0.38],"showticklabels":true},"yaxis42":{"anchor":"x42","domain":[0.9155555555555556,1.0],"showticklabels":true},"xaxis43":{"anchor":"y43","domain":[0.4,0.5800000000000001],"showticklabels":true},"yaxis43":{"anchor":"x43","domain":[0.9155555555555556,1.0],"showticklabels":true},"xaxis44":{"anchor":"y44","domain":[0.6000000000000001,0.7800000000000001],"showticklabels":true},"yaxis44":{"anchor":"x44","domain":[0.9155555555555556,1.0],"showticklabels":true},"xaxis45":{"anchor":"y45","domain":[0.8,0.9800000000000001],"showticklabels":true},"yaxis45":{"anchor":"x45","domain":[0.9155555555555556,1.0],"showticklabels":true},"annotations":[{"font":{},"showarrow":false,"text":"chickenpox","x":0.09000000000000001,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{},"showarrow":false,"text":"monte","x":0.29000000000000004,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{},"showarrow":false,"text":"pedalme","x":0.49000000000000005,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{},"showarrow":false,"text":"wikimath","x":0.6900000000000002,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{},"showarrow":false,"text":"windmillsmall","x":0.8900000000000001,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{},"showarrow":false,"text":"TGCN","textangle":90,"x":0.9800000000000001,"xanchor":"left","xref":"paper","y":0.042222222222222223,"yanchor":"middle","yref":"paper"},{"font":{},"showarrow":false,"text":"LRGCN","textangle":90,"x":0.9800000000000001,"xanchor":"left","xref":"paper","y":0.15666666666666668,"yanchor":"middle","yref":"paper"},{"font":{},"showarrow":false,"text":"GConvLSTM","textangle":90,"x":0.9800000000000001,"xanchor":"left","xref":"paper","y":0.27111111111111114,"yanchor":"middle","yref":"paper"},{"font":{},"showarrow":false,"text":"GConvGRU","textangle":90,"x":0.9800000000000001,"xanchor":"left","xref":"paper","y":0.3855555555555556,"yanchor":"middle","yref":"paper"},{"font":{},"showarrow":false,"text":"GCLSTM","textangle":90,"x":0.9800000000000001,"xanchor":"left","xref":"paper","y":0.5,"yanchor":"middle","yref":"paper"},{"font":{},"showarrow":false,"text":"EvolveGCNO","textangle":90,"x":0.9800000000000001,"xanchor":"left","xref":"paper","y":0.6144444444444443,"yanchor":"middle","yref":"paper"},{"font":{},"showarrow":false,"text":"EvolveGCNH","textangle":90,"x":0.9800000000000001,"xanchor":"left","xref":"paper","y":0.7288888888888889,"yanchor":"middle","yref":"paper"},{"font":{},"showarrow":false,"text":"DyGrEncoder","textangle":90,"x":0.9800000000000001,"xanchor":"left","xref":"paper","y":0.8433333333333333,"yanchor":"middle","yref":"paper"},{"font":{},"showarrow":false,"text":"DCRNN","textangle":90,"x":0.9800000000000001,"xanchor":"left","xref":"paper","y":0.9577777777777778,"yanchor":"middle","yref":"paper"}],"legend":{"title":{"text":"method"},"tracegroupgap":0},"height":1000,"width":850},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('b813e369-c8cd-44b4-bd43-a7a28ade7abd');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div>
+</section>
+<section id="시각화3" class="level1">
+<h1>시각화3</h1>
+<div id="8795adcc-9bbf-48db-8feb-248bf258151d" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">def</span> func(x):</span>
+<span id="cb17-2"><a href="#cb17-2"></a>    <span class="cf">if</span> <span class="st">'IT'</span> <span class="kw">in</span> x:</span>
+<span id="cb17-3"><a href="#cb17-3"></a>        <span class="cf">return</span> <span class="st">'IT-STGNN'</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>    <span class="cf">elif</span> <span class="st">'GNAR'</span> <span class="kw">in</span> x:</span>
+<span id="cb17-5"><a href="#cb17-5"></a>        <span class="cf">return</span> <span class="st">'GNAR'</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a>    <span class="cf">else</span>: </span>
+<span id="cb17-7"><a href="#cb17-7"></a>        <span class="cf">return</span> <span class="st">'STGNN'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="b663c99a-a5ab-496a-84cf-d5fc59180192" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>tidydata <span class="op">=</span> df2.query(<span class="st">'mtype != "block"'</span>).query(<span class="st">'method!="GNAR"'</span>).groupby([<span class="st">"method"</span>,<span class="st">"dataset"</span>,<span class="st">"mrate"</span>,<span class="st">"model"</span>]).agg({<span class="st">'mse'</span>:<span class="st">'mean'</span>}).reset_index()<span class="op">\</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>.pivot_table(index<span class="op">=</span>[<span class="st">'model'</span>],columns<span class="op">=</span>[<span class="st">'dataset'</span>],values<span class="op">=</span><span class="st">'mse'</span>).stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'mse'</span>},axis<span class="op">=</span><span class="dv">1</span>).assign(</span>
+<span id="cb18-3"><a href="#cb18-3"></a>    method <span class="op">=</span> <span class="kw">lambda</span> df: df[<span class="st">'model'</span>].<span class="bu">apply</span>(func)</span>
+<span id="cb18-4"><a href="#cb18-4"></a>)</span>
+<span id="cb18-5"><a href="#cb18-5"></a>tidydata <span class="op">=</span> pd.concat([df.sort_values(<span class="st">'mse'</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>).reset_index() <span class="cf">for</span> _,df <span class="kw">in</span> tidydata.groupby(<span class="st">"dataset"</span>)])</span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="co">#---#</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a>fig <span class="op">=</span> px.bar(</span>
+<span id="cb18-8"><a href="#cb18-8"></a>    tidydata,</span>
+<span id="cb18-9"><a href="#cb18-9"></a>    x<span class="op">=</span><span class="st">'index'</span>,</span>
+<span id="cb18-10"><a href="#cb18-10"></a>    y<span class="op">=</span><span class="st">'mse'</span>,</span>
+<span id="cb18-11"><a href="#cb18-11"></a>    color<span class="op">=</span><span class="st">'method'</span>,</span>
+<span id="cb18-12"><a href="#cb18-12"></a>    facet_col<span class="op">=</span><span class="st">'dataset'</span>,</span>
+<span id="cb18-13"><a href="#cb18-13"></a>    facet_col_wrap<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb18-14"><a href="#cb18-14"></a>    text<span class="op">=</span><span class="st">'model'</span>,</span>
+<span id="cb18-15"><a href="#cb18-15"></a>    height<span class="op">=</span><span class="dv">800</span></span>
+<span id="cb18-16"><a href="#cb18-16"></a>)</span>
+<span id="cb18-17"><a href="#cb18-17"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>NameError: name 'df2' is not defined</code></pre>
+</div>
+</div>
+</section>
+<section id="시각화4" class="level1">
+<h1>시각화4</h1>
+<div id="bc53c699-673f-45ab-9195-5a8525ef60cd" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>tidydata <span class="op">=</span> df.query(<span class="st">'mtype != "block"'</span>).query(<span class="st">'dataset != "fivenodes"'</span>)<span class="op">\</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>.groupby([<span class="st">"method"</span>,<span class="st">"dataset"</span>,<span class="st">"node"</span>,<span class="st">"time"</span>]).agg({<span class="st">'mse'</span>:<span class="st">'mean'</span>}).reset_index()<span class="op">\</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>.assign(ratio <span class="op">=</span> <span class="kw">lambda</span> df: df[<span class="st">'time'</span>]<span class="op">/</span>df[<span class="st">'node'</span>])<span class="op">\</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>.pivot_table(index<span class="op">=</span>[<span class="st">'dataset'</span>,<span class="st">'ratio'</span>] ,columns<span class="op">=</span>[<span class="st">'method'</span>],values<span class="op">=</span><span class="st">'mse'</span>)<span class="op">\</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>.assign(mse_diff <span class="op">=</span> <span class="kw">lambda</span> df: df[<span class="st">'STGNN'</span>]<span class="op">-</span> df[<span class="st">'IT-STGNN'</span>]).loc[:,<span class="st">'mse_diff'</span>]<span class="op">\</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>.reset_index()</span>
+<span id="cb20-7"><a href="#cb20-7"></a>tidydata</span>
+<span id="cb20-8"><a href="#cb20-8"></a>fig <span class="op">=</span> px.scatter(</span>
+<span id="cb20-9"><a href="#cb20-9"></a>    tidydata,</span>
+<span id="cb20-10"><a href="#cb20-10"></a>    x<span class="op">=</span><span class="st">'ratio'</span>,</span>
+<span id="cb20-11"><a href="#cb20-11"></a>    log_x<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb20-12"><a href="#cb20-12"></a>    y<span class="op">=</span><span class="st">'mse_diff'</span>,</span>
+<span id="cb20-13"><a href="#cb20-13"></a>    text<span class="op">=</span><span class="st">'dataset'</span>,</span>
+<span id="cb20-14"><a href="#cb20-14"></a>    width<span class="op">=</span><span class="dv">625</span>,</span>
+<span id="cb20-15"><a href="#cb20-15"></a>    height<span class="op">=</span><span class="dv">425</span>,</span>
+<span id="cb20-16"><a href="#cb20-16"></a>)</span>
+<span id="cb20-17"><a href="#cb20-17"></a>fig.data[<span class="dv">0</span>][<span class="st">'textposition'</span>] <span class="op">=</span> [<span class="st">'top right'</span>]<span class="op">*</span><span class="dv">3</span> <span class="op">+</span> [<span class="st">'bottom right'</span>] <span class="op">+</span> [<span class="st">'top left'</span>]</span>
+<span id="cb20-18"><a href="#cb20-18"></a>fig.data[<span class="dv">0</span>][<span class="st">'marker'</span>][<span class="st">'size'</span>] <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb20-19"><a href="#cb20-19"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>                            <div id="227dcbac-ee64-497d-b495-c517d594f150" class="plotly-graph-div" style="height:425px; width:625px;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("227dcbac-ee64-497d-b495-c517d594f150")) {                    Plotly.newPlot(                        "227dcbac-ee64-497d-b495-c517d594f150",                        [{"hovertemplate":"ratio=%{x}<br>mse_diff=%{y}<br>dataset=%{text}<extra></extra>","legendgroup":"","marker":{"color":"#636efa","symbol":"circle","size":8},"mode":"markers+text","name":"","orientation":"v","showlegend":false,"text":["chickenpox","monte","pedalme","wikimath","windmillsmall"],"x":[26.1,1.1022222222222222,2.4,0.6844569288389513,1588.3636363636363],"xaxis":"x","y":[0.34189687667069624,0.14589368857247997,0.05887100214575547,0.12185548322896156,0.24875981596822538],"yaxis":"y","type":"scatter","textposition":["top right","top right","top right","bottom right","top left"]}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"bgcolor":"white","angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"ternary":{"bgcolor":"white","aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8","gridwidth":2},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8","gridwidth":2},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"white","subunitcolor":"#C8D4E3","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"ratio"},"type":"log"},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"mse_diff"}},"legend":{"tracegroupgap":0},"height":425,"width":625},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('227dcbac-ee64-497d-b495-c517d594f150');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div>
+</section>
+<section id="시각화5" class="level1">
+<h1>시각화5</h1>
+<div id="6cb00f0e-f317-4804-8b61-3963c764cd52" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>tidydata <span class="op">=</span> df.assign(mtype <span class="op">=</span> df[<span class="st">'mtype'</span>].fillna(<span class="st">"rand"</span>))<span class="op">\</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>.query(<span class="st">'method != "GNAR"'</span>).query(<span class="st">'dataset != "windmillsmall"'</span>).query(<span class="st">'dataset != "wikimath"'</span>)<span class="op">\</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>.groupby([<span class="st">"method"</span>,<span class="st">"dataset"</span>,<span class="st">"mtype"</span>,<span class="st">"mrate"</span>]).agg({<span class="st">'mse'</span>:<span class="st">'mean'</span>}).reset_index()<span class="op">\</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>.sort_values(<span class="st">'mrate'</span>)<span class="op">\</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>.assign(mrate <span class="op">=</span> <span class="kw">lambda</span> df: df[<span class="st">'mrate'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="ss">f'</span><span class="sc">{</span>x<span class="sc">:.3f}</span><span class="ss">'</span>))</span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="co">#---#</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a>fig <span class="op">=</span> px.bar(</span>
+<span id="cb21-8"><a href="#cb21-8"></a>    tidydata,</span>
+<span id="cb21-9"><a href="#cb21-9"></a>    x<span class="op">=</span><span class="st">'mrate'</span>,</span>
+<span id="cb21-10"><a href="#cb21-10"></a>    y<span class="op">=</span><span class="st">'mse'</span>,</span>
+<span id="cb21-11"><a href="#cb21-11"></a>    color<span class="op">=</span><span class="st">'method'</span>,</span>
+<span id="cb21-12"><a href="#cb21-12"></a>    facet_col<span class="op">=</span><span class="st">'dataset'</span>,</span>
+<span id="cb21-13"><a href="#cb21-13"></a>    facet_col_wrap<span class="op">=</span><span class="dv">2</span>,    </span>
+<span id="cb21-14"><a href="#cb21-14"></a>    width<span class="op">=</span><span class="dv">850</span>,</span>
+<span id="cb21-15"><a href="#cb21-15"></a>    height<span class="op">=</span><span class="dv">650</span>,</span>
+<span id="cb21-16"><a href="#cb21-16"></a>    barmode<span class="op">=</span><span class="st">'group'</span>,</span>
+<span id="cb21-17"><a href="#cb21-17"></a>    hover_data<span class="op">=</span><span class="st">'mtype'</span>,</span>
+<span id="cb21-18"><a href="#cb21-18"></a>    opacity<span class="op">=</span><span class="fl">0.2</span></span>
+<span id="cb21-19"><a href="#cb21-19"></a>)</span>
+<span id="cb21-20"><a href="#cb21-20"></a>fig.update_yaxes(showticklabels<span class="op">=</span><span class="va">True</span>,matches<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb21-21"><a href="#cb21-21"></a>fig.update_xaxes(showticklabels<span class="op">=</span><span class="va">True</span>,matches<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb21-22"><a href="#cb21-22"></a><span class="cf">for</span> trace <span class="kw">in</span> fig.data:</span>
+<span id="cb21-23"><a href="#cb21-23"></a>    trace[<span class="st">'marker'</span>][<span class="st">'opacity'</span>]<span class="op">=</span>[<span class="fl">0.2</span>, <span class="dv">1</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>]</span>
+<span id="cb21-24"><a href="#cb21-24"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: Value of 'hover_data_0' is not the name of a column in 'data_frame'. Expected one of ['method', 'dataset', 'mtype', 'mrate', 'mse'] but received: m</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="miruetoto/yechan3" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
