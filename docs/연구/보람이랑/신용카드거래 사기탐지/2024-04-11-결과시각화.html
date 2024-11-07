@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.533">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="김보람">
+<meta name="dcterms.date" content="2024-04-03">
+
+<title>신록예찬’s Blog - Experiment 1(꺾은선)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">신록예찬’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DL2024/"> 
+<span class="menu-text">DL2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/AP2023/"> 
+<span class="menu-text">AP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/PP2024/"> 
+<span class="menu-text">PP2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DV2023/"> 
+<span class="menu-text">DV2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/MP2023/"> 
+<span class="menu-text">MP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/SC2024/"> 
+<span class="menu-text">SC2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DS2022/"> 
+<span class="menu-text">DS2022</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/SP2023/"> 
+<span class="menu-text">SP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/IR2021/"> 
+<span class="menu-text">IR2021</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://miruetoto.github.io/yechan/"> 
+<span class="menu-text">yechan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://miruetoto.github.io/yechan2/"> 
+<span class="menu-text">yechan2</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/miruetoto/yechan3"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Experiment 1(꺾은선)</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../메모.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">메모</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../공부.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">공부</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../연구.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">연구</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../자료.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">자료</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2024-04-11-결과시각화.out.ipynb" download="2024-04-11-결과시각화.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Experiment 1(꺾은선)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>김보람 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 3, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="0a1f655b-d57c-48d0-8482-5cf804ad7996" class="cell" data-tags="[]" data-execution_count="117">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#import sklearn</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> pickle </span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> time </span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="im">import</span> datetime</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="im">import</span> warnings</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-9"><a href="#cb1-9"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="4d2b3692-ea9a-4f6d-8214-c8105ccdb84b" class="cell" data-tags="[]" data-execution_count="118">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
+<span id="cb2-4"><a href="#cb2-4"></a>pd.options.plotting.backend <span class="op">=</span> <span class="st">"plotly"</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>pio.templates.default <span class="op">=</span> <span class="st">"plotly_white"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="af6e09ed-2269-4199-a50e-b07b50e161ff" class="cell" data-tags="[]" data-execution_count="130">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'./240404_meged.csv'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>df <span class="op">=</span> df[[<span class="st">'L2'</span> <span class="kw">not</span> <span class="kw">in</span> l <span class="kw">and</span> <span class="st">'L1'</span> <span class="kw">not</span> <span class="kw">in</span> l <span class="cf">for</span> l <span class="kw">in</span> df.model]]</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#df['diff'] = abs(merged_df['train_frate'] - merged_df['test_frate'])</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>df <span class="op">=</span> df[(df.test_frate <span class="op">&lt;=</span> <span class="fl">0.005</span>) <span class="op">&amp;</span> (<span class="fl">0.009</span> <span class="op">&lt;</span> df.train_frate) <span class="op">&amp;</span> (df.train_frate <span class="op">&lt;</span> <span class="fl">0.51</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cea8bfa0-2a5c-47e9-ac7c-21e4784049e8" class="cell" data-execution_count="131">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>fig <span class="op">=</span> px.scatter(</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    df,</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    x<span class="op">=</span><span class="st">'train_frate'</span>,y<span class="op">=</span><span class="st">'auc'</span>,</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    color<span class="op">=</span><span class="st">'method'</span>,</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    hover_data<span class="op">=</span><span class="st">'model'</span>,</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    opacity<span class="op">=</span><span class="fl">0.2</span>,</span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="co">#---#</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>    width <span class="op">=</span> <span class="dv">750</span>,</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    height <span class="op">=</span> <span class="dv">800</span>  </span>
+<span id="cb4-10"><a href="#cb4-10"></a>)</span>
+<span id="cb4-11"><a href="#cb4-11"></a>fig.data[<span class="dv">3</span>][<span class="st">'marker'</span>][<span class="st">'opacity'</span>] <span class="op">=</span> <span class="fl">0.7</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>fig.data[<span class="dv">3</span>][<span class="st">'marker'</span>][<span class="st">'size'</span>] <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>                            <div id="daf7b906-93e7-4119-93e7-f69cb1c4c123" class="plotly-graph-div" style="height:800px; width:750px;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("daf7b906-93e7-4119-93e7-f69cb1c4c123")) {                    Plotly.newPlot(                        "daf7b906-93e7-4119-93e7-f69cb1c4c123",                        [{"customdata":[["ECOD"],["GMM"],["HBOS"],["IForest"],["INNE"],["KDE"],["KNN"],["LODA"],["LOF"],["MAD"],["MCD"],["OCSVM"],["PCA"],["ROD"],["ECOD"],["GMM"],["HBOS"],["IForest"],["INNE"],["KDE"],["KNN"],["LODA"],["LOF"],["MAD"],["MCD"],["OCSVM"],["PCA"],["ROD"],["ABOD"],["COPOD"],["ECOD"],["GMM"],["HBOS"],["IForest"],["INNE"],["KDE"],["KNN"],["LODA"],["LOF"],["MAD"],["MCD"],["OCSVM"],["PCA"],["ROD"],["ECOD"],["GMM"],["HBOS"],["IForest"],["INNE"],["KDE"],["KNN"],["LODA"],["LOF"],["MAD"],["MCD"],["OCSVM"],["PCA"],["ROD"],["ECOD"],["GMM"],["HBOS"],["IForest"],["INNE"],["KDE"],["KNN"],["LODA"],["LOF"],["MAD"],["MCD"],["OCSVM"],["PCA"],["ROD"],["ECOD"],["GMM"],["HBOS"],["IForest"],["INNE"],["KDE"],["KNN"],["LODA"],["LOF"],["MAD"],["MCD"],["OCSVM"],["PCA"],["ROD"],["ECOD"],["GMM"],["HBOS"],["IForest"],["INNE"],["KDE"],["KNN"],["LODA"],["LOF"],["MAD"],["MCD"],["OCSVM"],["PCA"],["ROD"],["ECOD"],["GMM"],["HBOS"],["IForest"],["INNE"],["KDE"],["KNN"],["LODA"],["LOF"],["MAD"],["MCD"],["OCSVM"],["PCA"],["ROD"],["ABOD"],["COPOD"],["ECOD"],["GMM"],["HBOS"],["IForest"],["INNE"],["KDE"],["KNN"],["LODA"],["LOF"],["MAD"],["MCD"],["OCSVM"],["PCA"],["ROD"],["ECOD"],["GMM"],["HBOS"],["IForest"],["INNE"],["KDE"],["KNN"],["LODA"],["LOF"],["MAD"],["MCD"],["OCSVM"],["PCA"],["ROD"],["ECOD"],["GMM"],["HBOS"],["IForest"],["INNE"],["KDE"],["KNN"],["LODA"],["LOF"],["MAD"],["MCD"],["OCSVM"],["PCA"],["ROD"],["ABOD"],["COPOD"],["ECOD"],["GMM"],["HBOS"],["IForest"],["INNE"],["KDE"],["KNN"],["LODA"],["LOF"],["MAD"],["MCD"],["OCSVM"],["PCA"],["ROD"],["ECOD"],["GMM"],["HBOS"],["IForest"],["INNE"],["KDE"],["KNN"],["LODA"],["LOF"],["MAD"],["MCD"],["OCSVM"],["PCA"],["ROD"]],"hovertemplate":"method=pyod\u003cbr\u003etrain_frate=%{x}\u003cbr\u003eauc=%{y}\u003cbr\u003emodel=%{customdata[0]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"pyod","marker":{"color":"#636efa","opacity":0.2,"symbol":"circle"},"mode":"markers","name":"pyod","orientation":"v","showlegend":true,"x":[0.4503496503496503,0.4503496503496503,0.4503496503496503,0.4503496503496503,0.4503496503496503,0.4503496503496503,0.4503496503496503,0.4503496503496503,0.4503496503496503,0.4503496503496503,0.4503496503496503,0.4503496503496503,0.4503496503496503,0.4503496503496503,0.453046953046953,0.453046953046953,0.453046953046953,0.453046953046953,0.453046953046953,0.453046953046953,0.453046953046953,0.453046953046953,0.453046953046953,0.453046953046953,0.453046953046953,0.453046953046953,0.453046953046953,0.453046953046953,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4483516483516483,0.4483516483516483,0.4483516483516483,0.4483516483516483,0.4483516483516483,0.4483516483516483,0.4483516483516483,0.4483516483516483,0.4483516483516483,0.4483516483516483,0.4483516483516483,0.4483516483516483,0.4483516483516483,0.4483516483516483,0.4501498501498501,0.4501498501498501,0.4501498501498501,0.4501498501498501,0.4501498501498501,0.4501498501498501,0.4501498501498501,0.4501498501498501,0.4501498501498501,0.4501498501498501,0.4501498501498501,0.4501498501498501,0.4501498501498501,0.4501498501498501,0.4474525474525475,0.4474525474525475,0.4474525474525475,0.4474525474525475,0.4474525474525475,0.4474525474525475,0.4474525474525475,0.4474525474525475,0.4474525474525475,0.4474525474525475,0.4474525474525475,0.4474525474525475,0.4474525474525475,0.4474525474525475,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4485514485514486,0.4485514485514486,0.4485514485514486,0.4485514485514486,0.4485514485514486,0.4485514485514486,0.4485514485514486,0.4485514485514486,0.4485514485514486,0.4485514485514486,0.4485514485514486,0.4485514485514486,0.4485514485514486,0.4485514485514486,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4506493506493506,0.4527472527472527,0.4527472527472527,0.4527472527472527,0.4527472527472527,0.4527472527472527,0.4527472527472527,0.4527472527472527,0.4527472527472527,0.4527472527472527,0.4527472527472527,0.4527472527472527,0.4527472527472527,0.4527472527472527,0.4527472527472527,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.4481518481518481,0.4481518481518481,0.4481518481518481,0.4481518481518481,0.4481518481518481,0.4481518481518481,0.4481518481518481,0.4481518481518481,0.4481518481518481,0.4481518481518481,0.4481518481518481,0.4481518481518481,0.4481518481518481,0.4481518481518481],"xaxis":"x","y":[0.717359010371651,0.6507603176318064,0.8589428478824547,0.7983335133967157,0.727136452031115,0.796091724286949,0.7772188310285221,0.8589428478824547,0.4926331568712186,0.7522215319792567,0.797010047536733,0.7611279170267934,0.2997920267934313,0.3548441551426102,0.7171540681533515,0.6426746930000129,0.499843836757357,0.7769549055434319,0.5441780567643298,0.7976774046718231,0.7641668711181127,0.499843836757357,0.470568272794184,0.7389632536187906,0.803559553478042,0.6782972637940163,0.2862169595702646,0.3765313682321191,0.5,0.8108601070950469,0.7558400267737617,0.6684069611780454,0.4998326639892905,0.8654953145917001,0.7532295850066935,0.8675870147255689,0.8026941097724231,0.4998326639892905,0.4308232931726907,0.7767235609103078,0.8678380187416331,0.8213855421686747,0.2605087014725569,0.3319611780455154,0.6721922457210119,0.6001513565405323,0.4998649248403218,0.7294708671825252,0.6568782200953245,0.7597504968836231,0.7263448420585455,0.4998649248403218,0.4917169982440229,0.7004707128109141,0.7609758215464175,0.6953512436562918,0.3348021148910715,0.4260474355016113,0.6920965476664958,0.7286352464461272,0.4998766345916605,0.770787071305206,0.5386572624266925,0.7821829509005676,0.7682580804342463,0.4998766345916605,0.519023183207121,0.8013389891628234,0.7828460399703923,0.7520355292376018,0.3124228966197878,0.3906745240942132,0.7158508269611815,0.5787752304301741,0.4998456611490527,0.8224218035402608,0.6842771834975453,0.8026420314624286,0.7622529159829228,0.4998456611490527,0.5358122876422244,0.7288890553327478,0.8206854914671042,0.7193750865318925,0.2795190075104009,0.370193082441913,0.7106193354674207,0.6496080695165909,0.499838026702455,0.7920207602107932,0.6385132439936053,0.7884226391010447,0.7611872953533004,0.499838026702455,0.5167889294532036,0.7182578096858651,0.7895795912263658,0.7312450289911481,0.3043417823071974,0.393010593191803,0.695057695612106,0.6766189370461899,0.4998380354470993,0.7805739930486177,0.6894231945436421,0.7635409002646317,0.757747394128453,0.4998380354470993,0.5106572855171404,0.7497749894445027,0.7870602877624032,0.7164672392164431,0.3102418455421364,0.3975021765668322,0.5,0.7929900055524708,0.777776235424764,0.527387562465297,0.4998334258745142,0.8291921154913936,0.6900333148250971,0.8270821765685731,0.6973070516379789,0.4998334258745142,0.7058162132148806,0.741671293725708,0.8292476401998888,0.8262493059411439,0.3358134369794558,0.3743475846751805,0.6995574597535554,0.6523595650609285,0.4998264290673455,0.7774738250186899,0.5811408063142257,0.7868346296123521,0.7560765578066935,0.4998264290673455,0.4817912176945014,0.7467588177870725,0.7961098402097311,0.7121502379103151,0.2957869215362451,0.3720922779412852,0.6968009239792102,0.6471488955815867,0.75869383714819,0.7802713387589326,0.5894290242437381,0.811445015783096,0.7737984960586357,0.7480447282866497,0.4936419055184031,0.7525565144460421,0.811445015783096,0.7320300970352663,0.2864338871025468,0.3572262832976096,0.5,0.8190093708165997,0.7365015618027666,0.6698348951361,0.4998326639892905,0.8545961624274878,0.8015729585006692,0.8522534582775547,0.8140116019634092,0.4998326639892905,0.4976572958500669,0.7695225345827756,0.8544288264167782,0.8516956715751897,0.402677376171352,0.384995537706381,0.6702217579077637,0.6622083387056428,0.7296040966200185,0.7519074453043814,0.6103834616626499,0.7540326757626751,0.7244323535343183,0.6892398705796915,0.5145851309906758,0.7213632496575497,0.758921063970704,0.7295141448771312,0.3418186892446919,0.4222512510593091],"yaxis":"y","type":"scatter"},{"customdata":[["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"]],"hovertemplate":"method=Autogluon\u003cbr\u003etrain_frate=%{x}\u003cbr\u003eauc=%{y}\u003cbr\u003emodel=%{customdata[0]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Autogluon","marker":{"color":"#EF553B","opacity":0.2,"symbol":"circle"},"mode":"markers","name":"Autogluon","orientation":"v","showlegend":true,"x":[0.0603263403263403,0.0603263403263403,0.0603263403263403,0.0603263403263403,0.0603263403263403,0.0603263403263403,0.0603263403263403,0.0603263403263403,0.0603263403263403,0.0603263403263403,0.0603263403263403,0.0603263403263403,0.0603263403263403,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.1521230017309846,0.1521230017309846,0.1521230017309846,0.1521230017309846,0.1521230017309846,0.1521230017309846,0.1521230017309846,0.1521230017309846,0.1521230017309846,0.1521230017309846,0.1521230017309846,0.1521230017309846,0.1521230017309846,0.01003663003663,0.01003663003663,0.01003663003663,0.01003663003663,0.01003663003663,0.01003663003663,0.01003663003663,0.01003663003663,0.01003663003663,0.01003663003663,0.01003663003663,0.01003663003663,0.01003663003663,0.0298501498501498,0.0298501498501498,0.0298501498501498,0.0298501498501498,0.0298501498501498,0.0298501498501498,0.0298501498501498,0.0298501498501498,0.0298501498501498,0.0298501498501498,0.0298501498501498,0.0298501498501498,0.0298501498501498,0.0401200582531168,0.0401200582531168,0.0401200582531168,0.0401200582531168,0.0401200582531168,0.0401200582531168,0.0401200582531168,0.0401200582531168,0.0401200582531168,0.0401200582531168,0.0401200582531168,0.0401200582531168,0.0401200582531168,0.2015362756415948,0.2015362756415948,0.2015362756415948,0.2015362756415948,0.2015362756415948,0.2015362756415948,0.2015362756415948,0.2015362756415948,0.2015362756415948,0.2015362756415948,0.2015362756415948,0.2015362756415948,0.2015362756415948,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.091863800388613,0.08112812133698,0.08112812133698,0.08112812133698,0.08112812133698,0.08112812133698,0.08112812133698,0.08112812133698,0.08112812133698,0.08112812133698,0.08112812133698,0.08112812133698,0.08112812133698,0.08112812133698,0.0090869312426198,0.0090869312426198,0.0090869312426198,0.0090869312426198,0.0090869312426198,0.0090869312426198,0.0090869312426198,0.0090869312426198,0.0090869312426198,0.0090869312426198,0.0090869312426198,0.0090869312426198,0.0090869312426198,0.0501165501165501,0.0501165501165501,0.0501165501165501,0.0501165501165501,0.0501165501165501,0.0501165501165501,0.0501165501165501,0.0501165501165501,0.0501165501165501,0.0501165501165501,0.0501165501165501,0.0501165501165501,0.0501165501165501,0.0911706527602949,0.0911706527602949,0.0911706527602949,0.0911706527602949,0.0911706527602949,0.0911706527602949,0.0911706527602949,0.0911706527602949,0.0911706527602949,0.0911706527602949,0.0911706527602949,0.0911706527602949,0.0911706527602949,0.0198734598734598,0.0198734598734598,0.0198734598734598,0.0198734598734598,0.0198734598734598,0.0198734598734598,0.0198734598734598,0.0198734598734598,0.0198734598734598,0.0198734598734598,0.0198734598734598,0.0198734598734598,0.0198734598734598,0.303030303030303,0.303030303030303,0.303030303030303,0.303030303030303,0.303030303030303,0.303030303030303,0.303030303030303,0.303030303030303,0.303030303030303,0.303030303030303,0.303030303030303,0.303030303030303,0.303030303030303,0.142014928921219,0.142014928921219,0.142014928921219,0.142014928921219,0.142014928921219,0.142014928921219,0.142014928921219,0.142014928921219,0.142014928921219,0.142014928921219,0.142014928921219,0.142014928921219,0.142014928921219,0.4028061451025664,0.4028061451025664,0.4028061451025664,0.4028061451025664,0.4028061451025664,0.4028061451025664,0.4028061451025664,0.4028061451025664,0.4028061451025664,0.4028061451025664,0.4028061451025664,0.4028061451025664,0.4028061451025664,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.1004773004773004,0.1004773004773004,0.1004773004773004,0.1004773004773004,0.1004773004773004,0.1004773004773004,0.1004773004773004,0.1004773004773004,0.1004773004773004,0.1004773004773004,0.1004773004773004,0.1004773004773004,0.1004773004773004,0.0707070707070707,0.0707070707070707,0.0707070707070707,0.0707070707070707,0.0707070707070707,0.0707070707070707,0.0707070707070707,0.0707070707070707,0.0707070707070707,0.0707070707070707,0.0707070707070707,0.0707070707070707,0.0707070707070707],"xaxis":"x","y":[0.8171151121456732,0.8167280366174777,0.923695661699972,0.9536511911701632,0.8177139837175981,0.8177139837175981,0.9297653777870434,0.8457660045439879,0.8458994559696605,0.9073833827081476,0.9433794150179994,0.9322664301278876,0.9542567021164998,0.9345290203169436,0.9116833093269028,0.8152241719988407,0.970990717677021,0.9328499188587552,0.9327513429133458,0.9532915538070176,0.9331570491364308,0.9324467873805136,0.9481777427285528,0.9615583238558202,0.9700185675885236,0.9737868905762866,0.9679281959734208,0.9456134087077258,0.9782991173261928,0.9857195279182784,0.9734920162650004,0.9734920162650004,0.9818139442626204,0.9741882376276902,0.974386591292274,0.9796479222453636,0.981731627491818,0.9856758901120698,0.98613111177229,0.7782814397650917,0.7668436089891773,0.7228442685591251,0.970487415849339,0.8675350475809955,0.8675350475809955,0.9175394869941051,0.8947486499427634,0.8954660908113662,0.9118982613355656,0.9448783442257505,0.9640962464762158,0.9706800546682016,0.7483644836671223,0.7186088577880787,0.7269362482914364,0.9438445900437789,0.781298904538341,0.781298904538341,0.9210111229967712,0.7955833630474831,0.7953047928923753,0.933157400804263,0.9447199193756068,0.9477829529922148,0.9527922634258434,0.8972672702174395,0.881323932450678,0.804711272998408,0.9759694345364044,0.9406795991778006,0.9406795991778006,0.942605369485924,0.954682052677186,0.9417174243798238,0.9276582935332408,0.9635885829151803,0.9766451544646636,0.974090265602644,0.8902228290166404,0.8942752389253023,0.9433865425984796,0.9504233146760844,0.91814446857068,0.91814446857068,0.9532288292282346,0.9202497065387696,0.9211584287607122,0.7924208914168258,0.956875053528336,0.9435748363922154,0.9454609230552212,0.9345290203169436,0.9116833093269028,0.8152241719988407,0.970990717677021,0.9243573069051716,0.9244878832507698,0.9532915538070176,0.9241424996211448,0.9320057703710132,0.9481777427285528,0.9615583238558202,0.9700185675885236,0.9737813732659092,0.888589963957611,0.8697258623729212,0.9478266831208008,0.956389811169223,0.8895008178096414,0.8895008178096414,0.940662891030538,0.8921948149889328,0.8925835194217547,0.8962679477385359,0.9473773775244364,0.9552408375937788,0.9459119312060488,0.7503973363376654,0.7161245624270711,0.7597749768639601,0.9555109041162032,0.7610990121916871,0.7610990121916871,0.8185518347885568,0.7634717136764173,0.7638200116686114,0.917704854544723,0.9394552468514868,0.94171101074317,0.9449638876594376,0.8838884709684609,0.865052797280731,0.7986884263902819,0.9773570712136408,0.9038420818009584,0.9038420818009584,0.9704711356291096,0.9334064694082248,0.9473998384041012,0.9255279728073108,0.961841775325978,0.9680276941936922,0.9778752925442996,0.9330125607533044,0.9359434437540616,0.9434194162328448,0.9777826047804362,0.9339161026374906,0.9339161026374906,0.9686035927502477,0.9474260312546394,0.9474023018718224,0.9546689690252456,0.9783022174195576,0.9749655011280584,0.977874480083138,0.8506483597214796,0.850200679555534,0.8083226646355627,0.979878700957752,0.8654683963461735,0.8654683963461735,0.9599046029353774,0.8798900448895587,0.8676001101981946,0.9551671609379812,0.9649404983767376,0.9765248135003592,0.9802912689538196,0.9262297746361248,0.8919769910309528,0.9300691869347464,0.964840810039732,0.950147650469706,0.950147650469706,0.9458087770140348,0.9520604804328744,0.9525074325321118,0.885792174150041,0.9642557091098214,0.9584672105938272,0.964246957600186,0.9549927063073076,0.9338244998610724,0.979718324534593,0.9825871769936092,0.9585805084745764,0.9585805084745764,0.985574117810503,0.9604204292859126,0.9730524103917756,0.9775484509585995,0.9842456237843844,0.984232599333148,0.982494269241456,0.9252594120455956,0.8883334423091784,0.8997268669048283,0.9588997600550032,0.9184954794838112,0.9184954794838112,0.9579070891759248,0.940706242730816,0.9402059445332762,0.8835206727177981,0.955367456642474,0.958330608937208,0.9564691033665612,0.884682454044472,0.8806938610351074,0.9231714131565764,0.939773088558326,0.9092613154649508,0.9092613154649508,0.930556692936144,0.9188359859724844,0.9093745182858686,0.8233349551042429,0.9403204362403176,0.9216335407915528,0.939313653705345,0.9446949708163428,0.9307402854401536,0.9634194850883504,0.9801536139761732,0.963540917086432,0.963540917086432,0.9794919844886864,0.965148017110418,0.9648786679459502,0.95869712960742,0.9805923682737668,0.9784200847525384,0.9799732149996002,0.8602445646143262,0.8594468568835889,0.9362561245952896,0.9665357291689785,0.8628509852368587,0.8628509852368587,0.9661584516332664,0.8774797367441196,0.8768731336474848,0.9272939337224472,0.9557352350093826,0.9669857497589616,0.9664377109856808],"yaxis":"y","type":"scatter"},{"customdata":[["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"],["KNeighborsUnif"],["KNeighborsDist"],["LightGBMXT"],["LightGBM"],["RandomForestGini"],["RandomForestEntr"],["CatBoost"],["ExtraTreesGini"],["ExtraTreesEntr"],["NeuralNetFastAI"],["XGBoost"],["NeuralNetTorch"],["LightGBMLarge"]],"hovertemplate":"method=Auto_not_best\u003cbr\u003etrain_frate=%{x}\u003cbr\u003eauc=%{y}\u003cbr\u003emodel=%{customdata[0]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Auto_not_best","marker":{"color":"#00cc96","opacity":0.2,"symbol":"circle"},"mode":"markers","name":"Auto_not_best","orientation":"v","showlegend":true,"x":[0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.2855239998097141,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5007215007215007,0.5007215007215007,0.5007215007215007,0.5007215007215007,0.5007215007215007,0.5007215007215007,0.5007215007215007,0.5007215007215007,0.5007215007215007,0.5007215007215007,0.5007215007215007,0.5007215007215007,0.5007215007215007,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.4991674991674991,0.4991674991674991,0.4991674991674991,0.4991674991674991,0.4991674991674991,0.4991674991674991,0.4991674991674991,0.4991674991674991,0.4991674991674991,0.4991674991674991,0.4991674991674991,0.4991674991674991,0.4991674991674991,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039,0.5038295038295039],"xaxis":"x","y":[0.9171655685582004,0.8812197069555467,0.946322974043902,0.942742760197936,0.9138838566246068,0.9138838566246068,0.9457481317247732,0.9249418448925772,0.9224696560745392,0.8751155941117733,0.9446124173780376,0.9407372695718508,0.944683123134049,0.9407757286448604,0.8999993221842596,0.9578577544763376,0.960897374783326,0.9380199840253356,0.9380199840253356,0.9591070737859322,0.9424566108155912,0.9412543351460736,0.8857152430713815,0.9607720393906164,0.9543694645300032,0.9591908727914554,0.9499909201110494,0.9077943978090326,0.9673890427518697,0.968830935818252,0.9531154405689438,0.9531154405689438,0.967842032045642,0.9550956772357466,0.9548543565709248,0.8948499439459254,0.971515869032486,0.9625701681086156,0.9678571093520176,0.9709328151027208,0.9521932259855632,0.9258328706274292,0.9920183231538032,0.944919489172682,0.944919489172682,0.9669905607995558,0.9573292615213768,0.9547612437534704,0.896141032759578,0.9863548028872848,0.9831204886174348,0.9930732926152138,0.9293045307002537,0.8843440501543234,0.9527105461625096,0.9530273330431808,0.9138962626789504,0.9138962626789504,0.9539806838078216,0.9239068610024884,0.9184407507201212,0.8799626899143165,0.958325996458366,0.946563684628444,0.9534220292301098,0.9150249791840134,0.8796835970024978,0.9392870524562864,0.950563419372745,0.9227071190674436,0.9227071190674436,0.9441631973355537,0.9268758673327782,0.9277692200943656,0.8816933805162365,0.9487378573411046,0.9314553844018874,0.94843949486539,0.9767626059794734,0.9613370147255688,0.9852465417224452,0.9861752565818832,0.977549085229808,0.977549085229808,0.9815763052208836,0.9780845604640784,0.978951918786256,0.9545069165551092,0.9812388442659528,0.9805667112896028,0.9845939312806782,0.9387230031441696,0.9051544725186096,0.9532491592966412,0.9519018242230726,0.9385712316922052,0.9385712316922052,0.9545927146214058,0.9403965596144888,0.9408783322120078,0.9117004159468184,0.9519338067129502,0.9505259956585224,0.9520419656787178,0.9497365106295468,0.9334091668594636,0.971227817622512,0.9664100323042252,0.9513577200243354,0.9513577200243354,0.9711768335004242,0.951483252358551,0.9515329511666368,0.9027642819807544,0.9705873028114104,0.969849961012142,0.9663526216121264,0.937849325248409,0.8931649129172715,0.9588086220972424,0.9591191334291616,0.9342468268532992,0.9342468268532992,0.9609481847298202,0.9431653054175506,0.943959028204198,0.8923027206374903,0.962487221935358,0.9546130121692532,0.9579773937283688,0.9587175863949626,0.9302208835341366,0.9322970895929396,0.96976176310179,0.9431355049828946,0.9431355049828946,0.947925033467202,0.9534967028608262,0.961570975259061,0.9123754276364718,0.9707980068421836,0.9631786404878776,0.9703294660121968,0.9311835161812028,0.9248383755439584,0.9423497757473698,0.9544690047851676,0.9429036338929924,0.9429036338929924,0.9576457433682912,0.9494441619287394,0.9499172599496476,0.8730075695683346,0.9596553678910248,0.93401220467846,0.9528418185304368,0.9561517236304772,0.9387299952172474,0.9684252480286476,0.9725055492194302,0.9491917148007798,0.9491917148007798,0.9684995646468736,0.9558613246998516,0.955635922151503,0.9208074267564352,0.9707472131268166,0.9658523723679532,0.9694038728033062,0.948683626759788,0.9189465381109442,0.9628497071268178,0.9656303785299502,0.9477003328273712,0.9477003328273712,0.9644887455875096,0.9500156306579892,0.950198110068625,0.8933028960689753,0.9658004093060232,0.9587299924190356,0.9634358726797692],"yaxis":"y","type":"scatter"},{"customdata":[["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"],["GCN"]],"hovertemplate":"method=Proposed\u003cbr\u003etrain_frate=%{x}\u003cbr\u003eauc=%{y}\u003cbr\u003emodel=%{customdata[0]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Proposed","marker":{"color":"#ab63fa","opacity":0.7,"symbol":"circle","size":9},"mode":"markers","name":"Proposed","orientation":"v","showlegend":true,"x":[0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.5012765012765013,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.5050505050505051,0.4999444999444999,0.4992784992784992,0.5006105006105006,0.5006105006105006,0.5020535020535021,0.5004995004995005,0.5000555000555,0.4959484959484959,0.4985014985014985,0.5024975024975025,0.4977244977244977,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.283573569287855,0.1987834117751531,0.4977244977244977,0.5026085026085026,0.4992784992784992,0.4967254967254967,0.5028305028305028,0.5042735042735043,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.089951847189754,0.0801513160231591,0.0701942501942502,0.0606993006993007,0.0399069370937377,0.03008991008991,0.0200111000111,0.0099389499389499,0.4031613533433976,0.3036297036297036,0.2010922653405559,0.0999444999444999,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978,0.4264307121449978],"xaxis":"x","y":[0.9508453567355843,0.972177599286033,0.9541623283256484,0.9519187862561356,0.9520625712727452,0.95179483365561,0.9513981853339284,0.9510238484803412,0.9502553423570828,0.9215293271852844,0.9835564480142792,0.984034905052308,0.9834250582577222,0.9832242550448708,0.9833606029054488,0.9564926372155288,0.9524071595022064,0.9518146660716942,0.951978283504388,0.9318607764390896,0.9580544399821508,0.9653893351182508,0.9655232039268185,0.9844823739402052,0.9800256581883088,0.9580767514502454,0.9578480589022758,0.9577420794288264,0.98370519113491,0.9825623481580644,0.9840944023005602,0.9724602112152312,0.9523674946700382,0.9513808319698548,0.9519311815161884,0.95111557340473,0.9507015717189746,0.9229671773513808,0.9408023966046714,0.9801149040606872,0.9776215975011155,0.9780120481927712,0.979016064257028,0.9873159303882196,0.9871430165104864,0.9872211066488176,0.9869979919678716,0.9868250780901384,0.9867469879518072,0.9680065652528516,0.9828445197419144,0.9604532839962996,0.9846818242808276,0.9471520045983244,0.958848274519114,0.9840144195353496,0.96344553172747,0.9609013463967712,0.9859703413977512,0.9809523600458356,0.9698267722541654,0.9516758391591056,0.9559497248252268,0.9718999454608556,0.9847339977192722,0.9841167137686548,0.9514824731022856,0.9517179830432844,0.9518419356438098,0.9842183549010858,0.9835738013783528,0.9841960434329912,0.9833333333333332,0.9885195101393228,0.988331102186524,0.9882939164063662,0.988234419158114,0.9881030294015568,0.9880683226734096,0.9729983870675784,0.980289756113678,0.9770063392682136,0.9719339870488946,0.9737635277423986,0.977288239523064,0.9741023586490224,0.9795069165551094,0.98045515394913,0.980276662204373,0.9793507362784472,0.9818384649709953,0.9656459170013388,0.9576751450245428,0.9577532351628736,0.9576137884872824,0.9584783578759482,0.9783076751450244,0.9818998215082552,0.967681838464971,0.9654116465863454,0.9594377510040162,0.9582998661311914,0.9579373047746542,0.9569556001784918,0.9558400267737618,0.958517402945114,0.9509039782171776,0.9834676109352142,0.9843761809799008,0.9796725807584864,0.9678422153958128,0.9751843709666173,0.9492864471714084,0.9363934770335414,0.9633614743695856,0.9650960430698332,0.9768658653967932,0.980787268121054,0.960843373493976,0.9653670236501564,0.962405176260598,0.9582608210620258,0.9578424810352522,0.9577588130298976,0.9571062025881304,0.9554886211512718,0.9566209281570728,0.9572177599286033],"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"bgcolor":"white","angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"ternary":{"bgcolor":"white","aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8","gridwidth":2},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8","gridwidth":2},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"white","subunitcolor":"#C8D4E3","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"train_frate"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"auc"}},"legend":{"title":{"text":"method"},"tracegroupgap":0},"margin":{"t":60},"height":800,"width":750},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('daf7b906-93e7-4119-93e7-f69cb1c4c123');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div>
+<div id="b8e401fa-b609-485d-a230-4038efe95e76" class="cell" data-tags="[]" data-execution_count="113">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df.sort_values(<span class="st">'auc'</span>,ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="113">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">time</th>
+<th data-quarto-table-cell-role="th">acc</th>
+<th data-quarto-table-cell-role="th">pre</th>
+<th data-quarto-table-cell-role="th">rec</th>
+<th data-quarto-table-cell-role="th">f1</th>
+<th data-quarto-table-cell-role="th">auc</th>
+<th data-quarto-table-cell-role="th">graph_based</th>
+<th data-quarto-table-cell-role="th">method</th>
+<th data-quarto-table-cell-role="th">throw_rate</th>
+<th data-quarto-table-cell-role="th">train_size</th>
+<th data-quarto-table-cell-role="th">train_cols</th>
+<th data-quarto-table-cell-role="th">train_frate</th>
+<th data-quarto-table-cell-role="th">test_size</th>
+<th data-quarto-table-cell-role="th">test_frate</th>
+<th data-quarto-table-cell-role="th">hyper_params</th>
+<th data-quarto-table-cell-role="th">theta</th>
+<th data-quarto-table-cell-role="th">gamma</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">449</td>
+<td>LightGBMLarge</td>
+<td>NaN</td>
+<td>0.969253</td>
+<td>0.014235</td>
+<td>1.000000</td>
+<td>0.028070</td>
+<td>0.993073</td>
+<td>False</td>
+<td>Auto_not_best</td>
+<td>0.200000</td>
+<td>21021</td>
+<td>['amt']</td>
+<td>0.285524</td>
+<td>9009</td>
+<td>0.000444</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">440</td>
+<td>LightGBM</td>
+<td>NaN</td>
+<td>0.978688</td>
+<td>0.015464</td>
+<td>0.750000</td>
+<td>0.030303</td>
+<td>0.992018</td>
+<td>False</td>
+<td>Auto_not_best</td>
+<td>0.200000</td>
+<td>21021</td>
+<td>['amt']</td>
+<td>0.285524</td>
+<td>9009</td>
+<td>0.000444</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">447</td>
+<td>XGBoost</td>
+<td>NaN</td>
+<td>0.976801</td>
+<td>0.014218</td>
+<td>0.750000</td>
+<td>0.027907</td>
+<td>0.986355</td>
+<td>False</td>
+<td>Auto_not_best</td>
+<td>0.200000</td>
+<td>21021</td>
+<td>['amt']</td>
+<td>0.285524</td>
+<td>9009</td>
+<td>0.000444</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">596</td>
+<td>LightGBM</td>
+<td>NaN</td>
+<td>0.923909</td>
+<td>0.059794</td>
+<td>0.966667</td>
+<td>0.112621</td>
+<td>0.986175</td>
+<td>False</td>
+<td>Auto_not_best</td>
+<td>0.300000</td>
+<td>14014</td>
+<td>['amt']</td>
+<td>0.426431</td>
+<td>6006</td>
+<td>0.004995</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">167</td>
+<td>LightGBMLarge</td>
+<td>NaN</td>
+<td>0.998218</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.986131</td>
+<td>False</td>
+<td>Autogluon</td>
+<td>0.107023</td>
+<td>39284</td>
+<td>['amt']</td>
+<td>0.152123</td>
+<td>16835</td>
+<td>0.001782</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1489</td>
+<td>PCA</td>
+<td>0.002272</td>
+<td>0.366235</td>
+<td>0.000523</td>
+<td>0.225131</td>
+<td>0.001044</td>
+<td>0.295787</td>
+<td>False</td>
+<td>pyod</td>
+<td>0.018146</td>
+<td>10010</td>
+<td>['amt']</td>
+<td>0.450649</td>
+<td>259642</td>
+<td>0.001471</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1618</td>
+<td>PCA</td>
+<td>0.002297</td>
+<td>0.367720</td>
+<td>0.000457</td>
+<td>0.204918</td>
+<td>0.000913</td>
+<td>0.286434</td>
+<td>False</td>
+<td>pyod</td>
+<td>0.048196</td>
+<td>10010</td>
+<td>['amt']</td>
+<td>0.452747</td>
+<td>86555</td>
+<td>0.001410</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">219</td>
+<td>PCA</td>
+<td>0.002264</td>
+<td>0.362902</td>
+<td>0.000490</td>
+<td>0.209302</td>
+<td>0.000978</td>
+<td>0.286217</td>
+<td>False</td>
+<td>pyod</td>
+<td>0.117780</td>
+<td>10010</td>
+<td>['amt']</td>
+<td>0.453047</td>
+<td>28859</td>
+<td>0.001490</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">633</td>
+<td>PCA</td>
+<td>0.002195</td>
+<td>0.382297</td>
+<td>0.000375</td>
+<td>0.176471</td>
+<td>0.000748</td>
+<td>0.279519</td>
+<td>False</td>
+<td>pyod</td>
+<td>0.125497</td>
+<td>10010</td>
+<td>['amt']</td>
+<td>0.447453</td>
+<td>25951</td>
+<td>0.001310</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">235</td>
+<td>PCA</td>
+<td>0.002498</td>
+<td>0.419414</td>
+<td>0.000866</td>
+<td>0.100000</td>
+<td>0.001718</td>
+<td>0.260509</td>
+<td>False</td>
+<td>pyod</td>
+<td>0.300000</td>
+<td>14014</td>
+<td>['amt']</td>
+<td>0.426431</td>
+<td>6006</td>
+<td>0.004995</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>649 rows × 18 columns</p>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="miruetoto/yechan3" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

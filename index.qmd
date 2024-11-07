@@ -1,0 +1,72 @@
+---
+listing:
+  contents: [메모,공부,연구,자료]
+  sort: [date desc,title]
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: true
+  page-size: 9999
+page-layout: full
+title-block-banner: true
+execute: 
+  enabled: true
+  cache: false
+  freeze: false
+---
+
+**About this blog**
+
+This blog was created for my personal research, study and lecture preparation. Therefore, the contents of the blog can be thought of as my practice notes. As a result, sometimes the content of a post may be left unstructured or unfinished. The blog is named after my favorite essay ‘신록예찬’, which is also a nickname I use informally. You can check the written article in the sidebar on the left. It is a great honor for me if these posts can help others to learn and research.
+
+---
+
+**Some links that help me**
+
+::: {.panel-tabset} 
+
+## first batch
+
+- **paperswithcode**: <https://paperswithcode.com/>
+- **플루토**: <https://cotangent.dev/how-to-publish-pluto-jl-notebooks-online-interactively/>
+- **연구비**: <http://scieng.net/now/1047>
+
+## second batch
+
+- **matplotlib**: <https://matplotlib.org/stable/gallery/index.html> 
+- **jupyterlab**: <https://jupyterlab.readthedocs.io/en/stable/index.html> 
+- **pandas**: <https://pandas.pydata.org/docs/user_guide/index.html#user-guide>
+- **julia**: <https://docs.julialang.org/en/v1/> 
+- **keras**: <https://keras.io/examples/>
+- **julia plots**: <https://docs.juliaplots.org/stable/> 
+- **pytorch lightning**: <https://www.pytorchlightning.ai/> 
+- **plotly**: <https://plotly.com/graphing-libraries/>
+- **quarto**: <https://quarto.org/> 
+- **AutoGluon**: <https://auto.gluon.ai/stable/index.html>
+
+## third batch 
+
+- **latex**: <https://editor.codecogs.com/> 
+- **table**: <https://www.tablesgenerator.com/> 
+- **pytorch lightning (codes in book)**: <https://github.com/PacktPublishing/Deep-Learning-with-PyTorch-Lightning> 
+- **PyG**: <https://github.com/rusty1s/pytorch_geometric> 
+- **rayshader**: <https://www.rayshader.com/reference/plot_gg.html> 
+- **South Korea (map)**: <https://github.com/southkorea> 
+- **regexp**: <https://zvon.org/comp/m/regexp.html> 
+- **rpy2**: <https://rpy2.github.io/doc/v3.1.x/html/index.html>
+- **pywave**: <https://pywavelets.readthedocs.io/en/latest/ref/wavelets.html>
+- **PyGSP**: <https://pygsp.readthedocs.io/en/stable/#>
+- **latex (neural networks)**: <https://tikz.net/neural_networks/> 
+- **plotly overview**: <https://plotly.com/python/plotly-express/>
+- **fastai (official)**: <https://docs.fast.ai/>
+- **fastai (lecture)**: <https://course.fast.ai/#> 
+- **fastai (github codes)**: <https://github.com/fastai/fastai/tree/master/dev_nbs/course> 
+- **GML (codes in book)**: <https://github.com/PacktPublishing/Graph-Machine-Learning>
+- **GMLKOR (codes in book)**: <https://github.com/AcornPublishing/graph-ml>
+- **mathNET** <https://gtribello.github.io/mathNET/index.html>
+
+## lectures notes
+
+- <http://personal.psu.edu/drh20/asymp/fall2006/lectures/> 
+- <https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html> 
+:::
