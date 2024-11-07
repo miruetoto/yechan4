@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.533">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="신록예찬">
+<meta name="dcterms.date" content="2023-05-06">
+
+<title>신록예찬’s Blog - (연구&amp;보람) 신용카드거래 사기탐지 – Start</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">신록예찬’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DL2024/"> 
+<span class="menu-text">DL2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/AP2023/"> 
+<span class="menu-text">AP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/PP2024/"> 
+<span class="menu-text">PP2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DV2023/"> 
+<span class="menu-text">DV2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/MP2023/"> 
+<span class="menu-text">MP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/SC2024/"> 
+<span class="menu-text">SC2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DS2022/"> 
+<span class="menu-text">DS2022</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/SP2023/"> 
+<span class="menu-text">SP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/IR2021/"> 
+<span class="menu-text">IR2021</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://miruetoto.github.io/yechan/"> 
+<span class="menu-text">yechan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://miruetoto.github.io/yechan2/"> 
+<span class="menu-text">yechan2</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/miruetoto/yechan3"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">(연구&amp;보람) 신용카드거래 사기탐지 – Start</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../메모.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">메모</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../공부.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">공부</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../연구.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">연구</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../자료.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">자료</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">imports</a></li>
+  <li><a href="#data1" id="toc-data1" class="nav-link" data-scroll-target="#data1">data1</a>
+  <ul class="collapse">
+  <li><a href="#read-and-define-data" id="toc-read-and-define-data" class="nav-link" data-scroll-target="#read-and-define-data">read and define data</a></li>
+  <li><a href="#embedding" id="toc-embedding" class="nav-link" data-scroll-target="#embedding">embedding</a></li>
+  <li><a href="#learn" id="toc-learn" class="nav-link" data-scroll-target="#learn">learn</a></li>
+  <li><a href="#evaluate" id="toc-evaluate" class="nav-link" data-scroll-target="#evaluate">evaluate</a></li>
+  </ul></li>
+  <li><a href="#data1-다른코드" id="toc-data1-다른코드" class="nav-link" data-scroll-target="#data1-다른코드">data1 : 다른코드</a></li>
+  <li><a href="#data2" id="toc-data2" class="nav-link" data-scroll-target="#data2">data2</a>
+  <ul class="collapse">
+  <li><a href="#read-and-define-data-1" id="toc-read-and-define-data-1" class="nav-link" data-scroll-target="#read-and-define-data-1">read and define data</a></li>
+  </ul></li>
+  <li><a href="#textbook-vs-proposed" id="toc-textbook-vs-proposed" class="nav-link" data-scroll-target="#textbook-vs-proposed">textbook vs proposed</a></li>
+  <li><a href="#appedix" id="toc-appedix" class="nav-link" data-scroll-target="#appedix">appedix</a></li>
+  <li><a href="#ref" id="toc-ref" class="nav-link" data-scroll-target="#ref">ref</a></li>
+  <li><a href="#신용카드-거래에-대한-그래프-분석" id="toc-신용카드-거래에-대한-그래프-분석" class="nav-link" data-scroll-target="#신용카드-거래에-대한-그래프-분석">신용카드 거래에 대한 그래프 분석</a></li>
+  <li><a href="#샘플-0.3" id="toc-샘플-0.3" class="nav-link" data-scroll-target="#샘플-0.3">샘플 = 0.3</a>
+  <ul class="collapse">
+  <li><a href="#네트워크-토폴로지" id="toc-네트워크-토폴로지" class="nav-link" data-scroll-target="#네트워크-토폴로지">네트워크 토폴로지</a></li>
+  <li><a href="#커뮤니티-감지" id="toc-커뮤니티-감지" class="nav-link" data-scroll-target="#커뮤니티-감지">커뮤니티 감지</a></li>
+  <li><a href="#사기-탐지를-위한-지도-및-비지도-임베딩" id="toc-사기-탐지를-위한-지도-및-비지도-임베딩" class="nav-link" data-scroll-target="#사기-탐지를-위한-지도-및-비지도-임베딩">사기 탐지를 위한 지도 및 비지도 임베딩</a>
+  <ul class="collapse">
+  <li><a href="#지도학습" id="toc-지도학습" class="nav-link" data-scroll-target="#지도학습">지도학습</a></li>
+  <li><a href="#비지도학습" id="toc-비지도학습" class="nav-link" data-scroll-target="#비지도학습">비지도학습</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2023-05-06-Start.out.ipynb" download="2023-05-06-Start.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">(연구&amp;보람) 신용카드거래 사기탐지 – Start</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>신록예찬 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 6, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="imports" class="level2">
+<h2 class="anchored" data-anchor-id="imports">imports</h2>
+<div id="12eb1522-9b25-4579-ab8f-c6938293ab2d" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> sklearn</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># split </span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># embedding </span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="im">from</span> node2vec <span class="im">import</span> Node2Vec</span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="im">from</span> node2vec.edges <span class="im">import</span> HadamardEmbedder, AverageEmbedder, WeightedL1Embedder, WeightedL2Embedder</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># models </span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier </span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="co"># 평가 </span></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/home/cgb2/anaconda3/envs/py38/lib/python3.8/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm</code></pre>
+</div>
+</div>
+<div id="a212dc30-e7ac-4937-8f65-91a6a1486d51" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> build_graph_bipartite(df_input, graph_type<span class="op">=</span>nx.Graph()):</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    df<span class="op">=</span>df_input.copy()</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    mapping<span class="op">=</span>{x:node_id <span class="cf">for</span> node_id, x <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">set</span>(df[<span class="st">"cc_num"</span>].values.tolist()<span class="op">+\</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>                                                      df[<span class="st">"merchant"</span>].values.tolist()))}</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    </span>
+<span id="cb3-6"><a href="#cb3-6"></a>    df[<span class="st">"from"</span>]<span class="op">=</span>df[<span class="st">"cc_num"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x:mapping[x])  <span class="co">#엣지의 출발점</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>    df[<span class="st">"to"</span>]<span class="op">=</span>df[<span class="st">"merchant"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x:mapping[x])  <span class="co">#엣지의 도착점</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>    </span>
+<span id="cb3-9"><a href="#cb3-9"></a>    df <span class="op">=</span> df[[<span class="st">'from'</span>, <span class="st">'to'</span>, <span class="st">"amt"</span>, <span class="st">"is_fraud"</span>]].groupby([<span class="st">'from'</span>,<span class="st">'to'</span>]).agg({<span class="st">"is_fraud"</span>:<span class="st">"sum"</span>,<span class="st">"amt"</span>:<span class="st">"sum"</span>}).reset_index()</span>
+<span id="cb3-10"><a href="#cb3-10"></a>    df[<span class="st">"is_fraud"</span>]<span class="op">=</span>df[<span class="st">"is_fraud"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x:<span class="dv">1</span> <span class="cf">if</span> x<span class="op">&gt;</span><span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span>)</span>
+<span id="cb3-11"><a href="#cb3-11"></a>    </span>
+<span id="cb3-12"><a href="#cb3-12"></a>    G<span class="op">=</span>nx.from_edgelist(df[[<span class="st">"from"</span>,<span class="st">"to"</span>]].values, create_using<span class="op">=</span>graph_type)</span>
+<span id="cb3-13"><a href="#cb3-13"></a>    </span>
+<span id="cb3-14"><a href="#cb3-14"></a>    nx.set_edge_attributes(G, {(<span class="bu">int</span>(x[<span class="st">"from"</span>]),<span class="bu">int</span>(x[<span class="st">"to"</span>])):x[<span class="st">"is_fraud"</span>] <span class="cf">for</span> idx, x <span class="kw">in</span> df[[<span class="st">"from"</span>,<span class="st">"to"</span>,<span class="st">"is_fraud"</span>]].iterrows()}, <span class="st">"label"</span>)  <span class="co">#엣지 속성 설정,각 속성의 사기 여부부 </span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>    </span>
+<span id="cb3-16"><a href="#cb3-16"></a>    nx.set_edge_attributes(G,{(<span class="bu">int</span>(x[<span class="st">"from"</span>]),<span class="bu">int</span>(x[<span class="st">"to"</span>])):x[<span class="st">"amt"</span>] <span class="cf">for</span> idx,x <span class="kw">in</span> df[[<span class="st">"from"</span>,<span class="st">"to"</span>,<span class="st">"amt"</span>]].iterrows()}, <span class="st">"weight"</span>) <span class="co"># 엣지 속성 설정, 각 엣지의 거래 금액</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a></span>
+<span id="cb3-18"><a href="#cb3-18"></a>    <span class="cf">return</span> G</span>
+<span id="cb3-19"><a href="#cb3-19"></a></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="kw">def</span> down_sample_textbook(df):</span>
+<span id="cb3-21"><a href="#cb3-21"></a>    df_majority <span class="op">=</span> df[df.is_fraud<span class="op">==</span><span class="dv">0</span>]</span>
+<span id="cb3-22"><a href="#cb3-22"></a>    df_minority <span class="op">=</span> df[df.is_fraud<span class="op">==</span><span class="dv">1</span>]</span>
+<span id="cb3-23"><a href="#cb3-23"></a>    df_maj_dowsampled <span class="op">=</span> sklearn.utils.resample(df_majority, n_samples<span class="op">=</span><span class="bu">len</span>(df_minority), random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb3-24"><a href="#cb3-24"></a>    df_downsampled <span class="op">=</span> pd.concat([df_minority, df_maj_dowsampled])</span>
+<span id="cb3-25"><a href="#cb3-25"></a>    <span class="cf">return</span> df_downsampled</span>
+<span id="cb3-26"><a href="#cb3-26"></a></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="kw">def</span> split(Graph,test_size<span class="op">=</span><span class="fl">0.20</span>,random_state<span class="op">=</span><span class="dv">42</span>):</span>
+<span id="cb3-28"><a href="#cb3-28"></a>    edg <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="bu">len</span>(Graph.edges))) </span>
+<span id="cb3-29"><a href="#cb3-29"></a>    edg_att <span class="op">=</span> <span class="bu">list</span>(nx.get_edge_attributes(Graph, <span class="st">"label"</span>).values())</span>
+<span id="cb3-30"><a href="#cb3-30"></a>    <span class="cf">return</span> train_test_split(edg,edg_att,test_size<span class="op">=</span>test_size,random_state<span class="op">=</span>random_state) </span>
+<span id="cb3-31"><a href="#cb3-31"></a></span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="kw">def</span> embedding(Graph):</span>
+<span id="cb3-33"><a href="#cb3-33"></a>    _edgs <span class="op">=</span> <span class="bu">list</span>(Graph.edges)</span>
+<span id="cb3-34"><a href="#cb3-34"></a>    _train_edges, _test_edges, y, yy <span class="op">=</span> split(Graph)</span>
+<span id="cb3-35"><a href="#cb3-35"></a>    _train_graph <span class="op">=</span> Graph.edge_subgraph([_edgs[x] <span class="cf">for</span> x <span class="kw">in</span> _train_edges]).copy()</span>
+<span id="cb3-36"><a href="#cb3-36"></a>    _train_graph.add_nodes_from(<span class="bu">list</span>(<span class="bu">set</span>(Graph.nodes) <span class="op">-</span> <span class="bu">set</span>(_train_graph.nodes)))</span>
+<span id="cb3-37"><a href="#cb3-37"></a>    _embedded <span class="op">=</span> AverageEmbedder(Node2Vec(_train_graph, weight_key<span class="op">=</span><span class="st">'weight'</span>).fit(window<span class="op">=</span><span class="dv">10</span>).wv)</span>
+<span id="cb3-38"><a href="#cb3-38"></a>    X <span class="op">=</span> [_embedded[<span class="bu">str</span>(_edgs[x][<span class="dv">0</span>]), <span class="bu">str</span>(_edgs[x][<span class="dv">1</span>])] <span class="cf">for</span> x <span class="kw">in</span> _train_edges]</span>
+<span id="cb3-39"><a href="#cb3-39"></a>    XX <span class="op">=</span> [_embedded[<span class="bu">str</span>(_edgs[x][<span class="dv">0</span>]), <span class="bu">str</span>(_edgs[x][<span class="dv">1</span>])] <span class="cf">for</span> x <span class="kw">in</span> _test_edges]</span>
+<span id="cb3-40"><a href="#cb3-40"></a>    <span class="cf">return</span> X,XX,y,yy </span>
+<span id="cb3-41"><a href="#cb3-41"></a></span>
+<span id="cb3-42"><a href="#cb3-42"></a><span class="kw">def</span> evaluate(lrnr,XX,yy):</span>
+<span id="cb3-43"><a href="#cb3-43"></a>    yyhat <span class="op">=</span> lrnr.predict(XX)</span>
+<span id="cb3-44"><a href="#cb3-44"></a>    df <span class="op">=</span> pd.DataFrame({<span class="st">'pre'</span>:[sklearn.metrics.precision_score(yy,yyhat)], </span>
+<span id="cb3-45"><a href="#cb3-45"></a>                  <span class="st">'rec'</span>:[sklearn.metrics.recall_score(yy,yyhat)],</span>
+<span id="cb3-46"><a href="#cb3-46"></a>                  <span class="st">'f1'</span>:[sklearn.metrics.f1_score(yy,yyhat)]})</span>
+<span id="cb3-47"><a href="#cb3-47"></a>    <span class="cf">return</span> df </span>
+<span id="cb3-48"><a href="#cb3-48"></a></span>
+<span id="cb3-49"><a href="#cb3-49"></a><span class="kw">def</span> anal(df,n_estimators<span class="op">=</span><span class="dv">10</span>):</span>
+<span id="cb3-50"><a href="#cb3-50"></a>    Graph <span class="op">=</span> build_graph_bipartite(df)</span>
+<span id="cb3-51"><a href="#cb3-51"></a>    X,XX,y,yy <span class="op">=</span> embedding(Graph)</span>
+<span id="cb3-52"><a href="#cb3-52"></a>    lrnr <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span>n_estimators, random_state<span class="op">=</span><span class="dv">42</span>) </span>
+<span id="cb3-53"><a href="#cb3-53"></a>    lrnr.fit(X,y)</span>
+<span id="cb3-54"><a href="#cb3-54"></a>    <span class="cf">return</span> lrnr, XX,yy, evaluate(lrnr,XX,yy)</span>
+<span id="cb3-55"><a href="#cb3-55"></a></span>
+<span id="cb3-56"><a href="#cb3-56"></a><span class="kw">def</span> our_sampling1(df):</span>
+<span id="cb3-57"><a href="#cb3-57"></a>    cus_list <span class="op">=</span> <span class="bu">set</span>(df.query(<span class="st">'is_fraud==1'</span>).cc_num.tolist())</span>
+<span id="cb3-58"><a href="#cb3-58"></a>    <span class="cf">return</span> df.query(<span class="st">"cc_num in @ cus_list"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data1" class="level1">
+<h1>data1</h1>
+<section id="read-and-define-data" class="level2">
+<h2 class="anchored" data-anchor-id="read-and-define-data">read and define data</h2>
+<div id="1464b44a-1390-401f-bb03-5ebe3a95290f" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"fraudTrain.csv"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>_df1<span class="op">=</span>  df[df[<span class="st">"is_fraud"</span>]<span class="op">==</span><span class="dv">0</span>].sample(frac<span class="op">=</span><span class="fl">0.20</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>_df2 <span class="op">=</span> df[df[<span class="st">"is_fraud"</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
+<span id="cb4-4"><a href="#cb4-4"></a>df <span class="op">=</span> pd.concat([_df1,_df2])</span>
+<span id="cb4-5"><a href="#cb4-5"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">trans_date_trans_time</th>
+<th data-quarto-table-cell-role="th">cc_num</th>
+<th data-quarto-table-cell-role="th">merchant</th>
+<th data-quarto-table-cell-role="th">category</th>
+<th data-quarto-table-cell-role="th">amt</th>
+<th data-quarto-table-cell-role="th">first</th>
+<th data-quarto-table-cell-role="th">last</th>
+<th data-quarto-table-cell-role="th">gender</th>
+<th data-quarto-table-cell-role="th">street</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">lat</th>
+<th data-quarto-table-cell-role="th">long</th>
+<th data-quarto-table-cell-role="th">city_pop</th>
+<th data-quarto-table-cell-role="th">job</th>
+<th data-quarto-table-cell-role="th">dob</th>
+<th data-quarto-table-cell-role="th">trans_num</th>
+<th data-quarto-table-cell-role="th">unix_time</th>
+<th data-quarto-table-cell-role="th">merch_lat</th>
+<th data-quarto-table-cell-role="th">merch_long</th>
+<th data-quarto-table-cell-role="th">is_fraud</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">669418</td>
+<td>669418</td>
+<td>2019-10-12 18:21</td>
+<td>4.089100e+18</td>
+<td>fraud_Haley, Jewess and Bechtelar</td>
+<td>shopping_pos</td>
+<td>7.53</td>
+<td>Debra</td>
+<td>Stark</td>
+<td>F</td>
+<td>686 Linda Rest</td>
+<td>...</td>
+<td>32.3836</td>
+<td>-94.8653</td>
+<td>24536</td>
+<td>Multimedia programmer</td>
+<td>1983-10-14</td>
+<td>d313353fa30233e5fab5468e852d22fc</td>
+<td>1350066071</td>
+<td>32.202008</td>
+<td>-94.371865</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">32567</td>
+<td>32567</td>
+<td>2019-01-20 13:06</td>
+<td>4.247920e+12</td>
+<td>fraud_Turner LLC</td>
+<td>travel</td>
+<td>3.79</td>
+<td>Judith</td>
+<td>Moss</td>
+<td>F</td>
+<td>46297 Benjamin Plains Suite 703</td>
+<td>...</td>
+<td>39.5370</td>
+<td>-83.4550</td>
+<td>22305</td>
+<td>Television floor manager</td>
+<td>1939-03-09</td>
+<td>88c65b4e1585934d578511e627fe3589</td>
+<td>1327064760</td>
+<td>39.156673</td>
+<td>-82.930503</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">156587</td>
+<td>156587</td>
+<td>2019-03-24 18:09</td>
+<td>4.026220e+12</td>
+<td>fraud_Klein Group</td>
+<td>entertainment</td>
+<td>59.07</td>
+<td>Debbie</td>
+<td>Payne</td>
+<td>F</td>
+<td>204 Ashley Neck Apt. 169</td>
+<td>...</td>
+<td>41.5224</td>
+<td>-71.9934</td>
+<td>4720</td>
+<td>Broadcast presenter</td>
+<td>1977-05-18</td>
+<td>3bd9ede04b5c093143d5e5292940b670</td>
+<td>1332612553</td>
+<td>41.657152</td>
+<td>-72.595751</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1020243</td>
+<td>1020243</td>
+<td>2020-02-25 15:12</td>
+<td>4.957920e+12</td>
+<td>fraud_Monahan-Morar</td>
+<td>personal_care</td>
+<td>25.58</td>
+<td>Alan</td>
+<td>Parsons</td>
+<td>M</td>
+<td>0547 Russell Ford Suite 574</td>
+<td>...</td>
+<td>39.6171</td>
+<td>-102.4776</td>
+<td>207</td>
+<td>Network engineer</td>
+<td>1955-12-04</td>
+<td>19e16ee7a01d229e750359098365e321</td>
+<td>1361805120</td>
+<td>39.080346</td>
+<td>-103.213452</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">116272</td>
+<td>116272</td>
+<td>2019-03-06 23:19</td>
+<td>4.178100e+15</td>
+<td>fraud_Kozey-Kuhlman</td>
+<td>personal_care</td>
+<td>84.96</td>
+<td>Jill</td>
+<td>Flores</td>
+<td>F</td>
+<td>639 Cruz Islands</td>
+<td>...</td>
+<td>41.9488</td>
+<td>-86.4913</td>
+<td>3104</td>
+<td>Horticulturist, commercial</td>
+<td>1981-03-29</td>
+<td>a0c8641ca1f5d6e243ed5a2246e66176</td>
+<td>1331075954</td>
+<td>42.502065</td>
+<td>-86.732664</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 23 columns</p>
+</div>
+</div>
+</div>
+<div id="521b9f5c-ce74-4a27-9490-8578150daf38" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># df_downsampled = down_sample_textbook(df)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="embedding" class="level2">
+<h2 class="anchored" data-anchor-id="embedding">embedding</h2>
+<div id="9f2aad4f-f297-45e4-8b8c-acda63a84692" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#G_down = build_graph_bipartite(df_downsampled)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="977508ca-f316-4f43-aa6f-8e457d70c2be" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># X,XX,y,yy = embedding(G_down)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="learn" class="level2">
+<h2 class="anchored" data-anchor-id="learn">learn</h2>
+<div id="bf057284-4e9f-474d-a8ba-1bd4a2212403" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># lrnr = RandomForestClassifier(n_estimators=10, random_state=42) </span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co"># lrnr.fit(X,y)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="evaluate" class="level2">
+<h2 class="anchored" data-anchor-id="evaluate">evaluate</h2>
+<div id="d2bce99d-455e-4c08-862f-f6b13183f7b9" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># evaluate(lrnr,XX,yy)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="data1-다른코드" class="level1">
+<h1>data1 : 다른코드</h1>
+<div id="af67bedf-ba54-40f5-80a0-f9c818a7a9be" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>lrnr1, XX_textbook, yy_texbook, results <span class="op">=</span> anal(down_sample_textbook(df),n_estimators<span class="op">=</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Computing transition probabilities: 100%|██████████| 1624/1624 [00:00&lt;00:00, 2784.88it/s]
+Generating walks (CPU: 1): 100%|██████████| 10/10 [00:03&lt;00:00,  2.53it/s]</code></pre>
+</div>
+</div>
+</section>
+<section id="data2" class="level1">
+<h1>data2</h1>
+<section id="read-and-define-data-1" class="level2">
+<h2 class="anchored" data-anchor-id="read-and-define-data-1">read and define data</h2>
+<div id="d192a71f-4747-42d2-8eef-fa8aa9be9b2c" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>lrnr2, _,_,_ <span class="op">=</span> anal(our_sampling1(df),n_estimators<span class="op">=</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Computing transition probabilities: 100%|██████████| 1289/1289 [00:49&lt;00:00, 26.00it/s]
+Generating walks (CPU: 1): 100%|██████████| 10/10 [00:10&lt;00:00,  1.10s/it]</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="textbook-vs-proposed" class="level1">
+<h1>textbook vs proposed</h1>
+<div id="5a3152d3-9bfb-473c-bb36-5ba564663d04" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>yyhat_textbook <span class="op">=</span> lrnr1.predict(XX_textbook)</span>
+<span id="cb14-2"><a href="#cb14-2"></a>yyhat_proposed <span class="op">=</span> lrnr2.predict(XX_textbook)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="10feb3f2-39c4-415f-a6f9-ae509750e0fd" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>evaluate(lrnr1, XX_textbook,yy_texbook)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">pre</th>
+<th data-quarto-table-cell-role="th">rec</th>
+<th data-quarto-table-cell-role="th">f1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.693878</td>
+<td>0.758798</td>
+<td>0.724887</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="c2511da6-c59a-4049-99a1-7925488625f4" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>evaluate(lrnr2, XX_textbook,yy_texbook)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">pre</th>
+<th data-quarto-table-cell-role="th">rec</th>
+<th data-quarto-table-cell-role="th">f1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.183824</td>
+<td>0.021459</td>
+<td>0.038432</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="appedix" class="level1">
+<h1>appedix</h1>
+<p>김보람 ref - https://boram-coco.github.io/coco/posts/Graph%20Machine%20Learning/graph8.html</p>
+<p>데이터: df - “~/Desktop/fraudTrain.csv” // (214520, 23) // 여기에서 214520은 전체에서 0.2%의 비율로 sampled 된 자료임 - - obs: 거래건수 - var: cc_num(userid), store, 사기유무, 시간, 지역, amt, … - y: 사기유무 - x:</p>
+<p>목적: 사기거래 y==1을 찾는 것</p>
+<p>교재의 방법</p>
+<p>def build_graph_bipartite 1. df를 변형하여 from, to를 만든다. from은 출발점 / to는 도착점 2. df에서 from,to,amt,is_fraud를 선택하여 (from,to)로 그룹핑 =&gt; is_fraud 와 amt 의 sum을 계산 3. sum(is_fraud) &gt; 0 일경우 is_fraud=1 로 설정 4. 노드들의 집합= {고객1,고객2,…고객m, 상점1,상점2,…,상점k} =&gt; 1632의 노드가 있음 즉 m+k=1632 5. 고객-상점 간의 사기가 있으면 엣지를 1로 설정, 그렇지 않으면 0으로 설정 6. 엣지가1인 경우 amt를 weight로 설정</p>
+<p><strong>main code</strong></p>
+<ol type="1">
+<li>df load</li>
+<li>df -&gt; df_downsampled</li>
+<li>G = build_graph_bipartite(df_downsampled)</li>
+<li>tr_edg, test_edg, tr_lable, test_label = split(G)</li>
+<li></li>
+</ol>
+<hr>
+</section>
+<section id="ref" class="level1">
+<h1>ref</h1>
+<ul>
+<li><p><a href="https://product.kyobobook.co.kr/detail/S000200738068">그래프 머신러닝</a></p></li>
+<li><p><a href="https://github.com/PacktPublishing/Graph-Machine-Learning">github</a></p></li>
+<li><p><a href="https://www.kaggle.com/datasets/kartik2112/fraud-detection?select=fraudTrain.csv">Credit Card Transactions Fraud Detection Dataset</a></p></li>
+<li><p><a href="https://static.packt-cdn.com/downloads/9781800204492_ColorImages.pdf">컬리이미지</a></p></li>
+<li><p><a href="https://networkx.org/documentation/stable/reference/generated/networkx.classes.function.set_edge_attributes.html">networkx</a></p></li>
+</ul>
+</section>
+<section id="신용카드-거래에-대한-그래프-분석" class="level1">
+<h1>신용카드 거래에 대한 그래프 분석</h1>
+<ul>
+<li><p>신용카드 거래 그래프 생성</p></li>
+<li><p>그래프에서 속성 및 커뮤니티 추출</p></li>
+<li><p>사기 거래 분류에 지도 및 비지도 머신러닝 알고리즘 적용</p></li>
+</ul>
+<div id="af9d4529-e89c-4679-bd2f-86586cf0f45c" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fb7d9272-613f-489c-ae1b-5231c0de37c1" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="im">import</span> os</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="im">import</span> math</span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb18-7"><a href="#cb18-7"></a></span>
+<span id="cb18-8"><a href="#cb18-8"></a>default_edge_color <span class="op">=</span> <span class="st">'gray'</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a>default_node_color <span class="op">=</span> <span class="st">'#407cc9'</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a>enhanced_node_color <span class="op">=</span> <span class="st">'#f5b042'</span></span>
+<span id="cb18-11"><a href="#cb18-11"></a>enhanced_edge_color <span class="op">=</span> <span class="st">'#cc2f04'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="샘플-0.3" class="level1">
+<h1>샘플 = 0.3</h1>
+<div id="8a66964d-2d82-4c23-acbe-088ce77eeb10" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb19-2"><a href="#cb19-2"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"fraudTrain.csv"</span>)</span>
+<span id="cb19-3"><a href="#cb19-3"></a>df <span class="op">=</span> df[df[<span class="st">"is_fraud"</span>]<span class="op">==</span><span class="dv">0</span>].sample(frac<span class="op">=</span><span class="fl">0.30</span>, random_state<span class="op">=</span><span class="dv">42</span>).append(df[df[<span class="st">"is_fraud"</span>] <span class="op">==</span> <span class="dv">1</span>])</span>
+<span id="cb19-4"><a href="#cb19-4"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">trans_date_trans_time</th>
+<th data-quarto-table-cell-role="th">cc_num</th>
+<th data-quarto-table-cell-role="th">merchant</th>
+<th data-quarto-table-cell-role="th">category</th>
+<th data-quarto-table-cell-role="th">amt</th>
+<th data-quarto-table-cell-role="th">first</th>
+<th data-quarto-table-cell-role="th">last</th>
+<th data-quarto-table-cell-role="th">gender</th>
+<th data-quarto-table-cell-role="th">street</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">lat</th>
+<th data-quarto-table-cell-role="th">long</th>
+<th data-quarto-table-cell-role="th">city_pop</th>
+<th data-quarto-table-cell-role="th">job</th>
+<th data-quarto-table-cell-role="th">dob</th>
+<th data-quarto-table-cell-role="th">trans_num</th>
+<th data-quarto-table-cell-role="th">unix_time</th>
+<th data-quarto-table-cell-role="th">merch_lat</th>
+<th data-quarto-table-cell-role="th">merch_long</th>
+<th data-quarto-table-cell-role="th">is_fraud</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">669418</td>
+<td>669418</td>
+<td>2019-10-12 18:21</td>
+<td>4.089100e+18</td>
+<td>fraud_Haley, Jewess and Bechtelar</td>
+<td>shopping_pos</td>
+<td>7.53</td>
+<td>Debra</td>
+<td>Stark</td>
+<td>F</td>
+<td>686 Linda Rest</td>
+<td>...</td>
+<td>32.3836</td>
+<td>-94.8653</td>
+<td>24536</td>
+<td>Multimedia programmer</td>
+<td>1983-10-14</td>
+<td>d313353fa30233e5fab5468e852d22fc</td>
+<td>1350066071</td>
+<td>32.202008</td>
+<td>-94.371865</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">32567</td>
+<td>32567</td>
+<td>2019-01-20 13:06</td>
+<td>4.247920e+12</td>
+<td>fraud_Turner LLC</td>
+<td>travel</td>
+<td>3.79</td>
+<td>Judith</td>
+<td>Moss</td>
+<td>F</td>
+<td>46297 Benjamin Plains Suite 703</td>
+<td>...</td>
+<td>39.5370</td>
+<td>-83.4550</td>
+<td>22305</td>
+<td>Television floor manager</td>
+<td>1939-03-09</td>
+<td>88c65b4e1585934d578511e627fe3589</td>
+<td>1327064760</td>
+<td>39.156673</td>
+<td>-82.930503</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">156587</td>
+<td>156587</td>
+<td>2019-03-24 18:09</td>
+<td>4.026220e+12</td>
+<td>fraud_Klein Group</td>
+<td>entertainment</td>
+<td>59.07</td>
+<td>Debbie</td>
+<td>Payne</td>
+<td>F</td>
+<td>204 Ashley Neck Apt. 169</td>
+<td>...</td>
+<td>41.5224</td>
+<td>-71.9934</td>
+<td>4720</td>
+<td>Broadcast presenter</td>
+<td>1977-05-18</td>
+<td>3bd9ede04b5c093143d5e5292940b670</td>
+<td>1332612553</td>
+<td>41.657152</td>
+<td>-72.595751</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1020243</td>
+<td>1020243</td>
+<td>2020-02-25 15:12</td>
+<td>4.957920e+12</td>
+<td>fraud_Monahan-Morar</td>
+<td>personal_care</td>
+<td>25.58</td>
+<td>Alan</td>
+<td>Parsons</td>
+<td>M</td>
+<td>0547 Russell Ford Suite 574</td>
+<td>...</td>
+<td>39.6171</td>
+<td>-102.4776</td>
+<td>207</td>
+<td>Network engineer</td>
+<td>1955-12-04</td>
+<td>19e16ee7a01d229e750359098365e321</td>
+<td>1361805120</td>
+<td>39.080346</td>
+<td>-103.213452</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">116272</td>
+<td>116272</td>
+<td>2019-03-06 23:19</td>
+<td>4.178100e+15</td>
+<td>fraud_Kozey-Kuhlman</td>
+<td>personal_care</td>
+<td>84.96</td>
+<td>Jill</td>
+<td>Flores</td>
+<td>F</td>
+<td>639 Cruz Islands</td>
+<td>...</td>
+<td>41.9488</td>
+<td>-86.4913</td>
+<td>3104</td>
+<td>Horticulturist, commercial</td>
+<td>1981-03-29</td>
+<td>a0c8641ca1f5d6e243ed5a2246e66176</td>
+<td>1331075954</td>
+<td>42.502065</td>
+<td>-86.732664</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 23 columns</p>
+</div>
+</div>
+</div>
+<div id="3d515430-8144-483e-94a4-d0bd6a3d6722" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 318777 entries, 669418 to 1047918
+Data columns (total 23 columns):
+ #   Column                 Non-Null Count   Dtype  
+---  ------                 --------------   -----  
+ 0   Unnamed: 0             318777 non-null  int64  
+ 1   trans_date_trans_time  318777 non-null  object 
+ 2   cc_num                 318777 non-null  float64
+ 3   merchant               318777 non-null  object 
+ 4   category               318777 non-null  object 
+ 5   amt                    318777 non-null  float64
+ 6   first                  318777 non-null  object 
+ 7   last                   318777 non-null  object 
+ 8   gender                 318777 non-null  object 
+ 9   street                 318777 non-null  object 
+ 10  city                   318777 non-null  object 
+ 11  state                  318777 non-null  object 
+ 12  zip                    318777 non-null  int64  
+ 13  lat                    318777 non-null  float64
+ 14  long                   318777 non-null  float64
+ 15  city_pop               318777 non-null  int64  
+ 16  job                    318777 non-null  object 
+ 17  dob                    318777 non-null  object 
+ 18  trans_num              318777 non-null  object 
+ 19  unix_time              318777 non-null  int64  
+ 20  merch_lat              318777 non-null  float64
+ 21  merch_long             318777 non-null  float64
+ 22  is_fraud               318777 non-null  int64  
+dtypes: float64(6), int64(5), object(12)
+memory usage: 58.4+ MB</code></pre>
+</div>
+</div>
+<div id="a2924bf4-a262-43b7-a42b-b666b2ab1248" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>df.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>Unnamed: 0               0
+trans_date_trans_time    0
+cc_num                   0
+merchant                 0
+category                 0
+amt                      0
+first                    0
+last                     0
+gender                   0
+street                   0
+city                     0
+state                    0
+zip                      0
+lat                      0
+long                     0
+city_pop                 0
+job                      0
+dob                      0
+trans_num                0
+unix_time                0
+merch_lat                0
+merch_long               0
+is_fraud                 0
+dtype: int64</code></pre>
+</div>
+</div>
+<div id="d3f97b3c-7218-42a8-95d9-e77565176a8b" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>df[<span class="st">"is_fraud"</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>0    312771
+1      6006
+Name: is_fraud, dtype: int64</code></pre>
+</div>
+</div>
+<div id="0fb152a1-5cde-46b1-b6fd-688554d7e397" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>df[<span class="st">"is_fraud"</span>].value_counts()<span class="op">/</span><span class="bu">len</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>0    0.981159
+1    0.018841
+Name: is_fraud, dtype: float64</code></pre>
+</div>
+</div>
+<div id="c4ae0810-14fb-4ed6-ae92-af1495ae154f" class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="044624fc-243e-4cfe-a1de-db1ece0f529c" class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>_df <span class="op">=</span> pd.read_csv(<span class="st">"fraudTrain.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>NameError: name 'pd' is not defined</code></pre>
+</div>
+</div>
+<div id="2515fde8-ae8e-459b-92f3-d0bb616b9b45" class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>_df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>NameError: name '_df' is not defined</code></pre>
+</div>
+</div>
+<div id="e01a6d8a-83f7-4115-8291-29f7d1c2dae7" class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>cus_list <span class="op">=</span> <span class="bu">set</span>(_df.query(<span class="st">'is_fraud==1'</span>).cc_num.tolist())</span>
+<span id="cb33-2"><a href="#cb33-2"></a>_df2 <span class="op">=</span> _df.query(<span class="st">"cc_num in @ cus_list"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="1e35f420-224d-49d1-a7b0-ce25ee7c8021" class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>_df2.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="82">
+<pre><code>(651430, 23)</code></pre>
+</div>
+</div>
+<div id="cbaf5ee0-f7ae-4b0b-bba3-dd5680f3470e" class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>_df2.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="90">
+<pre><code>Index(['Unnamed: 0', 'trans_date_trans_time', 'cc_num', 'merchant', 'category',
+       'amt', 'first', 'last', 'gender', 'street', 'city', 'state', 'zip',
+       'lat', 'long', 'city_pop', 'job', 'dob', 'trans_num', 'unix_time',
+       'merch_lat', 'merch_long', 'is_fraud'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div id="973d03c7-27be-451e-a423-46442687e7d2" class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>_df2.groupby(<span class="st">'is_fraud'</span>).agg({<span class="st">'category'</span>:np.<span class="bu">sum</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> 이분그래프</p>
+<div id="d9aa1d72-e2f2-4317-b8b2-ff2f01a4611f" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">def</span> build_graph_bipartite(df_input, graph_type<span class="op">=</span>nx.Graph()):</span>
+<span id="cb39-2"><a href="#cb39-2"></a>    df<span class="op">=</span>df_input.copy()</span>
+<span id="cb39-3"><a href="#cb39-3"></a>    mapping<span class="op">=</span>{x:node_id <span class="cf">for</span> node_id, x <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">set</span>(df[<span class="st">"cc_num"</span>].values.tolist()<span class="op">+\</span></span>
+<span id="cb39-4"><a href="#cb39-4"></a>                                                      df[<span class="st">"merchant"</span>].values.tolist()))}</span>
+<span id="cb39-5"><a href="#cb39-5"></a>    </span>
+<span id="cb39-6"><a href="#cb39-6"></a>    df[<span class="st">"from"</span>]<span class="op">=</span>df[<span class="st">"cc_num"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x:mapping[x])  <span class="co">#엣지의 출발점</span></span>
+<span id="cb39-7"><a href="#cb39-7"></a>    df[<span class="st">"to"</span>]<span class="op">=</span>df[<span class="st">"merchant"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x:mapping[x])  <span class="co">#엣지의 도착점</span></span>
+<span id="cb39-8"><a href="#cb39-8"></a>    </span>
+<span id="cb39-9"><a href="#cb39-9"></a>    df <span class="op">=</span> df[[<span class="st">'from'</span>, <span class="st">'to'</span>, <span class="st">"amt"</span>, <span class="st">"is_fraud"</span>]].groupby([<span class="st">'from'</span>,<span class="st">'to'</span>]).agg({<span class="st">"is_fraud"</span>:<span class="st">"sum"</span>,<span class="st">"amt"</span>:<span class="st">"sum"</span>}).reset_index()</span>
+<span id="cb39-10"><a href="#cb39-10"></a>    df[<span class="st">"is_fraud"</span>]<span class="op">=</span>df[<span class="st">"is_fraud"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x:<span class="dv">1</span> <span class="cf">if</span> x<span class="op">&gt;</span><span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span>)</span>
+<span id="cb39-11"><a href="#cb39-11"></a>    </span>
+<span id="cb39-12"><a href="#cb39-12"></a>    G<span class="op">=</span>nx.from_edgelist(df[[<span class="st">"from"</span>,<span class="st">"to"</span>]].values, create_using<span class="op">=</span>graph_type)</span>
+<span id="cb39-13"><a href="#cb39-13"></a>    </span>
+<span id="cb39-14"><a href="#cb39-14"></a>    nx.set_edge_attributes(G, {(<span class="bu">int</span>(x[<span class="st">"from"</span>]),<span class="bu">int</span>(x[<span class="st">"to"</span>])):x[<span class="st">"is_fraud"</span>] <span class="cf">for</span> idx, x <span class="kw">in</span> df[[<span class="st">"from"</span>,<span class="st">"to"</span>,<span class="st">"is_fraud"</span>]].iterrows()}, <span class="st">"label"</span>)  <span class="co">#엣지 속성 설정,각 속성의 사기 여부부 </span></span>
+<span id="cb39-15"><a href="#cb39-15"></a>    </span>
+<span id="cb39-16"><a href="#cb39-16"></a>    nx.set_edge_attributes(G,{(<span class="bu">int</span>(x[<span class="st">"from"</span>]),<span class="bu">int</span>(x[<span class="st">"to"</span>])):x[<span class="st">"amt"</span>] <span class="cf">for</span> idx,x <span class="kw">in</span> df[[<span class="st">"from"</span>,<span class="st">"to"</span>,<span class="st">"amt"</span>]].iterrows()}, <span class="st">"weight"</span>) <span class="co"># 엣지 속성 설정, 각 엣지의 거래 금액</span></span>
+<span id="cb39-17"><a href="#cb39-17"></a></span>
+<span id="cb39-18"><a href="#cb39-18"></a>    <span class="cf">return</span> G</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>판매자, 고객에게 node 할당</li>
+</ul>
+<div id="cd1970a2-8062-400b-99d0-9b62ba633e95" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>G_bu <span class="op">=</span> build_graph_bipartite(df, nx.Graph(name<span class="op">=</span><span class="st">"Bipartite Undirect"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>KeyboardInterrupt: </code></pre>
+</div>
+</div>
+<ul>
+<li>무향 그래프 작성</li>
+</ul>
+<p><code>-</code> 삼분그래프</p>
+<div id="3dc02f73-d0a5-4ac7-a4da-9afd903e864c" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="kw">def</span> build_graph_tripartite(df_input, graph_type<span class="op">=</span>nx.Graph()):</span>
+<span id="cb42-2"><a href="#cb42-2"></a>    df<span class="op">=</span>df_input.copy()</span>
+<span id="cb42-3"><a href="#cb42-3"></a>    mapping<span class="op">=</span>{x:node_id <span class="cf">for</span> node_id, x <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">set</span>(df.index.values.tolist() <span class="op">+</span> <span class="co">#set으로 중복 제거</span></span>
+<span id="cb42-4"><a href="#cb42-4"></a>                                                       df[<span class="st">"cc_num"</span>].values.tolist() <span class="op">+</span></span>
+<span id="cb42-5"><a href="#cb42-5"></a>                                                       df[<span class="st">"merchant"</span>].values.tolist()))}</span>
+<span id="cb42-6"><a href="#cb42-6"></a>    df[<span class="st">"in_node"</span>]<span class="op">=</span> df[<span class="st">"cc_num"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: mapping[x])</span>
+<span id="cb42-7"><a href="#cb42-7"></a>    df[<span class="st">"out_node"</span>]<span class="op">=</span>df[<span class="st">"merchant"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x:mapping[x])</span>
+<span id="cb42-8"><a href="#cb42-8"></a>    </span>
+<span id="cb42-9"><a href="#cb42-9"></a>        </span>
+<span id="cb42-10"><a href="#cb42-10"></a>    G<span class="op">=</span>nx.from_edgelist([(x[<span class="st">"in_node"</span>], mapping[idx]) <span class="cf">for</span> idx, x <span class="kw">in</span> df.iterrows()] <span class="op">+\</span></span>
+<span id="cb42-11"><a href="#cb42-11"></a>                        [(x[<span class="st">"out_node"</span>], mapping[idx]) <span class="cf">for</span> idx, x <span class="kw">in</span> df.iterrows()], create_using<span class="op">=</span>graph_type)</span>
+<span id="cb42-12"><a href="#cb42-12"></a>    </span>
+<span id="cb42-13"><a href="#cb42-13"></a>    nx.set_edge_attributes(G,{(x[<span class="st">"in_node"</span>], mapping[idx]):x[<span class="st">"is_fraud"</span>] <span class="cf">for</span> idx, x <span class="kw">in</span> df.iterrows()}, <span class="st">"label"</span>)</span>
+<span id="cb42-14"><a href="#cb42-14"></a>     </span>
+<span id="cb42-15"><a href="#cb42-15"></a>    nx.set_edge_attributes(G,{(x[<span class="st">"out_node"</span>], mapping[idx]):x[<span class="st">"is_fraud"</span>] <span class="cf">for</span> idx, x <span class="kw">in</span> df.iterrows()}, <span class="st">"label"</span>)</span>
+<span id="cb42-16"><a href="#cb42-16"></a>    </span>
+<span id="cb42-17"><a href="#cb42-17"></a>    nx.set_edge_attributes(G,{(x[<span class="st">"in_node"</span>], mapping[idx]):x[<span class="st">"amt"</span>] <span class="cf">for</span> idx, x <span class="kw">in</span> df.iterrows()}, <span class="st">"weight"</span>)</span>
+<span id="cb42-18"><a href="#cb42-18"></a>    </span>
+<span id="cb42-19"><a href="#cb42-19"></a>    nx.set_edge_attributes(G,{(x[<span class="st">"out_node"</span>], mapping[idx]):x[<span class="st">"amt"</span>] <span class="cf">for</span> idx, x <span class="kw">in</span> df.iterrows()}, <span class="st">"weight"</span>)</span>
+<span id="cb42-20"><a href="#cb42-20"></a>    </span>
+<span id="cb42-21"><a href="#cb42-21"></a>    </span>
+<span id="cb42-22"><a href="#cb42-22"></a>    <span class="cf">return</span> G</span>
+<span id="cb42-23"><a href="#cb42-23"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>판매자, 고객, 거래에 노드 할당</li>
+</ul>
+<div id="cf9883ea-c4d7-4443-9c94-0b254103de4c" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>G_tu <span class="op">=</span> build_graph_tripartite(df, nx.Graph())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="376e0bce-e09f-4527-b124-53d254a41172" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="cf">for</span> G <span class="kw">in</span> [G_bu, G_tu]:</span>
+<span id="cb44-2"><a href="#cb44-2"></a>    <span class="bu">print</span>(nx.number_of_nodes(G))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1636
+320413</code></pre>
+</div>
+</div>
+<ul>
+<li>smaple=30%로 하니까 삼분그래프의 노드수가 증가했다.</li>
+</ul>
+<div id="c86889e5-3934-4606-83fc-e11a0160babd" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="cf">for</span> G <span class="kw">in</span> [G_bu, G_tu]:</span>
+<span id="cb46-2"><a href="#cb46-2"></a>    <span class="bu">print</span>(nx.number_of_edges(G))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>228436
+637554</code></pre>
+</div>
+</div>
+<ul>
+<li>엣지수는 이분, 삼분그래프 둘다 증가</li>
+</ul>
+<section id="네트워크-토폴로지" class="level2">
+<h2 class="anchored" data-anchor-id="네트워크-토폴로지">네트워크 토폴로지</h2>
+<ul>
+<li>각 그래프별 차수 분포 살펴보기</li>
+</ul>
+<div id="7912c2d3-c1ba-40dd-8c30-6781f6215538" class="cell" data-tags="[]" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="cf">for</span> G <span class="kw">in</span> [G_bu, G_tu]:</span>
+<span id="cb48-2"><a href="#cb48-2"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
+<span id="cb48-3"><a href="#cb48-3"></a>    degrees <span class="op">=</span> pd.Series({k:v <span class="cf">for</span> k, v <span class="kw">in</span> nx.degree(G)})</span>
+<span id="cb48-4"><a href="#cb48-4"></a>    degrees.plot.hist()</span>
+<span id="cb48-5"><a href="#cb48-5"></a>    plt.yscale(<span class="st">"log"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2023-05-06-Start_files/figure-html/cell-36-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2023-05-06-Start_files/figure-html/cell-36-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>x축: 노드의 연결도</p></li>
+<li><p>y축: 로그 스케일(연결도가 큰 노드의 수가 매우 적으므로)</p></li>
+</ul>
+<p><code>-</code> 각 그래프 간선 가중치 분포</p>
+<div id="b95452bd-4406-4a05-a4b7-2630dc68a08a" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="cf">for</span> G <span class="kw">in</span> [G_bu, G_tu]:</span>
+<span id="cb49-2"><a href="#cb49-2"></a>    allEdgeWeights <span class="op">=</span> pd.Series({</span>
+<span id="cb49-3"><a href="#cb49-3"></a>        (d[<span class="dv">0</span>],d[<span class="dv">1</span>]):d[<span class="dv">2</span>][<span class="st">"weight"</span>]  <span class="co">#d[0],d[1]을 key로 d[2]를 weight로</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a>        <span class="co">#d는 G.edges(data=True)로 (u,v,data)형태의 튜플을 반복하는 반복문</span></span>
+<span id="cb49-5"><a href="#cb49-5"></a>        <span class="cf">for</span> d <span class="kw">in</span> G.edges(data<span class="op">=</span><span class="va">True</span>)})</span>
+<span id="cb49-6"><a href="#cb49-6"></a>    np.quantile(allEdgeWeights.values,</span>
+<span id="cb49-7"><a href="#cb49-7"></a>               [<span class="fl">0.10</span>, <span class="fl">0.50</span>, <span class="fl">0.70</span>, <span class="fl">0.9</span>])</span>
+<span id="cb49-8"><a href="#cb49-8"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="3938f112-585d-47da-a134-c67f96e35ca0" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>np.quantile(allEdgeWeights.values,[<span class="fl">0.10</span>, <span class="fl">0.50</span>, <span class="fl">0.70</span>, <span class="fl">0.9</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>array([  4.15,  48.01,  75.75, 141.91])</code></pre>
+</div>
+</div>
+<p><code>-</code> 매게 중심성 측정 지표</p>
+<div id="fc039005-9713-4beb-8aad-be9dd9394b79" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="cf">for</span> G <span class="kw">in</span> [G_bu, G_tu]:</span>
+<span id="cb52-2"><a href="#cb52-2"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
+<span id="cb52-3"><a href="#cb52-3"></a>    bc_distr <span class="op">=</span> pd.Series(nx.betweenness_centrality(G))</span>
+<span id="cb52-4"><a href="#cb52-4"></a>    bc_distr.plot.hist()</span>
+<span id="cb52-5"><a href="#cb52-5"></a>    plt.yscale(<span class="st">"log"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>KeyboardInterrupt: </code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 1000x1000 with 0 Axes&gt;</code></pre>
+</div>
+</div>
+<ul>
+<li><p>그래프 내에서 노드가 얼마나 중심적인 역할을 하는지 나타내는 지표</p></li>
+<li><p>해당 노드가 얼마나 많은 최단경로에 포함되는지 살피기</p></li>
+<li><p>노드가 많은 최단경로를 포함하면 해당노드의 매개중심성은 커진다.</p></li>
+</ul>
+<p><code>-</code> 상관계수</p>
+<div id="82dac595-601d-45cc-b6be-7fb19696f439" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a><span class="cf">for</span> G <span class="kw">in</span> [G_bu, G_tu]:</span>
+<span id="cb55-2"><a href="#cb55-2"></a>    <span class="bu">print</span>(nx.degree_pearson_correlation_coefficient(G))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-0.12467174727090688
+-0.8051895351325623</code></pre>
+</div>
+</div>
+<ul>
+<li><p>음의 동류성(서로 다른 속성을 가진 노드들끼리 연결되어 있다.)</p></li>
+<li><p>0~ -1 사이의 값을 가짐</p></li>
+<li><p>-1에 가까울수록 서로 다른 속성을 가진 노드들끼리 강한 음의 상관관계</p></li>
+<li><p>0에 가까울수록 노드들이 연결될 때 서로 다른 속성을 가진 노드들끼리 큰 차이가 없음 =&gt;</p></li>
+<li><p>연결도 높은 개인이 연골도 낮은 개인과 연관돼 있다.</p></li>
+<li><p>이분그래프: 낮은 차수의 고객은 들어오는 트랜잭션 수가 많은 높은 차수의 판매자와만 연결되어 상관계수가 낮다.</p></li>
+<li><p>삼분그래프:동류성이 훨씬 더 낮다. 트랜잭션 노드가 있기 댸문에?</p></li>
+</ul>
+</section>
+<section id="커뮤니티-감지" class="level2">
+<h2 class="anchored" data-anchor-id="커뮤니티-감지">커뮤니티 감지</h2>
+<div id="97e00154-fa25-4f0c-8c7c-9ffce043ede5" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># pip install python-louvain</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="e6fb437b-cecc-4165-8e0f-536a342f132d" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb58-2"><a href="#cb58-2"></a><span class="im">import</span> community</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="0c3592a0-b475-4431-b347-2ffb084d2b3d" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a><span class="im">import</span> community</span>
+<span id="cb59-2"><a href="#cb59-2"></a><span class="cf">for</span> G <span class="kw">in</span> [G_bu, G_tu]:</span>
+<span id="cb59-3"><a href="#cb59-3"></a>    parts <span class="op">=</span> community.best_partition(G, random_state<span class="op">=</span><span class="dv">42</span>, weight<span class="op">=</span><span class="st">'weight'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="2854b44b-fa01-4341-af41-f74d60cd3f7a" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>communities <span class="op">=</span> pd.Series(parts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="6a6d23cd-9454-4bf6-86f7-51ad803e3ce5" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>communities</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>255288    72
+204367    72
+65143     92
+10004     23
+194072     3
+          ..
+286119    78
+194740    88
+53644     57
+300283     9
+313041    66
+Length: 320413, dtype: int64</code></pre>
+</div>
+</div>
+<div id="e64401aa-90e5-46d2-aad7-478b0b37489f" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a><span class="bu">print</span>(communities.value_counts().sort_values(ascending<span class="op">=</span><span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4      9426
+94     6025
+6      5835
+42     5636
+50     5016
+       ... 
+112    1341
+91     1307
+18     1104
+62     1057
+85      585
+Length: 113, dtype: int64</code></pre>
+</div>
+</div>
+<ul>
+<li><p>커뮤니티 종류가 늘었따. 96&gt;&gt;113개로</p></li>
+<li><p>커뮤니티 감지를 통해 특정 사기 패턴 식별</p></li>
+<li><p>커뮤니티 추출 후 포함된 노드 수에 따라 정렬</p></li>
+</ul>
+<div id="1e842827-3c52-47f5-ba3b-cb70e72977c6" class="cell" data-tags="[]" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>communities.value_counts().plot.hist(bins<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2023-05-06-Start_files/figure-html/cell-48-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>9426개 이상한거 하나있고.. 약간 2000~3000사이에 집중되어 보인다.</li>
+</ul>
+<div id="5fdd5558-899e-40ad-acfa-b88e17b9ecfe" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>graphs <span class="op">=</span> [] <span class="co"># 부분그래프 저장</span></span>
+<span id="cb66-2"><a href="#cb66-2"></a>d <span class="op">=</span> {}  <span class="co"># 부정 거래 비율 저장 </span></span>
+<span id="cb66-3"><a href="#cb66-3"></a><span class="cf">for</span> x <span class="kw">in</span> communities.unique():</span>
+<span id="cb66-4"><a href="#cb66-4"></a>    tmp <span class="op">=</span> nx.subgraph(G, communities[communities<span class="op">==</span>x].index)</span>
+<span id="cb66-5"><a href="#cb66-5"></a>    fraud_edges <span class="op">=</span> <span class="bu">sum</span>(nx.get_edge_attributes(tmp, <span class="st">"label"</span>).values())</span>
+<span id="cb66-6"><a href="#cb66-6"></a>    ratio <span class="op">=</span> <span class="dv">0</span> <span class="cf">if</span> fraud_edges <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> (fraud_edges<span class="op">/</span>tmp.number_of_edges())<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb66-7"><a href="#cb66-7"></a>    d[x] <span class="op">=</span> ratio</span>
+<span id="cb66-8"><a href="#cb66-8"></a>    graphs <span class="op">+=</span> [tmp]</span>
+<span id="cb66-9"><a href="#cb66-9"></a></span>
+<span id="cb66-10"><a href="#cb66-10"></a>pd.Series(d).sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>56     5.281326
+59     4.709632
+111    4.399142
+77     4.149798
+15     3.975843
+         ...   
+90     0.409650
+112    0.297398
+110    0.292826
+67     0.277008
+18     0.180180
+Length: 113, dtype: float64</code></pre>
+</div>
+</div>
+<ul>
+<li><p>사기 거래 비율 계산. 사기 거래가 집중된 특정 하위 그래프 식별</p></li>
+<li><p>특정 커뮤니티에 포함된 노드를 사용하여 노드 유도 하위 그래프 생성</p></li>
+<li><p>하위 그래프: 모든 간선 수에 대한 사기 거래 간선 수의 비율로 사기 거래 백분율 계싼</p></li>
+</ul>
+<div id="b89412f2-9b4b-45a8-a0a6-f98845cfc199" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>gId <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb68-2"><a href="#cb68-2"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
+<span id="cb68-3"><a href="#cb68-3"></a>spring_pos <span class="op">=</span> nx.spring_layout(graphs[gId])</span>
+<span id="cb68-4"><a href="#cb68-4"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb68-5"><a href="#cb68-5"></a>edge_colors <span class="op">=</span> [<span class="st">"r"</span> <span class="cf">if</span> x <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">"g"</span> <span class="cf">for</span> x <span class="kw">in</span> nx.get_edge_attributes(graphs[gId], <span class="st">'label'</span>).values()]  <span class="co">#r:빨간색, g:녹색</span></span>
+<span id="cb68-6"><a href="#cb68-6"></a>nx.draw_networkx(graphs[gId], pos<span class="op">=</span>spring_pos, node_color<span class="op">=</span>default_node_color, </span>
+<span id="cb68-7"><a href="#cb68-7"></a>                 edge_color<span class="op">=</span>edge_colors, with_labels<span class="op">=</span><span class="va">False</span>, node_size<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2023-05-06-Start_files/figure-html/cell-50-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>커뮤니티 감지 알고리즘에 의해 감지된 노드 유도 하위 그래프 그리기</p></li>
+<li><p>특정 커뮤니티 인덱스 gId가 주어지면 해당 커뮤니티에서 사용 가능한 노드로 유도 하위 그래프 추출하고 얻는다.</p></li>
+</ul>
+<div id="a22e15ba-c9e6-46e7-b853-2ddbcbdb9915" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>gId <span class="op">=</span> <span class="dv">56</span></span>
+<span id="cb69-2"><a href="#cb69-2"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
+<span id="cb69-3"><a href="#cb69-3"></a>spring_pos <span class="op">=</span> nx.spring_layout(graphs[gId])</span>
+<span id="cb69-4"><a href="#cb69-4"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb69-5"><a href="#cb69-5"></a>edge_colors <span class="op">=</span> [<span class="st">"r"</span> <span class="cf">if</span> x <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">"g"</span> <span class="cf">for</span> x <span class="kw">in</span> nx.get_edge_attributes(graphs[gId], <span class="st">'label'</span>).values()]  <span class="co">#r:빨간색, g:녹색</span></span>
+<span id="cb69-6"><a href="#cb69-6"></a>nx.draw_networkx(graphs[gId], pos<span class="op">=</span>spring_pos, node_color<span class="op">=</span>default_node_color, </span>
+<span id="cb69-7"><a href="#cb69-7"></a>                 edge_color<span class="op">=</span>edge_colors, with_labels<span class="op">=</span><span class="va">False</span>, node_size<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2023-05-06-Start_files/figure-html/cell-51-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="c8040523-db86-42b1-a382-ee64f73dd161" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>gId <span class="op">=</span> <span class="dv">18</span></span>
+<span id="cb70-2"><a href="#cb70-2"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
+<span id="cb70-3"><a href="#cb70-3"></a>spring_pos <span class="op">=</span> nx.spring_layout(graphs[gId])</span>
+<span id="cb70-4"><a href="#cb70-4"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb70-5"><a href="#cb70-5"></a>edge_colors <span class="op">=</span> [<span class="st">"r"</span> <span class="cf">if</span> x <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">"g"</span> <span class="cf">for</span> x <span class="kw">in</span> nx.get_edge_attributes(graphs[gId], <span class="st">'label'</span>).values()]  <span class="co">#r:빨간색, g:녹색</span></span>
+<span id="cb70-6"><a href="#cb70-6"></a>nx.draw_networkx(graphs[gId], pos<span class="op">=</span>spring_pos, node_color<span class="op">=</span>default_node_color, </span>
+<span id="cb70-7"><a href="#cb70-7"></a>                 edge_color<span class="op">=</span>edge_colors, with_labels<span class="op">=</span><span class="va">False</span>, node_size<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2023-05-06-Start_files/figure-html/cell-52-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="4436b150-763b-4db2-9827-b4ed041a9ec5" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>pd.Series(d).plot.hist(bins<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2023-05-06-Start_files/figure-html/cell-53-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="사기-탐지를-위한-지도-및-비지도-임베딩" class="level2">
+<h2 class="anchored" data-anchor-id="사기-탐지를-위한-지도-및-비지도-임베딩">사기 탐지를 위한 지도 및 비지도 임베딩</h2>
+<ul>
+<li><p>트랜잭션 간선으로 표기</p></li>
+<li><p>각 간선을 올바른 클래스(사기 또는 정상)으로 분류</p></li>
+</ul>
+<section id="지도학습" class="level3">
+<h3 class="anchored" data-anchor-id="지도학습">지도학습</h3>
+<div id="76bbe897-8808-49a2-9472-8bd81c007d67" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a><span class="im">from</span> sklearn.utils <span class="im">import</span> resample</span>
+<span id="cb72-2"><a href="#cb72-2"></a></span>
+<span id="cb72-3"><a href="#cb72-3"></a>df_majority <span class="op">=</span> df[df.is_fraud<span class="op">==</span><span class="dv">0</span>]</span>
+<span id="cb72-4"><a href="#cb72-4"></a>df_minority <span class="op">=</span> df[df.is_fraud<span class="op">==</span><span class="dv">1</span>]</span>
+<span id="cb72-5"><a href="#cb72-5"></a></span>
+<span id="cb72-6"><a href="#cb72-6"></a>df_maj_dowsampled <span class="op">=</span> resample(df_majority,</span>
+<span id="cb72-7"><a href="#cb72-7"></a>                             n_samples<span class="op">=</span><span class="bu">len</span>(df_minority),</span>
+<span id="cb72-8"><a href="#cb72-8"></a>                             random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb72-9"><a href="#cb72-9"></a></span>
+<span id="cb72-10"><a href="#cb72-10"></a>df_downsampled <span class="op">=</span> pd.concat([df_minority, df_maj_dowsampled])</span>
+<span id="cb72-11"><a href="#cb72-11"></a></span>
+<span id="cb72-12"><a href="#cb72-12"></a><span class="bu">print</span>(df_downsampled.is_fraud.value_counts())</span>
+<span id="cb72-13"><a href="#cb72-13"></a>G_down <span class="op">=</span> build_graph_bipartite(df_downsampled)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1    6006
+0    6006
+Name: is_fraud, dtype: int64</code></pre>
+</div>
+</div>
+<div id="377a243d-7edc-4528-8d13-79522cf7911f" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<pre><code>(318777, 23)</code></pre>
+</div>
+</div>
+<div id="f679a054-28b4-456a-a8e8-b1c89c2a93ea" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>df_minority.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<pre><code>(6006, 23)</code></pre>
+</div>
+</div>
+<div id="2e1bead2-f4f7-4bd5-b5f1-a5aaac264404" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>df_majority.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="50">
+<pre><code>(312771, 23)</code></pre>
+</div>
+</div>
+<div id="7a7db1cc-2edb-49c4-91c1-34b6798cef88" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a><span class="dv">6006</span> <span class="op">/</span> <span class="dv">312771</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="51">
+<pre><code>0.019202547550763976</code></pre>
+</div>
+</div>
+<ul>
+<li><p>무작위 언더샘플링 사용</p></li>
+<li><p>소수 클래스(사기거래)이 샘플 수 와 일치시키려고 다수 클래스(정상거래)의 하위 샘플을 가져옴</p></li>
+<li><p>데이터 불균형을 처리하기 위해서</p></li>
+</ul>
+<div id="83113844-1cfe-4eab-b0ea-4dfa9a421fb6" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb82-2"><a href="#cb82-2"></a></span>
+<span id="cb82-3"><a href="#cb82-3"></a></span>
+<span id="cb82-4"><a href="#cb82-4"></a>train_edges, test_edges, train_labels, test_labels <span class="op">=</span> train_test_split(<span class="bu">list</span>(<span class="bu">range</span>(<span class="bu">len</span>(G_down.edges))), </span>
+<span id="cb82-5"><a href="#cb82-5"></a>                                                                      <span class="bu">list</span>(nx.get_edge_attributes(G_down, <span class="st">"label"</span>).values()), </span>
+<span id="cb82-6"><a href="#cb82-6"></a>                                                                      test_size<span class="op">=</span><span class="fl">0.20</span>, </span>
+<span id="cb82-7"><a href="#cb82-7"></a>                                                                      random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="7f4cb463-4ffc-4042-8837-d96515c07a35" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>edgs <span class="op">=</span> <span class="bu">list</span>(G_down.edges)</span>
+<span id="cb83-2"><a href="#cb83-2"></a>train_graph <span class="op">=</span> G_down.edge_subgraph([edgs[x] <span class="cf">for</span> x <span class="kw">in</span> train_edges]).copy()</span>
+<span id="cb83-3"><a href="#cb83-3"></a>train_graph.add_nodes_from(<span class="bu">list</span>(<span class="bu">set</span>(G_down.nodes) <span class="op">-</span> <span class="bu">set</span>(train_graph.nodes)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>데이터 8:2 비율로 학습 검증</li>
+</ul>
+<div id="a5305ecc-9fe4-4658-96e7-b584a60754a5" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a>pip install node2vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Collecting node2vec
+  Downloading node2vec-0.4.6-py3-none-any.whl (7.0 kB)
+Requirement already satisfied: joblib&lt;2.0.0,&gt;=1.1.0 in /home/coco/anaconda3/envs/py38/lib/python3.8/site-packages (from node2vec) (1.2.0)
+Collecting gensim&lt;5.0.0,&gt;=4.1.2
+  Downloading gensim-4.3.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (26.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 26.5/26.5 MB 71.8 MB/s eta 0:00:0000:0100:01
+Collecting tqdm&lt;5.0.0,&gt;=4.55.1
+  Downloading tqdm-4.65.0-py3-none-any.whl (77 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 77.1/77.1 kB 18.6 MB/s eta 0:00:00
+Collecting networkx&lt;3.0,&gt;=2.5
+  Downloading networkx-2.8.8-py3-none-any.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 90.4 MB/s eta 0:00:00
+Requirement already satisfied: numpy&lt;2.0.0,&gt;=1.19.5 in /home/coco/anaconda3/envs/py38/lib/python3.8/site-packages (from node2vec) (1.24.2)
+Requirement already satisfied: scipy&gt;=1.7.0 in /home/coco/anaconda3/envs/py38/lib/python3.8/site-packages (from gensim&lt;5.0.0,&gt;=4.1.2-&gt;node2vec) (1.10.1)
+Collecting smart-open&gt;=1.8.1
+  Downloading smart_open-6.3.0-py3-none-any.whl (56 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.8/56.8 kB 13.6 MB/s eta 0:00:00
+Installing collected packages: tqdm, smart-open, networkx, gensim, node2vec
+  Attempting uninstall: networkx
+    Found existing installation: networkx 3.0
+    Uninstalling networkx-3.0:
+      Successfully uninstalled networkx-3.0
+Successfully installed gensim-4.3.1 networkx-2.8.8 node2vec-0.4.6 smart-open-6.3.0 tqdm-4.65.0
+Note: you may need to restart the kernel to use updated packages.</code></pre>
+</div>
+</div>
+<div id="e945cdf8-d8ec-40b9-abb0-bd1c0bbd9910" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1"></a><span class="im">from</span> node2vec <span class="im">import</span> Node2Vec</span>
+<span id="cb86-2"><a href="#cb86-2"></a><span class="im">from</span> node2vec.edges <span class="im">import</span> HadamardEmbedder, AverageEmbedder, WeightedL1Embedder, WeightedL2Embedder</span>
+<span id="cb86-3"><a href="#cb86-3"></a></span>
+<span id="cb86-4"><a href="#cb86-4"></a>node2vec_train <span class="op">=</span> Node2Vec(train_graph, weight_key<span class="op">=</span><span class="st">'weight'</span>)</span>
+<span id="cb86-5"><a href="#cb86-5"></a>model_train <span class="op">=</span> node2vec_train.fit(window<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"f0ef0626f77b4f67a2ab4f2deb8c8589","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Generating walks (CPU: 1):   0%|          | 0/10 [00:00&lt;?, ?it/s]Generating walks (CPU: 1): 100%|██████████| 10/10 [00:04&lt;00:00,  2.45it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code></code></pre>
+</div>
+</div>
+<ul>
+<li>Node2Vec 알고리즘 사용해 특징 공간 구축</li>
+</ul>
+<div id="311557e1-9d0c-4e2b-b685-fbc808bb1bd6" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier </span>
+<span id="cb89-2"><a href="#cb89-2"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics </span>
+<span id="cb89-3"><a href="#cb89-3"></a></span>
+<span id="cb89-4"><a href="#cb89-4"></a>classes <span class="op">=</span> [HadamardEmbedder, AverageEmbedder, WeightedL1Embedder, WeightedL2Embedder]</span>
+<span id="cb89-5"><a href="#cb89-5"></a><span class="cf">for</span> cl <span class="kw">in</span> classes:</span>
+<span id="cb89-6"><a href="#cb89-6"></a>    embeddings_train <span class="op">=</span> cl(keyed_vectors<span class="op">=</span>model_train.wv) </span>
+<span id="cb89-7"><a href="#cb89-7"></a>    <span class="co"># 벡터스페이스 상에 edge를 투영.. </span></span>
+<span id="cb89-8"><a href="#cb89-8"></a></span>
+<span id="cb89-9"><a href="#cb89-9"></a>    train_embeddings <span class="op">=</span> [embeddings_train[<span class="bu">str</span>(edgs[x][<span class="dv">0</span>]), <span class="bu">str</span>(edgs[x][<span class="dv">1</span>])] <span class="cf">for</span> x <span class="kw">in</span> train_edges]</span>
+<span id="cb89-10"><a href="#cb89-10"></a>    test_embeddings <span class="op">=</span> [embeddings_train[<span class="bu">str</span>(edgs[x][<span class="dv">0</span>]), <span class="bu">str</span>(edgs[x][<span class="dv">1</span>])] <span class="cf">for</span> x <span class="kw">in</span> test_edges]</span>
+<span id="cb89-11"><a href="#cb89-11"></a>    </span>
+<span id="cb89-12"><a href="#cb89-12"></a>    rf <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">1000</span>, random_state<span class="op">=</span><span class="dv">42</span>) </span>
+<span id="cb89-13"><a href="#cb89-13"></a>    rf.fit(train_embeddings, train_labels)<span class="op">;</span> </span>
+<span id="cb89-14"><a href="#cb89-14"></a>    <span class="co">#</span></span>
+<span id="cb89-15"><a href="#cb89-15"></a>    y_hat <span class="op">=</span> rf.predict_proba(test_embeddings)</span>
+<span id="cb89-16"><a href="#cb89-16"></a>    y_pred <span class="op">=</span> np.argmax(yhat,axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb89-17"><a href="#cb89-17"></a>    <span class="co">#y_pred = rf.predict(test_embeddings)</span></span>
+<span id="cb89-18"><a href="#cb89-18"></a>    <span class="bu">print</span>(cl)</span>
+<span id="cb89-19"><a href="#cb89-19"></a>    <span class="bu">print</span>(<span class="st">'Precision:'</span>, metrics.precision_score(test_labels, y_pred)) </span>
+<span id="cb89-20"><a href="#cb89-20"></a>    <span class="bu">print</span>(<span class="st">'Recall:'</span>, metrics.recall_score(test_labels, y_pred)) </span>
+<span id="cb89-21"><a href="#cb89-21"></a>    <span class="bu">print</span>(<span class="st">'F1-Score:'</span>, metrics.f1_score(test_labels, y_pred)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'node2vec.edges.HadamardEmbedder'&gt;
+Precision: 0.7236842105263158
+Recall: 0.1407849829351536
+F1-Score: 0.2357142857142857</code></pre>
+</div>
+</div>
+<div id="b6edc97c-f29a-401c-84fe-506da2ca6d16" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>y_pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>array([1, 0, 0, ..., 0, 0, 0])</code></pre>
+</div>
+</div>
+<div id="142ea1ef-8723-4419-bd5f-847196640ff8" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a>yhat <span class="op">=</span> rf.predict_proba(test_embeddings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a76243a8-f1db-40c5-a7c2-03db045005ab" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a>yhat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<pre><code>array([[0.457, 0.543],
+       [0.634, 0.366],
+       [0.609, 0.391],
+       ...,
+       [0.577, 0.423],
+       [0.59 , 0.41 ],
+       [0.557, 0.443]])</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Node2Vec 알고리즘 사용해 각 Edge2Vec 알고리즘으로 특징 공간 생성</p></li>
+<li><p>sklearn 파이썬 라이브러리의 RandomForestClassifier은 이전 단계에서 생성한 특징에 대해 학습</p></li>
+<li><p>검증 테스트 위해 정밀도, 재현율, F1-score 성능 지표 측정</p></li>
+</ul>
+</section>
+<section id="비지도학습" class="level3">
+<h3 class="anchored" data-anchor-id="비지도학습">비지도학습</h3>
+<ul>
+<li><p>k-means 알고리즘 사용</p></li>
+<li><p>지도학습과의 차이점은 특징 공간이 학습-검증 분할을 안함.</p></li>
+</ul>
+<div id="0a68ee58-c4c4-4440-a732-6b0a3727df30" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a>nod2vec_unsup <span class="op">=</span> Node2Vec(G_down, weight_key<span class="op">=</span><span class="st">'weight'</span>)</span>
+<span id="cb96-2"><a href="#cb96-2"></a>unsup_vals <span class="op">=</span> nod2vec_unsup.fit(window<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"aeec002f541f4533887a07c05638bbfa","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Generating walks (CPU: 1): 100%|██████████| 10/10 [00:04&lt;00:00,  2.30it/s]</code></pre>
+</div>
+</div>
+<ul>
+<li>다운샘플링 절차에 전체 그래프 알고리즘 계산</li>
+</ul>
+<div id="f7548815-a5e7-4cec-9c04-351556bb69f6" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb98-2"><a href="#cb98-2"></a></span>
+<span id="cb98-3"><a href="#cb98-3"></a>classes <span class="op">=</span> [HadamardEmbedder, AverageEmbedder, WeightedL1Embedder, WeightedL2Embedder]</span>
+<span id="cb98-4"><a href="#cb98-4"></a>true_labels <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> nx.get_edge_attributes(G_down, <span class="st">"label"</span>).values()]</span>
+<span id="cb98-5"><a href="#cb98-5"></a></span>
+<span id="cb98-6"><a href="#cb98-6"></a><span class="cf">for</span> cl <span class="kw">in</span> classes:</span>
+<span id="cb98-7"><a href="#cb98-7"></a>    embedding_edge <span class="op">=</span> cl(keyed_vectors<span class="op">=</span>unsup_vals.wv) </span>
+<span id="cb98-8"><a href="#cb98-8"></a></span>
+<span id="cb98-9"><a href="#cb98-9"></a>    embedding <span class="op">=</span> [embedding_edge[<span class="bu">str</span>(x[<span class="dv">0</span>]), <span class="bu">str</span>(x[<span class="dv">1</span>])] <span class="cf">for</span> x <span class="kw">in</span> G_down.edges()]</span>
+<span id="cb98-10"><a href="#cb98-10"></a>    kmeans <span class="op">=</span> KMeans(<span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>).fit(embedding)</span>
+<span id="cb98-11"><a href="#cb98-11"></a>    </span>
+<span id="cb98-12"><a href="#cb98-12"></a>    </span>
+<span id="cb98-13"><a href="#cb98-13"></a>    nmi <span class="op">=</span> metrics.adjusted_mutual_info_score(true_labels, kmeans.labels_)</span>
+<span id="cb98-14"><a href="#cb98-14"></a>    ho <span class="op">=</span> metrics.homogeneity_score(true_labels, kmeans.labels_)</span>
+<span id="cb98-15"><a href="#cb98-15"></a>    co <span class="op">=</span> metrics.completeness_score(true_labels, kmeans.labels_)</span>
+<span id="cb98-16"><a href="#cb98-16"></a>    vmeasure <span class="op">=</span> metrics.v_measure_score(true_labels, kmeans.labels_)</span>
+<span id="cb98-17"><a href="#cb98-17"></a>    </span>
+<span id="cb98-18"><a href="#cb98-18"></a>    <span class="bu">print</span>(cl)</span>
+<span id="cb98-19"><a href="#cb98-19"></a>    <span class="bu">print</span>(<span class="st">'NMI:'</span>, nmi)</span>
+<span id="cb98-20"><a href="#cb98-20"></a>    <span class="bu">print</span>(<span class="st">'Homogeneity:'</span>, ho)</span>
+<span id="cb98-21"><a href="#cb98-21"></a>    <span class="bu">print</span>(<span class="st">'Completeness:'</span>, co)</span>
+<span id="cb98-22"><a href="#cb98-22"></a>    <span class="bu">print</span>(<span class="st">'V-Measure:'</span>, vmeasure)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/home/coco/anaconda3/envs/py38/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/home/coco/anaconda3/envs/py38/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/home/coco/anaconda3/envs/py38/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/home/coco/anaconda3/envs/py38/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'node2vec.edges.HadamardEmbedder'&gt;
+NMI: 0.04418691434534317
+Homogeneity: 0.0392170155918133
+Completeness: 0.05077340984619601
+V-Measure: 0.044253187956299615
+&lt;class 'node2vec.edges.AverageEmbedder'&gt;
+NMI: 0.10945180042668563
+Homogeneity: 0.10590886334115046
+Completeness: 0.11336117407653773
+V-Measure: 0.10950837820667877
+&lt;class 'node2vec.edges.WeightedL1Embedder'&gt;
+NMI: 0.17575054988974667
+Homogeneity: 0.1757509360433583
+Completeness: 0.17585150874409544
+V-Measure: 0.17580120800977098
+&lt;class 'node2vec.edges.WeightedL2Embedder'&gt;
+NMI: 0.13740583375677415
+Homogeneity: 0.13628828058562012
+Completeness: 0.1386505946822449
+V-Measure: 0.13745928896382234</code></pre>
+</div>
+</div>
+<p><code>-</code> NMI(Normalized Mutual Information)</p>
+<ul>
+<li><p>두 개의 군집 결과 비교</p></li>
+<li><p>0~1이며 1에 가까울수록 높은 성능</p></li>
+</ul>
+<p><code>-</code> Homogeneity</p>
+<ul>
+<li><p>하나의 실제 군집 내에서 같은 군집에 속한 샘플들이 군집화 결과에서 같은 군집에 속할 비율</p></li>
+<li><p>1에 가까울수록 높은 성능</p></li>
+</ul>
+<p><code>-</code> Completeness</p>
+<ul>
+<li><p>하나의 예측 군집 내에서 같은 실제 군집에 속한 샘플들이 군집화 결과에서 같은 군집에 속할 비율</p></li>
+<li><p>0~1이며 1에 가까울수록 높은 성능</p></li>
+</ul>
+<p><code>-</code> V-measure</p>
+<ul>
+<li><p>Homogeneity와 Completeness의 조화 평균</p></li>
+<li><p>0~1이며 1에 가까울수록 높은 성능</p></li>
+<li><p>비지도 학습에 이상치 탐지 방법</p></li>
+<li><p>k-means/LOF/One-class SVM 등이 있다.. 한번 같이 해보자.</p></li>
+<li><p>조금씩 다 커졌넹..</p></li>
+</ul>
+<p><code>-</code> 지도학습에서 정상거래에서 다운샘플링을 했는데</p>
+<p>만약, 사기거래에서 업샘플링을 하게되면 어떻게 될까?</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="miruetoto/yechan3" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

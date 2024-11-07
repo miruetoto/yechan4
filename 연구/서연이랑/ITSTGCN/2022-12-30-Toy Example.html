@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.533">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="신록예찬">
+<meta name="dcterms.date" content="2022-12-30">
+
+<title>신록예찬’s Blog - (연구&amp;서연) IT-STGCN – Toy Example</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">신록예찬’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DL2024/"> 
+<span class="menu-text">DL2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/AP2023/"> 
+<span class="menu-text">AP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/PP2024/"> 
+<span class="menu-text">PP2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DV2023/"> 
+<span class="menu-text">DV2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/MP2023/"> 
+<span class="menu-text">MP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/SC2024/"> 
+<span class="menu-text">SC2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DS2022/"> 
+<span class="menu-text">DS2022</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/SP2023/"> 
+<span class="menu-text">SP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/IR2021/"> 
+<span class="menu-text">IR2021</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://miruetoto.github.io/yechan/"> 
+<span class="menu-text">yechan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://miruetoto.github.io/yechan2/"> 
+<span class="menu-text">yechan2</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/miruetoto/yechan3"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">(연구&amp;서연) IT-STGCN – Toy Example</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../메모.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">메모</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../공부.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">공부</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../연구.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">연구</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../자료.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">자료</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">imports</a></li>
+  <li><a href="#공식홈페이지-예제" id="toc-공식홈페이지-예제" class="nav-link" data-scroll-target="#공식홈페이지-예제">공식홈페이지 예제</a>
+  <ul class="collapse">
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">data</a></li>
+  <li><a href="#recurrentgcn" id="toc-recurrentgcn" class="nav-link" data-scroll-target="#recurrentgcn">RecurrentGCN</a></li>
+  <li><a href="#learn" id="toc-learn" class="nav-link" data-scroll-target="#learn">Learn</a></li>
+  <li><a href="#예제의-차원-조사" id="toc-예제의-차원-조사" class="nav-link" data-scroll-target="#예제의-차원-조사">예제의 차원 조사</a></li>
+  </ul></li>
+  <li><a href="#우리예제" id="toc-우리예제" class="nav-link" data-scroll-target="#우리예제">우리예제</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2022-12-30-Toy Example.out.ipynb" download="2022-12-30-Toy Example.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">(연구&amp;서연) IT-STGCN – Toy Example</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>신록예찬 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 30, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="imports" class="level1">
+<h1>imports</h1>
+<div id="470c88a3-2a3a-4107-aff3-58c2fd51891b" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> torch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="공식홈페이지-예제" class="level1">
+<h1>공식홈페이지 예제</h1>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">data</h2>
+<div id="af99b00c-915e-4948-ac43-0cb4fc686af3" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> torch_geometric_temporal.dataset <span class="im">import</span> WikiMathsDatasetLoader</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">from</span> torch_geometric_temporal.signal <span class="im">import</span> temporal_signal_split</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a>loader <span class="op">=</span> WikiMathsDatasetLoader()</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a>dataset <span class="op">=</span> loader.get_dataset(lags<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a>train_dataset, test_dataset <span class="op">=</span> temporal_signal_split(dataset, train_ratio<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="recurrentgcn" class="level2">
+<h2 class="anchored" data-anchor-id="recurrentgcn">RecurrentGCN</h2>
+<div id="145dd3ba-a100-4da5-820b-2f31133beb13" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> torch</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="im">import</span> torch.nn.functional <span class="im">as</span> F</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="im">from</span> torch_geometric_temporal.nn.recurrent <span class="im">import</span> GConvGRU</span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="kw">class</span> RecurrentGCN(torch.nn.Module):</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, node_features, filters):</span>
+<span id="cb3-7"><a href="#cb3-7"></a>        <span class="bu">super</span>(RecurrentGCN, <span class="va">self</span>).<span class="fu">__init__</span>()</span>
+<span id="cb3-8"><a href="#cb3-8"></a>        <span class="va">self</span>.recurrent <span class="op">=</span> GConvGRU(node_features, filters, <span class="dv">2</span>)</span>
+<span id="cb3-9"><a href="#cb3-9"></a>        <span class="va">self</span>.linear <span class="op">=</span> torch.nn.Linear(filters, <span class="dv">1</span>)</span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x, edge_index, edge_weight):</span>
+<span id="cb3-12"><a href="#cb3-12"></a>        h <span class="op">=</span> <span class="va">self</span>.recurrent(x, edge_index, edge_weight)</span>
+<span id="cb3-13"><a href="#cb3-13"></a>        h <span class="op">=</span> F.relu(h)</span>
+<span id="cb3-14"><a href="#cb3-14"></a>        h <span class="op">=</span> <span class="va">self</span>.linear(h)</span>
+<span id="cb3-15"><a href="#cb3-15"></a>        <span class="cf">return</span> h</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="learn" class="level2">
+<h2 class="anchored" data-anchor-id="learn">Learn</h2>
+<div id="1f313c7e-f609-428b-bf58-6fbb78db6f58" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># from tqdm import tqdm</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># model = RecurrentGCN(node_features=14, filters=32)</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># optimizer = torch.optim.Adam(model.parameters(), lr=0.01)</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># model.train()</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co"># for epoch in tqdm(range(50)):</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">#     for time, snapshot in enumerate(train_dataset):</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co">#         y_hat = model(snapshot.x, snapshot.edge_index, snapshot.edge_attr)</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">#         cost = torch.mean((y_hat-snapshot.y)**2)</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="co">#         cost.backward()</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="co">#         optimizer.step()</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co">#         optimizer.zero_grad()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="422ff3cf-8b7f-4a25-aacc-cb2391d9d784" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>model <span class="op">=</span> RecurrentGCN(node_features<span class="op">=</span><span class="dv">14</span>, filters<span class="op">=</span><span class="dv">32</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>model.train()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>RecurrentGCN(
+  (recurrent): GConvGRU(
+    (conv_x_z): ChebConv(14, 32, K=2, normalization=sym)
+    (conv_h_z): ChebConv(32, 32, K=2, normalization=sym)
+    (conv_x_r): ChebConv(14, 32, K=2, normalization=sym)
+    (conv_h_r): ChebConv(32, 32, K=2, normalization=sym)
+    (conv_x_h): ChebConv(14, 32, K=2, normalization=sym)
+    (conv_h_h): ChebConv(32, 32, K=2, normalization=sym)
+  )
+  (linear): Linear(in_features=32, out_features=1, bias=True)
+)</code></pre>
+</div>
+</div>
+<div id="c4e4975f-5046-4019-8765-226919d35b24" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">for</span> s <span class="kw">in</span> train_dataset:</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="bu">print</span>((s.y<span class="op">-</span>model(s.x,s.edge_index,s.edge_attr)).shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])
+torch.Size([1068, 1068])</code></pre>
+</div>
+</div>
+</section>
+<section id="예제의-차원-조사" class="level2">
+<h2 class="anchored" data-anchor-id="예제의-차원-조사">예제의 차원 조사</h2>
+<div id="5d739a27-bf07-49b2-ad10-df781a217b0e" class="cell" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">for</span> time, snapshot <span class="kw">in</span> <span class="bu">enumerate</span>(train_dataset):</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    _x <span class="op">=</span> snapshot.x </span>
+<span id="cb9-3"><a href="#cb9-3"></a>    _edge_index <span class="op">=</span> snapshot.edge_index </span>
+<span id="cb9-4"><a href="#cb9-4"></a>    _edge_attr <span class="op">=</span> snapshot.edge_attr</span>
+<span id="cb9-5"><a href="#cb9-5"></a>    _y <span class="op">=</span> snapshot.y</span>
+<span id="cb9-6"><a href="#cb9-6"></a>    <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="f6df439e-7762-4250-a46b-988ae01a3d5e" class="cell" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>_x.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="84">
+<pre><code>torch.Size([1068, 14])</code></pre>
+</div>
+</div>
+<ul>
+<li>1068: number of nodes // 1068개의 노드가 있음</li>
+<li>14: number of features // 하나의 노드에 맵핑된 차원의수</li>
+</ul>
+<div id="0eed55e1-6ecc-4d49-9af9-8f0dcc2bc0a6" class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>_edge_index.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="85">
+<pre><code>torch.Size([2, 27079])</code></pre>
+</div>
+</div>
+<div id="7cdb57ed-934c-44fc-b580-c74c55d4053d" class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>_edge_attr.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="86">
+<pre><code>torch.Size([27079])</code></pre>
+</div>
+</div>
+<div id="4900fbb4-fe74-4965-bfd2-9eabcff21123" class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>_y.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="87">
+<pre><code>torch.Size([1068])</code></pre>
+</div>
+</div>
+<ul>
+<li>1068: number of nodes</li>
+</ul>
+<div id="cb594261-e7df-4d67-a295-3ba14ecb7832" class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>_x.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
+<pre><code>torch.Size([1068, 14])</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="우리예제" class="level1">
+<h1>우리예제</h1>
+<div id="4df88068-9214-4085-976d-597a44f0a718" class="cell" data-execution_count="211">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>T <span class="op">=</span> <span class="dv">100</span> </span>
+<span id="cb20-2"><a href="#cb20-2"></a>N <span class="op">=</span> <span class="dv">2</span> <span class="co"># number of nodes </span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>E <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">1</span>],[<span class="dv">1</span>,<span class="dv">0</span>]]).T</span>
+<span id="cb20-4"><a href="#cb20-4"></a>V <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>])</span>
+<span id="cb20-5"><a href="#cb20-5"></a>AMP <span class="op">=</span> np.array([<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="fl">2.2</span>])</span>
+<span id="cb20-6"><a href="#cb20-6"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>,T)<span class="op">/</span>T<span class="op">*</span><span class="dv">10</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a>node_features <span class="op">=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a0e65370-6559-4569-b686-2e86d685c342" class="cell" data-execution_count="212">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">#f = np.stack([a*np.sin(2*t**2/1000)+np.random.normal(loc=0,scale=0.2,size=T) for a in AMP],axis=1).reshape(T,N,node_features)</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="co">#f = torch.tensor(f).float()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="d92d8084-b386-497f-a50a-a4ba6211644e" class="cell" data-execution_count="213">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>x <span class="op">=</span> <span class="fl">0.8</span><span class="op">*</span>np.sin(<span class="dv">2</span><span class="op">*</span>t)<span class="op">+</span><span class="fl">0.5</span><span class="op">*</span>np.sin(<span class="dv">5</span><span class="op">*</span>t)<span class="op">+</span><span class="fl">0.1</span><span class="op">*</span>np.sin(<span class="dv">8</span><span class="op">*</span>t)</span>
+<span id="cb22-2"><a href="#cb22-2"></a>y <span class="op">=</span> x.copy()</span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,T):</span>
+<span id="cb22-4"><a href="#cb22-4"></a>    y[i] <span class="op">=</span> <span class="fl">0.35</span><span class="op">*</span>x[i<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> <span class="fl">0.15</span><span class="op">*</span>x[i<span class="op">-</span><span class="dv">2</span>] <span class="op">+</span> <span class="fl">0.5</span><span class="op">*</span>np.cos(<span class="fl">0.5</span><span class="op">*</span>t[i]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="50d2f164-27fc-4fde-b45f-3b49cfb8cf58" class="cell" data-execution_count="214">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>f <span class="op">=</span> torch.tensor(np.stack([x,y]).T.reshape(<span class="dv">100</span>,<span class="dv">2</span>,<span class="dv">1</span>)).<span class="bu">float</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fb91bd75-0625-4159-bc43-803e8386697b" class="cell" data-execution_count="215">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>X <span class="op">=</span> f[:<span class="dv">98</span>,:,:]</span>
+<span id="cb24-2"><a href="#cb24-2"></a>y <span class="op">=</span> f[<span class="dv">2</span>:,:,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="9887725c-474e-405c-8748-e44358458b81" class="cell" data-execution_count="216">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>plt.plot(y[:,<span class="dv">0</span>,<span class="dv">0</span>],label<span class="op">=</span><span class="st">"v1"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a>plt.plot(y[:,<span class="dv">1</span>,<span class="dv">0</span>],label<span class="op">=</span><span class="st">"v2"</span>)</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="co">#plt.plot(y[:,2,0],label="v3")</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="co">#plt.plot(y[:,3,0],label="v4")</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2022-12-30-Toy Example_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="b35406e4-c439-4acd-a2af-9209c510977b" class="cell" data-execution_count="217">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>edge_index <span class="op">=</span> torch.tensor(E)</span>
+<span id="cb26-2"><a href="#cb26-2"></a>edge_attr <span class="op">=</span> torch.tensor(np.array([<span class="dv">1</span>,<span class="dv">1</span>]),dtype<span class="op">=</span>torch.float32)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="18ff54fb-e105-4c69-9c5e-0780f764e2f5" class="cell" data-execution_count="218">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>_ee <span class="op">=</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(X,y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="2e74e257-7193-4cf2-bf21-8943b1a0952f" class="cell" data-execution_count="266">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb28-2"><a href="#cb28-2"></a></span>
+<span id="cb28-3"><a href="#cb28-3"></a>model <span class="op">=</span> RecurrentGCN(node_features<span class="op">=</span><span class="dv">1</span>, filters<span class="op">=</span><span class="dv">32</span>)</span>
+<span id="cb28-4"><a href="#cb28-4"></a></span>
+<span id="cb28-5"><a href="#cb28-5"></a>optimizer <span class="op">=</span> torch.optim.Adam(model.parameters(), lr<span class="op">=</span><span class="fl">0.01</span>)</span>
+<span id="cb28-6"><a href="#cb28-6"></a></span>
+<span id="cb28-7"><a href="#cb28-7"></a>model.train()</span>
+<span id="cb28-8"><a href="#cb28-8"></a></span>
+<span id="cb28-9"><a href="#cb28-9"></a><span class="cf">for</span> epoch <span class="kw">in</span> tqdm(<span class="bu">range</span>(<span class="dv">50</span>)):</span>
+<span id="cb28-10"><a href="#cb28-10"></a>    <span class="cf">for</span> time, (xt,yt) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(X,y)):</span>
+<span id="cb28-11"><a href="#cb28-11"></a>        y_hat <span class="op">=</span> model(xt, edge_index, edge_attr)</span>
+<span id="cb28-12"><a href="#cb28-12"></a>        cost <span class="op">=</span> torch.mean((y_hat<span class="op">-</span>yt)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb28-13"><a href="#cb28-13"></a>        cost.backward()</span>
+<span id="cb28-14"><a href="#cb28-14"></a>        optimizer.step()</span>
+<span id="cb28-15"><a href="#cb28-15"></a>        optimizer.zero_grad()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 50/50 [00:16&lt;00:00,  2.98it/s]</code></pre>
+</div>
+</div>
+<div id="597e6323-d0eb-43c8-b39e-dea80b1e1a83" class="cell" data-execution_count="243">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>y_hat,yt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="243">
+<pre><code>(tensor([[0.0142],
+         [0.0518]], grad_fn=&lt;AddmmBackward0&gt;),
+ tensor([[0.2432],
+         [0.1453]]))</code></pre>
+</div>
+</div>
+<div id="86419f0b-081b-4d34-8a42-fa4d0eae766d" class="cell" data-execution_count="221">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>yhat <span class="op">=</span> torch.stack([model(xt, edge_index, edge_attr) <span class="cf">for</span> xt <span class="kw">in</span> X]).detach().numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="3c54d4b8-890d-4b28-a3c7-4fa631812877" class="cell" data-execution_count="222">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>plt.plot(y[:,<span class="dv">0</span>,<span class="dv">0</span>],label<span class="op">=</span><span class="st">"y in V1"</span>)</span>
+<span id="cb33-2"><a href="#cb33-2"></a>plt.plot(yhat[:,<span class="dv">0</span>,<span class="dv">0</span>],label<span class="op">=</span><span class="st">"yhat in V1"</span>)</span>
+<span id="cb33-3"><a href="#cb33-3"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2022-12-30-Toy Example_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="e2c5f27e-924e-4fb1-9cc2-a0a666ddf2a4" class="cell" data-execution_count="223">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>plt.plot(y[:,<span class="dv">1</span>,<span class="dv">0</span>],label<span class="op">=</span><span class="st">"y in V2"</span>)</span>
+<span id="cb34-2"><a href="#cb34-2"></a>plt.plot(yhat[:,<span class="dv">1</span>,<span class="dv">0</span>],label<span class="op">=</span><span class="st">"yhat in V2"</span>)</span>
+<span id="cb34-3"><a href="#cb34-3"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2022-12-30-Toy Example_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="miruetoto/yechan3" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
