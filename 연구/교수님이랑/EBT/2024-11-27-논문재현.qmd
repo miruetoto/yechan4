@@ -1,0 +1,261 @@
+---
+title: "(연구&교수님) EBT – 첫 논문 재현 // 11월28일 다시~!"
+format: html
+editor: visual
+jupyter: ir
+---
+
+# 1. Imports
+
+```{R}
+getwd()
+library(devtools)
+install_github("guebin/EBT",force=TRUE)
+install_github("seoyeonc/gglite",force=TRUE)
+library(ebt)
+library(gglite)
+library(tidyverse)
+library(ggplot2)
+library(patchwork)
+```
+
+# 2. **Motivating Example**
+
+## A. Signal
+
+```{R}
+fs=1000
+t=-2000:2000/fs
+v1=sin(2*pi*t)
+v2=cos(20*pi*t)
+f=v1*v2
+gglite()+line(t,f)+coord_cartesian(xlim=c(-0.22,0.22))+xlab("")+ylab("")
+```
+
+## B. EBT
+
+```{R}
+out1<-ebt(t,f,tau=60)
+i1<-out1$sampled_index[[1]]
+i2<-out1$sampled_index[[20]]
+i3<-out1$sampled_index[[40]]
+out2<-ebt(t,f,tau=80)
+i4<-out2$sampled_index[[1]]
+i5<-out2$sampled_index[[20]]
+i6<-out2$sampled_index[[40]]
+```
+
+## C. **fig1a - fig1f**
+
+```{R}
+figsize(4,3,300)
+fig1a = gglite() + 
+point(t,f,col="gray60",cex=0.1) + 
+ggtitle("Original Signal")+xlab("")+ylab("")+
+coord_cartesian(xlim=c(-0.22,0.22))
+fig1a
+```
+
+```{R}
+fig1b = fig1a + ggtitle("Single Touch of Dessin") + 
+point(t[i1],out1$band[,1][i1],cex=2,col=2) + # band1, point
+line(t[i1],out1$band[,1][i1],col=2,alpha=0.2,lwd=1) # band1, line
+fig1b
+```
+
+```{R}
+fig1c = fig1a + ggtitle("Three Touches") + 
+point(t[i1],out1$band[,1][i1],cex=2,col=2)+ # band1, point
+line(t[i1],out1$band[,1][i1],col=2,alpha=0.2,lwd=1)+ # band1, line 
+point(t[i2],out1$band[,20][i2],cex=2,col=4)+ # band20, point 
+line(t[i2],out1$band[,20][i2],col=4,alpha=0.2,lwd=1)+ # band20, line
+point(t[i3],out1$band[,40][i3],cex=2,col=3)+ # band40, point
+line(t[i3],out1$band[,40][i3],col=3,alpha=0.2,lwd=1) # band40, line
+fig1c
+```
+
+```{R}
+fig1d <- fig1c + line(t,out1$band,col="gray60",lwd=0.05) + ggtitle("All Possible Touches")
+fig1d
+```
+
+```{R}
+fig1e <- fig1a + point(t[i4],out2$band[,1][i4],cex=2,col=2)+ # band1, point
+line(t[i4],out2$band[,1][i4],col=2,alpha=0.2,lwd=1)+ # band1, line 
+point(t[i5],out2$band[,20][i5],cex=2,col=4)+ # band20, point 
+line(t[i5],out2$band[,20][i5],col=4,alpha=0.2,lwd=1)+ # band20, line
+point(t[i6],out2$band[,40][i6],cex=2,col=3)+ # band40, point
+line(t[i6],out2$band[,40][i6],col=3,alpha=0.2,lwd=1)+ # band40, line
+ggtitle("Three Touches (With Larger Interval)")
+fig1e
+```
+
+```{R}
+fig1f <- fig1e + line(t,out2$band,col="gray60",lwd=0.05) + ggtitle("All Possible Touches (With Larger Interval)")
+fig1f
+```
+
+## D. **fig1a - fig1f**
+
+```{R}
+fig1 <- (fig1a|fig1b)/(fig1c|fig1d)/(fig1e|fig1f)
+fig1
+```
+
+## **E. ggsave**
+
+```{R}
+fig1d <- fig1c + line(t,out1$band[,1:60],col="gray60",lwd=0.05,alpha=0.2) + ggtitle("All Possible Touches")
+fig1f <- fig1e + line(t,out2$band[,1:80],col="gray60",lwd=0.05,alpha=0.2) + ggtitle("All Possible Touches (With Larger Interval)")
+fig1 <- (fig1a|fig1b)/(fig1c|fig1d)/(fig1e|fig1f)
+ggsave("fig1.pdf",fig1,width = 8, height = 6, dpi = 150)
+```
+
+# **2. Definition of Elastic-Band Transform**
+
+## **A. signal**
+
+```{R}
+fs=10
+t=-30:30/fs
+f=cos(pi*t^2)
+gglite()+point(t,f)+line(t,f)+xlim(0,2)+xlab("")+ylab("")
+```
+
+## **B. EBT: linear – fig2a,c,e**
+
+```{R}
+out<-ebt(t,f,tau=3)
+i1<-out$sampled_index[[1]]
+i2<-out$sampled_index[[2]]
+i3<-out$sampled_index[[3]]
+```
+
+```{R}
+fig2_base = gglite()+point(t,out$f)+xlim(0,2)+xlab("")+ylab("")
+fig2a = fig2_base + point(t[i1],out$band[,1][i1],col=2,cex=5,pch=1)+line(t,out$band[,1],col=2,lwd=1)+ggtitle("(a)")
+fig2a
+```
+
+```{R}
+fig2c = fig2_base + point(t[i2],out$band[,2][i2],col=3,cex=5,pch=1) + line(t,out$band[,2],col=3,lwd=1)+ggtitle("(c)")
+fig2c
+```
+
+```{R}
+fig2e = fig2_base + point(t[i3],out$band[,3][i3],col=4,cex=5,pch=1) + line(t,out$band[,3],col=4,lwd=1)+ggtitle("(e)")
+fig2e
+```
+
+## **C. EBT: cubic – fig2b,d,f**
+
+```{R}
+out<-ebt(t,f,tau=3,inter_method='cubic')
+i1<-out$sampled_index[[1]]
+i2<-out$sampled_index[[2]]
+i3<-out$sampled_index[[3]]
+```
+
+```{R}
+fig2_base = gglite()+point(t,out$f)+xlim(0,2)+xlab("")+ylab("")
+fig2b = fig2_base + point(t[i1],out$band[,1][i1],col=2,cex=5,pch=1)+line(t,out$band[,1],col=2,lwd=1)+ggtitle("(b)")
+fig2b
+```
+
+```{R}
+fig2d = fig2_base + point(t[i2],out$band[,2][i2],col=3,cex=5,pch=1) + line(t,out$band[,2],col=3,lwd=1)+ggtitle("(d)")
+fig2d
+```
+
+```{R}
+fig2f = fig2_base + point(t[i3],out$band[,3][i3],col=4,cex=5,pch=1) + line(t,out$band[,3],col=4,lwd=1)+ggtitle("(f)")
+fig2f
+```
+
+## **D. fig2**
+
+```{R}
+fig2 <- (fig2a|fig2b)/(fig2c|fig2d)/(fig2e|fig2f)
+fig2
+```
+
+## **E. ggsave**
+
+```{R}
+ggsave("fig2.pdf",fig2, height = 6.67/1.5)
+```
+
+# **3. Statistics of Elastic-Bands**
+
+## **A. signal**
+
+```{R}
+# FIG 1
+fs=100
+t=-200:200/fs
+v1=cos(2*pi*t)
+v2=cos(3*pi*t)
+f=v1+v2
+```
+
+```{R}
+fig3_base <- gglite()+point(t,f,size=0.5,col="gray20")+xlim(c(-1,1))+xlab("")+ylab("")
+fig3_base
+```
+
+## **B. EBT**
+
+```{R}
+out1<-ebt(t,f,tau=30)
+out2<-ebt(t,f,tau=45)
+out3<-ebt(t,f,tau=60)
+```
+
+## **C. fig3**
+
+```{R}
+fig3a <- gglite()+point(t,f,size=0.5)+xlim(c(-1,1))+xlab("")+ylab("")+ggtitle("(a)")
+fig3b <- fig3a+line(t,out1$band,col=2,lwd=0.01)+ggtitle("(b)")
+fig3c <- fig3a+line(t,out2$band,col=3,lwd=0.01)+ggtitle("(c)")
+fig3d <- fig3a+line(t,out3$band,col=4,lwd=0.01)+ggtitle("(d)")
+fig3e <- gglite()+xlim(c(-1,1))+point(t,f,alpha=0)+xlab("")+ylab("")+line(t,out1$M,lwd=1,col=2)+line(t,out2$M,lwd=1,col=3)+line(t,out3$M,lwd=1,col=4)+ggtitle("(e)")
+fig3f <- gglite()+xlim(c(-1,1))+line(t,out1$V,col=2)+line(t,out2$V,col=3)+line(t,out3$V,col=4)+ggtitle("(f)")+xlab("")+ylab("")
+fig3 <- (fig3a|fig3b)/(fig3c|fig3d)/(fig3e|fig3f)
+fig3
+```
+
+## **D. ggsave**
+
+```{R}
+fig3a <- gglite()+point(t,f,size=0.5)+xlim(c(-1,1))+xlab("")+ylab("")+ggtitle("(a)")
+fig3b <- fig3a+line(t,out1$band,col=2,lwd=0.01,alpha=0.1)+ggtitle("(b)")
+fig3c <- fig3a+line(t,out2$band,col=3,lwd=0.01,alpha=0.1)+ggtitle("(c)")
+fig3d <- fig3a+line(t,out3$band,col=4,lwd=0.01,alpha=0.1)+ggtitle("(d)")
+fig3e <- gglite()+xlim(c(-1,1))+point(t,f,alpha=0)+xlab("")+ylab("")+line(t,out1$M,lwd=1,col=2)+line(t,out2$M,lwd=1,col=3)+line(t,out3$M,lwd=1,col=4)+ggtitle("(e)")
+fig3f <- gglite()+xlim(c(-1,1))+line(t,out1$V,col=2)+line(t,out2$V,col=3)+line(t,out3$V,col=4)+ggtitle("(f)")+xlab("")+ylab("")
+fig3 <- (fig3a|fig3b)/(fig3c|fig3d)/(fig3e|fig3f)
+ggsave("fig3.pdf",fig3,height = 6.67/1.2)
+```
+
+# **4. Visualization**
+
+## **A. signal**
+
+```{R}
+set.seed(100)
+v1<-rnorm(150,mean=0,sd=0.5) # ~150
+v2<-rnorm(150,mean=0,sd=0.5) # ~300
+v3<-rnorm(150,mean=1.5,sd=3) # ~450
+v4<-rnorm(150,mean=1.5,sd=3) # ~600
+v5<-rnorm(150,mean=1.5,sd=2) # ~750
+v6<-rnorm(150,mean=1.5,sd=1) # ~900
+v7<-rnorm(150,mean=3.0,sd=1) # ~1050
+v8<-rnorm(150,mean=4.5,sd=1) # ~1200
+v9<-rnorm(150,mean=6.0,sd=1) # ~1350
+v10<-rnorm(150,mean=7.5,sd=1) # ~1500
+f<-c(v1,v2,v3,v4,v5,v6,v7,v8,v9,v10) 
+```
+
+```{R}
+gglite()+line(f,col='gray60')+xlab("")+ylab("")
+```

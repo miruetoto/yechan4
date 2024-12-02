@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.520">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>신록예찬’s Blog - 공부</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">신록예찬’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DL2024/"> 
+<span class="menu-text">DL2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/AP2023/"> 
+<span class="menu-text">AP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/PP2024/"> 
+<span class="menu-text">PP2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DV2023/"> 
+<span class="menu-text">DV2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/MP2023/"> 
+<span class="menu-text">MP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/SC2024/"> 
+<span class="menu-text">SC2024</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/DS2022/"> 
+<span class="menu-text">DS2022</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/SP2023/"> 
+<span class="menu-text">SP2023</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://guebin.github.io/IR2021/"> 
+<span class="menu-text">IR2021</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://miruetoto.github.io/yechan/"> 
+<span class="menu-text">yechan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://miruetoto.github.io/yechan2/"> 
+<span class="menu-text">yechan2</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/miruetoto/yechan3"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./공부.html">공부</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./메모.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">메모</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./공부.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">공부</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./연구.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">연구</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./자료.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">자료</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page-right" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">공부</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-right">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+Date
+</th>
+<th>
+Title
+</th>
+<th>
+Author
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-listing-file-modified-sort="1733156860000" data-listing-reading-time-sort="3" data-listing-word-count-sort="515" data-listing-title-sort="(공부) 추정" data-listing-filename-sort="2023-01-20-(공부) 추정.out.ipynb">
+<td>
+<span class="listing-date">&nbsp;</span>
+</td>
+<td>
+<a href="./공부/2023-01-20-(공부) 추정.out.html" class="title listing-title">(공부) 추정</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="1" data-listing-file-modified-sort="1733156887000" data-listing-reading-time-sort="1" data-listing-word-count-sort="121" data-listing-title-sort="(공부&amp;서연) 지수분포 가설검정" data-listing-filename-sort="2023-03-01-(공부&amp;서연) 지수분포 가설검정.out.ipynb">
+<td>
+<span class="listing-date">&nbsp;</span>
+</td>
+<td>
+<a href="./공부/2023-03-01-(공부&amp;서연) 지수분포 가설검정.out.html" class="title listing-title">(공부&amp;서연) 지수분포 가설검정</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="2" data-listing-file-modified-sort="1733157133000" data-listing-filename-sort="2024-11-30-(강의) 텍스트생성.ipynb">
+<td>
+<span class="listing-date">&nbsp;</span>
+</td>
+<td>
+<a href="./공부/HF/2024-11-30-(강의) 텍스트생성.html" class="title listing-title">&nbsp;</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="3" data-listing-file-modified-sort="1733156885000" data-listing-reading-time-sort="4" data-listing-word-count-sort="638" data-listing-title-sort="(공부) 리뷰 – EbayesThresh: R Programs for Empirical Bayes" data-listing-filename-sort="2022-12-23-(공부) 리뷰 -- Ebayesthresh.out.ipynb">
+<td>
+<span class="listing-date">&nbsp;</span>
+</td>
+<td>
+<a href="./공부/2022-12-23-(공부) 리뷰 -- Ebayesthresh.out.html" class="title listing-title">(공부) 리뷰 – EbayesThresh: R Programs for Empirical Bayes</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="4" data-listing-file-modified-sort="1733156888000" data-listing-reading-time-sort="1" data-listing-word-count-sort="3" data-listing-title-sort="(공부&amp;지윤) Imputer와 Scaler의 적용" data-listing-filename-sort="2023-10-21-(공부&amp;지윤) Imputer와 Scaler의 적용.out.ipynb">
+<td>
+<span class="listing-date">&nbsp;</span>
+</td>
+<td>
+<a href="./공부/2023-10-21-(공부&amp;지윤) Imputer와 Scaler의 적용.out.html" class="title listing-title">(공부&amp;지윤) Imputer와 Scaler의 적용</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="5" data-listing-file-modified-sort="1733156885000" data-listing-reading-time-sort="1" data-listing-word-count-sort="3" data-listing-title-sort="(공부) 코드 – ggraph" data-listing-filename-sort="2023-09-24-(공부) 코드 -- ggraph.out.ipynb">
+<td>
+<span class="listing-date">&nbsp;</span>
+</td>
+<td>
+<a href="./공부/2023-09-24-(공부) 코드 -- ggraph.out.html" class="title listing-title">(공부) 코드 – ggraph</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="6" data-listing-file-modified-sort="1733156888000" data-listing-reading-time-sort="5" data-listing-word-count-sort="846" data-listing-title-sort="(공부) 퓨리에변환" data-listing-filename-sort="2019-04-26-(공부) 퓨리에변환.out.ipynb">
+<td>
+<span class="listing-date">&nbsp;</span>
+</td>
+<td>
+<a href="./공부/2019-04-26-(공부) 퓨리에변환.out.html" class="title listing-title">(공부) 퓨리에변환</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="7" data-listing-date-sort="1731682800000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="933" data-listing-title-sort="(강의) 데이터콜렉터" data-listing-filename-sort="2024-11-16-(강의) 데이터콜렉터.ipynb">
+<td>
+<span class="listing-date">Nov 16, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-11-16-(강의) 데이터콜렉터.html" class="title listing-title">(강의) 데이터콜렉터</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="8" data-listing-date-sort="1731078000000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="596" data-listing-title-sort="(강의) Dataset" data-listing-filename-sort="2024-11-09-(강의)-Dataset.ipynb">
+<td>
+<span class="listing-date">Nov 9, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-11-09-(강의)-Dataset.html" class="title listing-title">(강의) Dataset</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="9" data-listing-date-sort="1730991600000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="205" data-listing-title-sort="(강의) Model" data-listing-filename-sort="2024-11-08-(강의)-Model.ipynb">
+<td>
+<span class="listing-date">Nov 8, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-11-08-(강의)-Model.html" class="title listing-title">(강의) Model</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="10" data-listing-date-sort="1730905200000" data-listing-file-modified-sort="1733161299000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="307" data-listing-title-sort="(강의) 선인장이미지분류 -- ROC" data-listing-filename-sort="2024-11-07-(강의) 선인장 이미지분류.ipynb">
+<td>
+<span class="listing-date">Nov 7, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-11-07-(강의) 선인장 이미지분류.html" class="title listing-title">(강의) 선인장이미지분류 – ROC</a>
+</td>
+<td>
+<span class="listing-author">최규빈 </span>
+</td>
+</tr>
+<tr data-index="11" data-listing-date-sort="1730559600000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="159" data-listing-title-sort="(강의) `with`의 사용" data-listing-filename-sort="2024-11-03-(강의) with의사용.ipynb">
+<td>
+<span class="listing-date">Nov 3, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-11-03-(강의) with의사용.html" class="title listing-title">(강의) <code>with</code>의 사용</a>
+</td>
+<td>
+<span class="listing-author">최규빈 </span>
+</td>
+</tr>
+<tr data-index="12" data-listing-date-sort="1730473200000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="330" data-listing-title-sort="(강의) numpy와 torch의 차이" data-listing-filename-sort="2024-11-02-(강의) numpy와 torch의 차이.ipynb">
+<td>
+<span class="listing-date">Nov 2, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-11-02-(강의) numpy와 torch의 차이.html" class="title listing-title">(강의) numpy와 torch의 차이</a>
+</td>
+<td>
+<span class="listing-author">최규빈 </span>
+</td>
+</tr>
+<tr data-index="13" data-listing-date-sort="1730386800000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="144" data-listing-title-sort="(강의) 모듈설치 및 변경" data-listing-filename-sort="2024-11-01-(강의) 모듈설치 및 변경.ipynb">
+<td>
+<span class="listing-date">Nov 1, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-11-01-(강의) 모듈설치 및 변경.html" class="title listing-title">(강의) 모듈설치 및 변경</a>
+</td>
+<td>
+<span class="listing-author">최규빈 </span>
+</td>
+</tr>
+<tr data-index="14" data-listing-date-sort="1730300400000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9" data-listing-title-sort="(강의) 이미지캡셔닝2" data-listing-filename-sort="2024-10-31-(강의) 이미지캡셔닝2.ipynb">
+<td>
+<span class="listing-date">Oct 31, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-10-31-(강의) 이미지캡셔닝2.html" class="title listing-title">(강의) 이미지캡셔닝2</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="15" data-listing-date-sort="1730300400000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="(강의) pipeline의 이해" data-listing-filename-sort="2024-10-31-(강의) pipeline의 이해.ipynb">
+<td>
+<span class="listing-date">Oct 31, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-10-31-(강의) pipeline의 이해.html" class="title listing-title">(강의) pipeline의 이해</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="16" data-listing-date-sort="1730300400000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="(강의) torch.tensor 이해" data-listing-filename-sort="2024-10-31-(강의) torch.tensor의 이해.ipynb">
+<td>
+<span class="listing-date">Oct 31, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-10-31-(강의) torch.tensor의 이해.html" class="title listing-title">(강의) torch.tensor 이해</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="17" data-listing-date-sort="1730214000000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="(강의) 평가지표의 이해" data-listing-filename-sort="2024-10-30-(강의) 평가지표의 이해.ipynb">
+<td>
+<span class="listing-date">Oct 30, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-10-30-(강의) 평가지표의 이해.html" class="title listing-title">(강의) 평가지표의 이해</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="18" data-listing-date-sort="1730214000000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="(강의) 이미지분류 SIIM-ISIC" data-listing-filename-sort="2024-10-30-(강의) 이미지분류 SIIM-ISIC.ipynb">
+<td>
+<span class="listing-date">Oct 30, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-10-30-(강의) 이미지분류 SIIM-ISIC.html" class="title listing-title">(강의) 이미지분류 SIIM-ISIC</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="19" data-listing-date-sort="1730127600000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="74" data-listing-title-sort="(강의) 이상탐지살펴봄" data-listing-filename-sort="2024-10-30-(강의) 이상탐지살펴봄.ipynb">
+<td>
+<span class="listing-date">Oct 29, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-10-30-(강의) 이상탐지살펴봄.html" class="title listing-title">(강의) 이상탐지살펴봄</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="20" data-listing-date-sort="1728486000000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="(강의) 음성인식" data-listing-filename-sort="2024-10-10-(강의) 음성인식.ipynb">
+<td>
+<span class="listing-date">Oct 10, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-10-10-(강의) 음성인식.html" class="title listing-title">(강의) 음성인식</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="21" data-listing-date-sort="1728486000000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="391" data-listing-title-sort="(강의) 이미지캡셔닝" data-listing-filename-sort="2024-10-10-(강의) 이미지캡셔닝.ipynb">
+<td>
+<span class="listing-date">Oct 10, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-10-10-(강의) 이미지캡셔닝.html" class="title listing-title">(강의) 이미지캡셔닝</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="22" data-listing-date-sort="1727708400000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="17" data-listing-title-sort="(강의) 음성분류" data-listing-filename-sort="2024-10-01-(강의) 음성분류.ipynb">
+<td>
+<span class="listing-date">Oct 1, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-10-01-(강의) 음성분류.html" class="title listing-title">(강의) 음성분류</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="23" data-listing-date-sort="1727708400000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="288" data-listing-title-sort="(강의) 비디오분류" data-listing-filename-sort="2024-10-01-(강의) 비디오분류.ipynb">
+<td>
+<span class="listing-date">Oct 1, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-10-01-(강의) 비디오분류.html" class="title listing-title">(강의) 비디오분류</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="24" data-listing-date-sort="1727535600000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="267" data-listing-title-sort="(강의) 이미지분류" data-listing-filename-sort="2024-09-30-(강의) 이미지분류.ipynb">
+<td>
+<span class="listing-date">Sep 29, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-09-30-(강의) 이미지분류.html" class="title listing-title">(강의) 이미지분류</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="25" data-listing-date-sort="1726585200000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1678" data-listing-title-sort="(강의) 감성분석 파고들기" data-listing-filename-sort="2024-09-18-(강의) 감성분석 파고들기.ipynb">
+<td>
+<span class="listing-date">Sep 18, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-09-18-(강의) 감성분석 파고들기.html" class="title listing-title">(강의) 감성분석 파고들기</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="26" data-listing-date-sort="1725721200000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="557" data-listing-title-sort="(강의) 감성분류" data-listing-filename-sort="2024-09-08-(강의) 감성분류.ipynb">
+<td>
+<span class="listing-date">Sep 8, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-09-08-(강의) 감성분류.html" class="title listing-title">(강의) 감성분류</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="27" data-listing-date-sort="1724857200000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="815" data-listing-title-sort="(공부) image_classification" data-listing-filename-sort="2024-08-29-image_classification.ipynb">
+<td>
+<span class="listing-date">Aug 29, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-08-29-image_classification.html" class="title listing-title">(공부) image_classification</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="28" data-listing-date-sort="1724857200000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1805" data-listing-title-sort="(공부) image_classification 2" data-listing-filename-sort="2024-08-29-image_classification-2.ipynb">
+<td>
+<span class="listing-date">Aug 29, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-08-29-image_classification-2.html" class="title listing-title">(공부) image_classification 2</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="29" data-listing-date-sort="1724770800000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2114" data-listing-title-sort="(강의) IMDB 자료 살펴보기, 지도학습의 개념" data-listing-filename-sort="2024-08-28-(강의) IMDB 자료 살펴보기, 지도학습의 개념.ipynb">
+<td>
+<span class="listing-date">Aug 28, 2024</span>
+</td>
+<td>
+<a href="./공부/HF/2024-08-28-(강의) IMDB 자료 살펴보기, 지도학습의 개념.html" class="title listing-title">(강의) IMDB 자료 살펴보기, 지도학습의 개념</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="30" data-listing-date-sort="1724338800000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7" data-listing-title-sort="(공부) xgboost 재현" data-listing-filename-sort="2024-08-20-(공부) xgboost 재현.ipynb">
+<td>
+<span class="listing-date">Aug 23, 2024</span>
+</td>
+<td>
+<a href="./공부/2024-08-20-(공부) xgboost 재현.html" class="title listing-title">(공부) xgboost 재현</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="31" data-listing-date-sort="1723388400000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2827" data-listing-title-sort="(공부) CGSP -- Chap 12.2: Weakly Stationary Graph Processes" data-listing-filename-sort="2022-12-26-Chap-12.2.ipynb">
+<td>
+<span class="listing-date">Aug 12, 2024</span>
+</td>
+<td>
+<a href="./공부/CGSP/2022-12-26-Chap-12.2.html" class="title listing-title">(공부) CGSP – Chap 12.2: Weakly Stationary Graph Processes</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="32" data-listing-date-sort="1723388400000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="48" data-listing-title-sort="(공부) 시계열과 GSP" data-listing-filename-sort="2024-08-12-(공부) 시계열과 GSP.ipynb">
+<td>
+<span class="listing-date">Aug 12, 2024</span>
+</td>
+<td>
+<a href="./공부/2024-08-12-(공부) 시계열과 GSP.html" class="title listing-title">(공부) 시계열과 GSP</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="33" data-listing-date-sort="1706626800000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="(공부) 코드 -- AUC sklearn" data-listing-filename-sort="2024-01-30-(공부) 코드 -- AUC.ipynb">
+<td>
+<span class="listing-date">Jan 31, 2024</span>
+</td>
+<td>
+<a href="./공부/2024-01-30-(공부) 코드 -- AUC.html" class="title listing-title">(공부) 코드 – AUC sklearn</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="34" data-listing-date-sort="1706194800000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="735" data-listing-title-sort="(공부) 조건부확률, 조건부기대값" data-listing-filename-sort="2024-01-26-(공부) 조건부확률.ipynb">
+<td>
+<span class="listing-date">Jan 26, 2024</span>
+</td>
+<td>
+<a href="./공부/2024-01-26-(공부) 조건부확률.html" class="title listing-title">(공부) 조건부확률, 조건부기대값</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="35" data-listing-date-sort="1698246000000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="149" data-listing-title-sort="(공부) Julia -- Vector" data-listing-filename-sort="2023-10-26-(공부) Julia -- Vector.ipynb">
+<td>
+<span class="listing-date">Oct 26, 2023</span>
+</td>
+<td>
+<a href="./공부/2023-10-26-(공부) Julia -- Vector.html" class="title listing-title">(공부) Julia – Vector</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="36" data-listing-date-sort="1698159600000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="67" data-listing-title-sort="(공부) Julia -- 문자와 문자열" data-listing-filename-sort="2023-10-25-(공부) Julia -- 문자와 문자열.ipynb">
+<td>
+<span class="listing-date">Oct 25, 2023</span>
+</td>
+<td>
+<a href="./공부/2023-10-25-(공부) Julia -- 문자와 문자열.html" class="title listing-title">(공부) Julia – 문자와 문자열</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="37" data-listing-date-sort="1697814000000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="(공부&amp;지윤) Imputer와 Scaler의 적용" data-listing-filename-sort="2023-10-21-(공부&amp;지윤) Imputer와 Scaler의 적용.ipynb">
+<td>
+<span class="listing-date">Oct 21, 2023</span>
+</td>
+<td>
+<a href="./공부/2023-10-21-(공부&amp;지윤) Imputer와 Scaler의 적용.html" class="title listing-title">(공부&amp;지윤) Imputer와 Scaler의 적용</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="38" data-listing-date-sort="1695481200000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="(공부) 코드 -- ggraph" data-listing-filename-sort="2023-09-24-(공부) 코드 -- ggraph.ipynb">
+<td>
+<span class="listing-date">Sep 24, 2023</span>
+</td>
+<td>
+<a href="./공부/2023-09-24-(공부) 코드 -- ggraph.html" class="title listing-title">(공부) 코드 – ggraph</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="39" data-listing-date-sort="1689692400000" data-listing-file-modified-sort="1733157134000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="155" data-listing-title-sort="(공부) PyG -- lesson6: GCN" data-listing-filename-sort="ls6.ipynb">
+<td>
+<span class="listing-date">Jul 19, 2023</span>
+</td>
+<td>
+<a href="./공부/PyG/ls6.html" class="title listing-title">(공부) PyG – lesson6: GCN</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="40" data-listing-date-sort="1689260400000" data-listing-file-modified-sort="1733157134000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="104" data-listing-title-sort="(공부) PyG -- lesson5: Learning Methods on Graphs" data-listing-filename-sort="ls5.ipynb">
+<td>
+<span class="listing-date">Jul 14, 2023</span>
+</td>
+<td>
+<a href="./공부/PyG/ls5.html" class="title listing-title">(공부) PyG – lesson5: Learning Methods on Graphs</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="41" data-listing-date-sort="1689087600000" data-listing-file-modified-sort="1733157134000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7" data-listing-title-sort="(공부) PyG -- lesson4: Data Transform???" data-listing-filename-sort="ls4.ipynb">
+<td>
+<span class="listing-date">Jul 12, 2023</span>
+</td>
+<td>
+<a href="./공부/PyG/ls4.html" class="title listing-title">(공부) PyG – lesson4: Data Transform???</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="42" data-listing-date-sort="1689087600000" data-listing-file-modified-sort="1733157134000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="177" data-listing-title-sort="(공부) PyG -- lesson3: 미니배치" data-listing-filename-sort="ls3.ipynb">
+<td>
+<span class="listing-date">Jul 12, 2023</span>
+</td>
+<td>
+<a href="./공부/PyG/ls3.html" class="title listing-title">(공부) PyG – lesson3: 미니배치</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="43" data-listing-date-sort="1688655600000" data-listing-file-modified-sort="1733157134000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="311" data-listing-title-sort="(공부) PyG -- lesson2: 벤치마크 데이터셋 (train/test분리)" data-listing-filename-sort="ls2.ipynb">
+<td>
+<span class="listing-date">Jul 7, 2023</span>
+</td>
+<td>
+<a href="./공부/PyG/ls2.html" class="title listing-title">(공부) PyG – lesson2: 벤치마크 데이터셋 (train/test분리)</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="44" data-listing-date-sort="1688396400000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2689" data-listing-title-sort="(공부) 토폴로지" data-listing-filename-sort="2023-07-04-(공부) 토폴로지.ipynb">
+<td>
+<span class="listing-date">Jul 4, 2023</span>
+</td>
+<td>
+<a href="./공부/2023-07-04-(공부) 토폴로지.html" class="title listing-title">(공부) 토폴로지</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="45" data-listing-date-sort="1688223600000" data-listing-file-modified-sort="1733157134000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="107" data-listing-title-sort="(공부) PyG -- lesson1: 자료형" data-listing-filename-sort="ls1.ipynb">
+<td>
+<span class="listing-date">Jul 2, 2023</span>
+</td>
+<td>
+<a href="./공부/PyG/ls1.html" class="title listing-title">(공부) PyG – lesson1: 자료형</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="46" data-listing-date-sort="1687446000000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1076" data-listing-title-sort="(공부&amp;지윤) 퓨리에변환(detailed)" data-listing-filename-sort="2023-06-28-(공부&amp;지윤) 퓨리에변환(detailed).ipynb">
+<td>
+<span class="listing-date">Jun 23, 2023</span>
+</td>
+<td>
+<a href="./공부/2023-06-28-(공부&amp;지윤) 퓨리에변환(detailed).html" class="title listing-title">(공부&amp;지윤) 퓨리에변환(detailed)</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="47" data-listing-date-sort="1687446000000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8" data-listing-title-sort="(공부&amp;지윤) 커널리그레션" data-listing-filename-sort="2023-06-28-(공부&amp;지윤) 커널리그레션.ipynb">
+<td>
+<span class="listing-date">Jun 23, 2023</span>
+</td>
+<td>
+<a href="./공부/2023-06-28-(공부&amp;지윤) 커널리그레션.html" class="title listing-title">(공부&amp;지윤) 커널리그레션</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="48" data-listing-date-sort="1687446000000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="106" data-listing-title-sort="(공부&amp;지윤) 퓨리에변환4jy" data-listing-filename-sort="2023-06-23-(공부&amp;지윤) 퓨리에변환4jy.ipynb">
+<td>
+<span class="listing-date">Jun 23, 2023</span>
+</td>
+<td>
+<a href="./공부/2023-06-23-(공부&amp;지윤) 퓨리에변환4jy.html" class="title listing-title">(공부&amp;지윤) 퓨리에변환4jy</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="49" data-listing-date-sort="1686668400000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1285" data-listing-title-sort="(공부&amp;지윤) 추정" data-listing-filename-sort="2023-05-13-(공부&amp;지윤) 추정.ipynb">
+<td>
+<span class="listing-date">Jun 14, 2023</span>
+</td>
+<td>
+<a href="./공부/2023-05-13-(공부&amp;지윤) 추정.html" class="title listing-title">(공부&amp;지윤) 추정</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="50" data-listing-date-sort="1677596400000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="124" data-listing-title-sort="(공부&amp;서연) 지수분포 가설검정" data-listing-filename-sort="2023-03-01-(공부&amp;서연) 지수분포 가설검정.ipynb">
+<td>
+<span class="listing-date">Mar 1, 2023</span>
+</td>
+<td>
+<a href="./공부/2023-03-01-(공부&amp;서연) 지수분포 가설검정.html" class="title listing-title">(공부&amp;서연) 지수분포 가설검정</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="51" data-listing-date-sort="1674140400000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="524" data-listing-title-sort="(공부) 추정" data-listing-filename-sort="2023-01-20-(공부) 추정.ipynb">
+<td>
+<span class="listing-date">Jan 20, 2023</span>
+</td>
+<td>
+<a href="./공부/2023-01-20-(공부) 추정.html" class="title listing-title">(공부) 추정</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="52" data-listing-date-sort="1673708400000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="58" data-listing-title-sort="(공부) CGSP -- Chap 12.4: Node Subsampling for PSD Estimation" data-listing-filename-sort="2023-01-15-Chap-12.4.ipynb">
+<td>
+<span class="listing-date">Jan 15, 2023</span>
+</td>
+<td>
+<a href="./공부/CGSP/2023-01-15-Chap-12.4.html" class="title listing-title">(공부) CGSP – Chap 12.4: Node Subsampling for PSD Estimation</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="53" data-listing-date-sort="1673449200000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="167" data-listing-title-sort="(공부&amp;서연) 지수분포 평균검정" data-listing-filename-sort="2023-02-14-(공부&amp;서연) 지수분포 평균검정.ipynb">
+<td>
+<span class="listing-date">Jan 12, 2023</span>
+</td>
+<td>
+<a href="./공부/2023-02-14-(공부&amp;서연) 지수분포 평균검정.html" class="title listing-title">(공부&amp;서연) 지수분포 평균검정</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="54" data-listing-date-sort="1672066800000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4635" data-listing-title-sort="(공부) CGSP -- Chap 12.2 ~ 3: Power Spectral Density and its Estimators" data-listing-filename-sort="2022-12-27-Chap-12.2.1~12.3.1.ipynb">
+<td>
+<span class="listing-date">Dec 27, 2022</span>
+</td>
+<td>
+<a href="./공부/CGSP/2022-12-27-Chap-12.2.1~12.3.1.html" class="title listing-title">(공부) CGSP – Chap 12.2 ~ 3: Power Spectral Density and its Estimators</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="55" data-listing-date-sort="1671807600000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1075" data-listing-title-sort="(공부) CGSP -- Chap 8.3: Discrete Fourier Transform" data-listing-filename-sort="2022-12-24-Chap-8.3.ipynb">
+<td>
+<span class="listing-date">Dec 24, 2022</span>
+</td>
+<td>
+<a href="./공부/CGSP/2022-12-24-Chap-8.3.html" class="title listing-title">(공부) CGSP – Chap 8.3: Discrete Fourier Transform</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="56" data-listing-date-sort="1671721200000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="676" data-listing-title-sort="(공부) 리뷰 -- EbayesThresh: R Programs for Empirical Bayes Thresholding" data-listing-filename-sort="2022-12-23-(공부) 리뷰 -- Ebayesthresh.ipynb">
+<td>
+<span class="listing-date">Dec 23, 2022</span>
+</td>
+<td>
+<a href="./공부/2022-12-23-(공부) 리뷰 -- Ebayesthresh.html" class="title listing-title">(공부) 리뷰 – EbayesThresh: R Programs for Empirical Bayes Thresholding</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+<tr data-index="57" data-listing-date-sort="1663686000000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8" data-listing-title-sort="(공부) 파이토치 라이트닝 선형회귀" data-listing-filename-sort="2022-11-29-(공부) 코드 -- 파이토치 라이트닝 선형회귀.ipynb">
+<td>
+<span class="listing-date">Sep 21, 2022</span>
+</td>
+<td>
+<a href="./공부/2022-11-29-(공부) 코드 -- 파이토치 라이트닝 선형회귀.html" class="title listing-title">(공부) 파이토치 라이트닝 선형회귀</a>
+</td>
+<td>
+<span class="listing-author">최규빈 </span>
+</td>
+</tr>
+<tr data-index="58" data-listing-date-sort="1556204400000" data-listing-file-modified-sort="1733157133000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="904" data-listing-title-sort="(공부) 퓨리에변환" data-listing-filename-sort="2019-04-26-(공부) 퓨리에변환.ipynb">
+<td>
+<span class="listing-date">Apr 26, 2019</span>
+</td>
+<td>
+<a href="./공부/2019-04-26-(공부) 퓨리에변환.html" class="title listing-title">(공부) 퓨리에변환</a>
+</td>
+<td>
+<span class="listing-author">신록예찬 </span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

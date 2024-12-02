@@ -1,0 +1,13 @@
+---
+title: "재인"
+listing:
+  contents: 연구/재인이랑
+  sort: "date desc"
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  page-size: 9999
+page-layout: full
+title-block-banner: false
+---
